@@ -1,0 +1,3 @@
+# ReadMe
+
+I used lecture 6 to create the entire project. What was interesting to me was the 0 register file. I am still unclear as to the purpose of that but it was interesting regardless. I created a couple of modules: decoder, register, tri_state_buffer. The register is just a chain of dffe modules to represent the 32 bits. The decoder takes inspiration from class and uses SLL (from last project checkpoint) to help with the shift. The tri_state_buffer uses ternary to choose whether to output z's or the input and thus by stops collisions on the wire. This all is combined in the regfile which creates a multitude of and gates and these modules to create the diagram from lecture 6. 

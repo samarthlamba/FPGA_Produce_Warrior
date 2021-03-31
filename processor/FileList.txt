@@ -1,0 +1,65 @@
+
+.\bypass.v
+.\DX.v
+.\encoder.v
+.\encoder_8_bit.v
+.\encoder_8_bit_tb.v
+.\FD.v
+.\MW.v
+.\PC.v
+.\processor.v
+.\RAM.v
+.\ROM.v
+.\stall.v
+.\Wrapper.v
+.\Wrapper_tb.v
+.\XM.v
+.\alu\alu_tb.v
+.\alu\bitwise_and.v
+.\alu\bitwise_not.v
+.\alu\bitwise_or.v
+.\alu\booth.v
+.\alu\booth_calc.v
+.\alu\booth_calc_tb.v
+.\alu\booth_tb.v
+.\alu\cla_32_bit_adder.v
+.\alu\cla_8_bit_adder.v
+.\alu\complement.v
+.\alu\complement_tb.v
+.\alu\decoder.v
+.\alu\division.v
+.\alu\four_bit_flip_flop.v
+.\alu\left_shift_16_bits.v
+.\alu\left_shift_1_bits.v
+.\alu\left_shift_2_bits.v
+.\alu\left_shift_4_bits.v
+.\alu\left_shift_8_bits.v
+.\alu\multdiv_tb.v
+.\alu\multiplication.v
+.\alu\multiplication_tb.v
+.\alu\mux_32_one.v
+.\alu\mux_eight_one.v
+.\alu\mux_four_one.v
+.\alu\mux_two_one.v
+.\alu\mux_two_one_1bit.v
+.\alu\overflow.v
+.\alu\regfile_tb.v
+.\alu\register_32bits.v
+.\alu\register_65bits.v
+.\alu\right_shift_16_bits.v
+.\alu\right_shift_1_bits.v
+.\alu\right_shift_2_bits.v
+.\alu\right_shift_4_bits.v
+.\alu\right_shift_8_bits.v
+.\alu\sll.v
+.\alu\sra.v
+.\alu\srLatch.v
+.\alu\tri_state_buffer.v
+.\alu\t_flip_flop.v
+.\Provided Behavioral Components\alu.v
+.\Provided Behavioral Components\dffe_ref.v
+.\Provided Behavioral Components\dffe_ref_neg.v
+.\Provided Behavioral Components\divider.v
+.\Provided Behavioral Components\multdiv.v
+.\Provided Behavioral Components\multiplier.v
+.\Provided Behavioral Components\regfile.v

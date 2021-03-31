@@ -1,0 +1,7 @@
+# Processor Checkpoint for ECE 350
+## Sam Lamba (sl562)
+
+The processor is a faster version of the processor we learned in class. For operations like multdiv, it uses the faster modified booth algorithm. For instructions like jump, jal etc, it doesn't wait or stall and similar to lw/sw, it doesn't stall. The only cases it "stalls" is for multdiv and the processor sends in NOP after processing isBex, isJr, isBLT, isBNE. These instruction require inputs from the registers but everything is calculated in the FD cycle and as such is faster than the suggested implementation. I also had additional bypassing to ensure the accuracy in the earlier stage.  
+In order to implement it, I used all of my personal modules. 
+I discussed some strategies with TAs like Jason and Matthew as well as high level design. Any major online aid have been commented in the appropriate modules.
+My processor acts as the brain of the operation and brings everything together. I have a module for bypass which outputs the correct option to choose using a priority queue. The highest priority is given to most updated information that matches up. I also have another module for stall that is used specifically for multdiv. What's interesting is that I could add more stall modules and have mult operation stalls going. 
