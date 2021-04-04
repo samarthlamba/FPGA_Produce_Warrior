@@ -14,10 +14,11 @@ except:
 
 
 def picCSVMaker(imageFileName, typeFormat):
-    imageName = r"C:\Users\samar\Desktop\Semester 6\ECE350Labs\ECE350_Final_Project\assets\\" + imageFileName + typeFormat;
-    path = r"C:\Users\samar\Desktop\Semester 6\ECE350Labs\ECE350_Final_Project\assets\assetsCSV\\";
+    imageName = r"C:\Users\reyam\Desktop\ECE350Project\ECE350_Final_Project\assets\\" + imageFileName + typeFormat
+    path = r"C:\Users\reyam\Desktop\ECE350Project\ECE350_Final_Project\assets\assetsCSV\\"
     
     file = Image.open(imageName)
+    file = file.resize((640, 480), Image.ANTIALIAS)
     
     img = file.quantize(256)
     pixels = img.load()

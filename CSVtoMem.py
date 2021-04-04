@@ -1,6 +1,6 @@
 import csv
-path = r"C:\Users\samar\Desktop\Semester 6\ECE350Labs\ECE350_Final_Project\assets\assetsCSV\\";
-savePath = r"""C:\Users\samar\Desktop\Semester 6\ECE350Labs\ECE350_Final_Project\assets\assetsMemFiles""";
+path = r"C:\Users\reyam\Desktop\ECE350Project\ECE350_Final_Project\assets\assetsCSV\\"
+savePath = r"""C:\Users\reyam\Desktop\ECE350Project\ECE350_Final_Project\assets\assetsMemFiles\\"""
 def CSVtoMem(imageName):
     with open(path + imageName + "colors.csv", "r") as csvFile:
         with open(savePath +r"\\"+ imageName+ "colors.mem", "w") as memFile:
