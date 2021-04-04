@@ -1,2 +1,2 @@
 # ECE350_Final_Project
-Reya Magan and Sam Lamba
+Sam Lamba and Reya Magan
