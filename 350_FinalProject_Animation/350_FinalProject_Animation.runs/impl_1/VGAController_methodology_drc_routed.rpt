@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-| Date         : Sat Apr 10 16:34:09 2021
+| Date         : Sat Apr 10 18:26:03 2021
 | Host         : DESKTOP-T6L3BRT running 64-bit major release  (build 9200)
 | Command      : report_methodology -file VGAController_methodology_drc_routed.rpt -pb VGAController_methodology_drc_routed.pb -rpx VGAController_methodology_drc_routed.rpx
 | Design       : VGAController
@@ -604,97 +604,97 @@ Related violations: <none>
 
 TIMING-17#115 Critical Warning
 Non-clocked sequential cell  
-The clock pin xcoordinate_reg[0]/C is not reached by a timing clock
+The clock pin xcoordinateApple_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#116 Critical Warning
 Non-clocked sequential cell  
-The clock pin xcoordinate_reg[1]/C is not reached by a timing clock
+The clock pin xcoordinateApple_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#117 Critical Warning
 Non-clocked sequential cell  
-The clock pin xcoordinate_reg[2]/C is not reached by a timing clock
+The clock pin xcoordinateApple_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#118 Critical Warning
 Non-clocked sequential cell  
-The clock pin xcoordinate_reg[3]/C is not reached by a timing clock
+The clock pin xcoordinateApple_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#119 Critical Warning
 Non-clocked sequential cell  
-The clock pin xcoordinate_reg[4]/C is not reached by a timing clock
+The clock pin xcoordinateApple_reg[4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#120 Critical Warning
 Non-clocked sequential cell  
-The clock pin xcoordinate_reg[5]/C is not reached by a timing clock
+The clock pin xcoordinateApple_reg[5]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#121 Critical Warning
 Non-clocked sequential cell  
-The clock pin xcoordinate_reg[6]/C is not reached by a timing clock
+The clock pin xcoordinateApple_reg[6]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#122 Critical Warning
 Non-clocked sequential cell  
-The clock pin xcoordinate_reg[7]/C is not reached by a timing clock
+The clock pin xcoordinateApple_reg[7]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#123 Critical Warning
 Non-clocked sequential cell  
-The clock pin xcoordinate_reg[8]/C is not reached by a timing clock
+The clock pin xcoordinateApple_reg[8]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#124 Critical Warning
 Non-clocked sequential cell  
-The clock pin xcoordinate_reg[9]/C is not reached by a timing clock
+The clock pin xcoordinateApple_reg[9]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#125 Critical Warning
 Non-clocked sequential cell  
-The clock pin ycoordinate_reg[0]/C is not reached by a timing clock
+The clock pin ycoordinateApple_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#126 Critical Warning
 Non-clocked sequential cell  
-The clock pin ycoordinate_reg[1]/C is not reached by a timing clock
+The clock pin ycoordinateApple_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#127 Critical Warning
 Non-clocked sequential cell  
-The clock pin ycoordinate_reg[2]/C is not reached by a timing clock
+The clock pin ycoordinateApple_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#128 Critical Warning
 Non-clocked sequential cell  
-The clock pin ycoordinate_reg[3]/C is not reached by a timing clock
+The clock pin ycoordinateApple_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#129 Critical Warning
 Non-clocked sequential cell  
-The clock pin ycoordinate_reg[4]/C is not reached by a timing clock
+The clock pin ycoordinateApple_reg[4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#130 Critical Warning
 Non-clocked sequential cell  
-The clock pin ycoordinate_reg[5]/C is not reached by a timing clock
+The clock pin ycoordinateApple_reg[5]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#131 Critical Warning
 Non-clocked sequential cell  
-The clock pin ycoordinate_reg[6]/C is not reached by a timing clock
+The clock pin ycoordinateApple_reg[6]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#132 Critical Warning
 Non-clocked sequential cell  
-The clock pin ycoordinate_reg[7]/C is not reached by a timing clock
+The clock pin ycoordinateApple_reg[7]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#133 Critical Warning
 Non-clocked sequential cell  
-The clock pin ycoordinate_reg[8]/C is not reached by a timing clock
+The clock pin ycoordinateApple_reg[8]/C is not reached by a timing clock
 Related violations: <none>
 
 
