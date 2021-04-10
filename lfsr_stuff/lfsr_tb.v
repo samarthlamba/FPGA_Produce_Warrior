@@ -3,26 +3,27 @@ module lfsr_tb;
     reg clk;
     reg clr;
     reg [7:0] seed;
-    reg select;
-    wire out;
+    reg select, reset;
+    wire [3:0] out;
 
-    lfsr check(out, clk, clr, seed, select);
-
-    initial
-        begin
-            clk = 0;
-            select = 0;
-            seed = 0;
-            clr = 0;
-            #10 clr = 1;
-            #10 clr = 0;
-        end
-    always 
-        #30 clk = !clk;
+    lfsr check(out, clk, reset);
+   initial
+begin
+    clk = 0;
+    reset = 1;
+    #15;
     
-    initial begin
-        #50 seed = 8'b00000001;
-             select = 1;
-        #50 select = 0;
-    end
+    reset = 0;
+    #200;
+end
+
+    always 
+        #30 clk = ~clk;
+    
+
+    always @(out) begin
+    #1;
+    $display("Output:%d",out);
+
+end
 endmodule
