@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.runs/synth_1/VGAController.tcl"
+  variable script "C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.runs/synth_1/VGAController.tcl"
   variable category "vivado_synth"
 }
 
@@ -70,37 +70,34 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 1
+set_param chipscope.maxJobs 2
 set_param xicom.use_bs_reader 1
-set_msg_config -id {Common 17-41} -limit 10000000
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.cache/wt [current_project]
-set_property parent.project_path C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.xpr [current_project]
+set_property webtalk.parent_dir {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.cache/wt} [current_project]
+set_property parent.project_path {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.xpr} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo c:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.cache/ip [current_project]
+set_property ip_output_repo {c:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.cache/ip} [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_mem {
-  C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/assetsMemFiles/image.mem
-  C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/assetsMemFiles/applecolors.mem
-  C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/assetsMemFiles/colors.mem
-  C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/assetsMemFiles/dojocolors.mem
-  C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/assetsMemFiles/appleimage.mem
-  C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/assetsMemFiles/dojoimage.mem
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/assetsMemFiles/image.mem}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/assetsMemFiles/applecolors.mem}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/assetsMemFiles/colors.mem}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/assetsMemFiles/dojocolors.mem}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/assetsMemFiles/appleimage.mem}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/assetsMemFiles/dojoimage.mem}
 }
 read_verilog -library xil_defaultlib {
-  C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v
-  C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/VGATimingGenerator.v
-  C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/VGAController.v
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/VGATimingGenerator.v}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/VGAController.v}
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -111,8 +108,8 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/constrs_1/imports/ECE350_Final_Project/constraints.xdc
-set_property used_in_implementation false [get_files C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/constrs_1/imports/ECE350_Final_Project/constraints.xdc]
+read_xdc {{C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/constrs_1/imports/ECE350_Final_Project/constraints.xdc}}
+set_property used_in_implementation false [get_files {{C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/constrs_1/imports/ECE350_Final_Project/constraints.xdc}}]
 
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
