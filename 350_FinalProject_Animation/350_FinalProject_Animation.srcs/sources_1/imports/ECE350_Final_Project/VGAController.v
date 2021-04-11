@@ -35,24 +35,33 @@ module VGAController(
 	wire[9:0] x;
 	wire[8:0] y;
 
-	reg squarestatus;
+	reg appleStatus;
+	reg waterStatus;
 	reg[9:0] xcoordinateApple;
+	wire[2:0] chosenForeground;
 	reg[8:0] ycoordinateApple;
+	reg[9:0] xcoordinateWater;
+	reg[8:0] ycoordinateWater;
 	wire sqcolor;
 	assign sqcolor = 12'h128;
 
 	always @(posedge clk) begin
 		if(x <= xcoordinateApple + 10'd50 && y <= ycoordinateApple + 10'd50 && x >= xcoordinateApple && y >= ycoordinateApple)
-			squarestatus = 1'b1;
+			appleStatus = 1'b1;
 		else
-			squarestatus = 1'b0;
+			appleStatus = 1'b0;
+        if(x <= xcoordinateWater + 10'd50 && y <= ycoordinateWater + 10'd50 && x >= xcoordinateWater && y >= ycoordinateWater)
+			waterStatus = 1'b1;
+		else
+			waterStatus = 1'b0;
+	   
 	end
-
+    encoder_8_bit chooser(chosenForeground, 1'b1, appleStatus, waterStatus, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0);
     always @(posedge clk) begin
         if(up && screenEnd)
-            ycoordinateApple = ycoordinateApple - 1'b1;
+            ycoordinateWater = ycoordinateWater - 1'b1;
         else if(down && screenEnd)
-            ycoordinateApple = ycoordinateApple + 1'b1;
+            ycoordinateWater = ycoordinateWater + 1'b1;
         else if(right && screenEnd)
             xcoordinateApple = xcoordinateApple + 1'b1;
         else if(left && screenEnd)
@@ -82,9 +91,11 @@ module VGAController(
 		PALETTE_ADDRESS_WIDTH = $clog2(PALETTE_COLOR_COUNT) + 1; // Use built in log2 Command
 
 	wire[BITS_PER_COLOR-1:0] colorDataBackground; 
+	wire[BITS_PER_COLOR-1:0] colorDataBackgroundWatermelon; 
+	wire[BITS_PER_COLOR-1:0] colorDataBackgroundApple; 
 	
-	imageSetter apple(colorDataBackground, clk, x, y, xcoordinateApple, ycoordinateApple);
-
+	imageSetter water(colorDataBackgroundWatermelon, clk, x, y, xcoordinateWater, ycoordinateWater);
+    imageSetterApple apple(colorDataBackgroundApple, clk, x, y, xcoordinateApple, ycoordinateApple);
 //---------------------------------------------------------------------------------------------------------------
 
 	wire[BITS_PER_COLOR-1:0] colorDataBackground1; 
@@ -121,7 +132,7 @@ module VGAController(
 	// Assign to output color from register if active
 	wire[BITS_PER_COLOR-1:0] colorOut; 			  // Output color 
 	wire[BITS_PER_COLOR-1:0] colordata;
-	assign colordata = squarestatus ? colorDataBackground : colorDataBackground1;
+	mux_eight_one colorDataChooser(colordata, chosenForeground, colorDataBackground1, colorDataBackgroundApple, colorDataBackgroundWatermelon,colorDataBackground1,colorDataBackground1, colorDataBackground1,colorDataBackground1, colorDataBackground1); 
 	assign colorOut = active ? colordata : 12'd0; // When not active, output black
 
 	// Quickly assign the output colors to their channels using concatenation

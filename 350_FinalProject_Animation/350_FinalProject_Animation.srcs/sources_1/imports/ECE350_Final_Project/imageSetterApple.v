@@ -1,11 +1,11 @@
-module imageSetter(out, clk, x, y, xcoordinateApple1, ycoordinateApple1);
+module imageSetterApple(out, clk, x, y, xcoordinateApple, ycoordinateApple);
 
     input clk;
     output[12-1:0] out;
     input[9:0] x;
 	input[8:0] y;
-	input[9:0] xcoordinateApple1;
-	input[8:0] ycoordinateApple1;
+	input[9:0] xcoordinateApple;
+	input[8:0] ycoordinateApple;
 	reg [40:0] name;
 
     
@@ -26,13 +26,13 @@ module imageSetter(out, clk, x, y, xcoordinateApple1, ycoordinateApple1);
 	wire[PIXEL_ADDRESS_WIDTH_FRUIT-1:0] imgAddress;  	 // Image address for the image data
 	
 	wire[PALETTE_ADDRESS_WIDTH-1:0] colorAddr; 	 // Color address for the color palette
-	assign imgAddress = x-xcoordinateApple1 + 50*(y-ycoordinateApple1);				 // Address calculated coordinate
+	assign imgAddress = x-xcoordinateApple + 50*(y-ycoordinateApple);				 // Address calculated coordinate
 
 	RAM #(		
 		.DEPTH(PIXEL_COUNT_FRUIT), 				     // Set RAM depth to contain every pixel
 		.DATA_WIDTH(PALETTE_ADDRESS_WIDTH),      // Set data width according to the color palette
 		.ADDRESS_WIDTH(PIXEL_ADDRESS_WIDTH_FRUIT),     // Set address with according to the pixel count
-		.MEMFILE({FILES_PATH, {"watermelon", "image.mem"}})) // Memory initialization
+		.MEMFILE({FILES_PATH, {"apple", "image.mem"}})) // Memory initialization
 	ImageData(
 		.clk(clk), 						 // Falling edge of the 100 MHz clk
 		.addr(imgAddress),					 // Image data address
@@ -46,7 +46,7 @@ module imageSetter(out, clk, x, y, xcoordinateApple1, ycoordinateApple1);
 		.DEPTH(PALETTE_COLOR_COUNT), 		       // Set depth to contain every color		
 		.DATA_WIDTH(BITS_PER_COLOR), 		       // Set data width according to the bits per color
 		.ADDRESS_WIDTH(PALETTE_ADDRESS_WIDTH),     // Set address width according to the color count
-		.MEMFILE({FILES_PATH, {"watermelon", "colors.mem"}}))  // Memory initialization
+		.MEMFILE({FILES_PATH, {"apple", "colors.mem"}}))  // Memory initialization
 	ColorPalette(
 		.clk(clk), 							   	   // Rising edge of the 100 MHz clk
 		.addr(colorAddr),					       // Address from the ImageData RAM
