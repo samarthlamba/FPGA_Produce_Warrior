@@ -4,8 +4,8 @@ module lfsr_tb;
 reg rst;
 reg [7:0] seed;
 reg load;
-wire [7:0] total;
-wire q;
+wire total;
+wire [7:0] q;
 lfsr L(q, clk, rst,
 seed, load);
 
@@ -31,17 +31,9 @@ initial begin
 
 end
 
-    genvar c;
-    generate     
-    for (c = 0; c < 8; c = c + 1) begin: test
-      
-    assign total[c] = q;
-    end
-    endgenerate
-
-    always @(q, load, seed) begin
+    always @(q) begin
     #1;
-    $display("Output:%b, %b, %d",q, load, total);
+    $display("Output:%d, %b, %d",q, load, total);
 
 end
 endmodule

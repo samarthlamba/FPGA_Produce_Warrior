@@ -3,7 +3,7 @@ module lfsr(out, clk, clr, seed, select);
     input select;
     input clr, clk;
     
-    output out;
+    output[7:0] out;
 
 // we used : http://rdsl.csit-sun.pub.ro/docs/PROIECTARE%20cu%20FPGA%20CURS/lecture6[1].pdf as a template to develop this module
 
@@ -36,6 +36,6 @@ module lfsr(out, clk, clr, seed, select);
     xor n3(num_two,num_one, ffout[4]);
     xor n4(num_out,num_two, ffout[3]);
 
-    assign out = num_out;
+    assign out = ffout;
 
 endmodule
