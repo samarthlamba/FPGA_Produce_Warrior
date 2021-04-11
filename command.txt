@@ -1,0 +1,2 @@
+lfsr:
+iverilog -o lfsr -s lfsr_tb lfsr.v lfsr_tb.v dffe_ref.v mux_2_1.v
