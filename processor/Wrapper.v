@@ -24,15 +24,46 @@
  *
  **/
 
-module Wrapper (clock, reset);
-	input clock, reset;
+module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right);
+	input clock, reset, miso;
+	output sclk, mosi, ss;
+	output up, down, left ,right;
 
+    reg up1, down1, left1, right1;
+
+	wire[8:0] accel_x, accel_y;
+	wire[11:0] accel_z;
 	wire rwe, mwe;
 	wire[4:0] rd, rs1, rs2;
 	wire[31:0] instAddr, instData, 
 		rData, regA, regB,
 		memAddr, memDataIn, memDataOut;
+	
+	always @(posedge clock) begin
+		if(accel_x <= 385)
+		    down1 = 1'b1;
+		else
+			down1 = 1'b0;
+		if(accel_x > 385)
+			up1 = 1'b1;
+		else
+			up1 = 1'b0;
+		if(accel_y <= 80)
+			left1 = 1'b1;
+		else
+			left1 = 1'b0;
+		if(accel_y > 80)
+			right1 = 1'b1;
+		else
+			right1 = 1'b0;
+	end
+	
+	assign up = up1;
+	assign down = down1;
+	assign right = right1;
+	assign left = left1;
 
+	AccelerometerCtl accelerometer(.SYSCLK(clock), .RESET(reset), .SCLK(sclk), .MOSI(mosi), .MISO(miso), .SS(ss), .ACCEL_X_OUT(accel_x), .ACCEL_Y_OUT(accel_y), .ACCEL_MAG_OUT(accel_z));
 
 	// ADD YOUR MEMORY FILE HERE
 	localparam INSTR_FILE = "";

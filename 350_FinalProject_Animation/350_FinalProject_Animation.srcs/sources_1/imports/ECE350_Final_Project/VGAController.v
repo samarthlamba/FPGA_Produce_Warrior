@@ -45,6 +45,7 @@ module VGAController(
 	wire sqcolor;
 	assign sqcolor = 12'h128;
 
+	
 	always @(posedge clk) begin
 		if(x <= xcoordinateApple + 10'd50 && y <= ycoordinateApple + 10'd50 && x >= xcoordinateApple && y >= ycoordinateApple)
 			appleStatus = 1'b1;
