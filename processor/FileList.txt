@@ -5,6 +5,7 @@
 .\encoder_8_bit.v
 .\encoder_8_bit_tb.v
 .\FD.v
+.\lfsr.v
 .\MW.v
 .\PC.v
 .\processor.v

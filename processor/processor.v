@@ -151,6 +151,8 @@ module processor(
     and checkIsBEQ(isBNE, oneHotEncodedopCodeFD[2], updatedReadRegA != updatedReadRegB);
     or checkJumps(isBranchJump, isBLT, isBNE);
     assign sign_extended_branch=inst_out_fd[16]?{{15{1'b1}}, inst_out_fd[16:0]} : {{15{1'b0}}, inst_out_fd[16:0]};
+    wire [7:0] randomOut;
+    lfsr randomness(randomOut, clock, inst_out_fd[8], final_inst_in_fd[7:0], oneHotEncodedopCodeFD[16], oneHotEncodedopCodeFD[16]||final_inst_in_fd[31:27] == 5'b10000);
     
     //determines next value for PC in case we branched
     cla_32_bit_adder adderAfterPC(new_PC_addition, sign_extended_branch, pc_out_fd, PC_additionSignExtension, 1'b0);
@@ -197,20 +199,24 @@ module processor(
 
     //ALU logic and mux;
     wire [31:0] chosenInputAALU, o_in_xmSW,o_xm_setX, o_xm_multResult;
+    wire [7:0] randValue;
+    wire[31:0] o_xm_rand;
     wire overflow_multiplication, overflow_division;
     mux_four_one aluTopMux(chosenInputAALU, ALUinA, data_writeReg, o_out_xm, q_dmem, A_out_dx);
     alu aluCalculator(chosenInputAALU, chosenInputBALU, actualALU_op, ctrl_shiftamt, data_result_alu, isNotEqual, isLessThan, overflow);
     
     //Calculates multiplication/division and determines if we need to stall
     stall mulitiplicationDiv(isMultDiv, isStall, overflow_multiplication, overflow_division, inst_out_dx, inst_out_fd, chosenInputAALU,chosenInputBALU, mult_result, ~clock);
-
+   
     //if multiplication/division then we choose multiplication/division
     assign finalDataResult = isMultDiv? data_result_multiplication:data_result_alu;
     //determines if we need to stall and sets the early latches to off if needed
     assign en = ~isStall; 
     assign o_in_xmSW = oneHotEncodedopCodeDX[3]?pc_out_dx: data_result_alu;
     assign o_xm_setX = oneHotEncodedopCodeDX[21]?setXValueDX : o_in_xmSW;//finalDataResult;
-    assign o_xm_multResult = isMultDiv? mult_result:o_xm_setX;
+
+    assign o_xm_rand = oneHotEncodedopCodeDX[16]? {24'b0, randomOut}:o_xm_setX;
+    assign o_xm_multResult = isMultDiv? mult_result:o_xm_rand;
     //8 bit encoder to determine the rStatus value absed on if there was an overflow in any of the operation
     encoder_8_bit rStatusEncoder(rStatus, 1'b1, overflow && actualALU_op == 5'd0, overflow && actualALU_op ==5'd1, overflow && actualALU_op == 5'd2, overflow_multiplication && actualALU_op == 5'd0,overflow_division && actualALU_op == 5'd0, 1'b0, 1'b0);
     mux_eight_one muxChooseOutputXM(o_in_xm, rStatus, o_xm_multResult, 32'd1, 32'd2, 32'd3, 32'd4, 32'd5, o_xm_multResult, o_xm_multResult);
@@ -247,6 +253,6 @@ module processor(
     assign ctrl_writeRegTemp = oneHotEncodedopCodeMW[21]?5'd30: inst_out_mw[26:22];
     assign ctrl_writeReg = oneHotEncodedopCodeMW[3]?5'd31: ctrl_writeRegTemp;
     //determines if we need to write anything. Only need it for R types, jal, addi, lw
-    or regFileCtrl(ctrl_writeEnable, oneHotEncodedopCodeMW[0], oneHotEncodedopCodeMW[3], oneHotEncodedopCodeMW[5], oneHotEncodedopCodeMW[8], oneHotEncodedopCodeMW[21]);
+    or regFileCtrl(ctrl_writeEnable, oneHotEncodedopCodeMW[16], oneHotEncodedopCodeMW[0], oneHotEncodedopCodeMW[3], oneHotEncodedopCodeMW[5], oneHotEncodedopCodeMW[8], oneHotEncodedopCodeMW[21]);
 
 endmodule

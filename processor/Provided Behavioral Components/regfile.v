@@ -21,7 +21,7 @@ module regfile (
 	wire [31:0] and_gate, read_source1, read_source2;
 	decoder decoder1(ctrl_writeEnable, ctrl_writeReg, decoder_output);
 	decoder decoder2(1'b1, ctrl_readRegA, read_source1);
-	decoder decoder3( 1'b1, ctrl_readRegB, read_source2);
+	decoder decoder3(1'b1, ctrl_readRegB, read_source2);
 
 	//decoder to and output (top of pic)
 	genvar i;

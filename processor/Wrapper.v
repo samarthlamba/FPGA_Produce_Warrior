@@ -37,6 +37,7 @@ module Wrapper (clock, reset);
 	// ADD YOUR MEMORY FILE HERE
 	localparam INSTR_FILE = "";
 	
+	//Accel
 	// Main Processing Unit
 	processor CPU(.clock(clock), .reset(reset), 
 								
