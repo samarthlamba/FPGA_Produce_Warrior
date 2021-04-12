@@ -24,7 +24,7 @@
  *
  **/
 
-module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx, resty, hSync, VSync, VGA_R, VGA_B, VGA_G, up_fpga, down_fpga, right_fpga, left_fpga);
+module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx, resty, hSync, VSync, VGA_R, VGA_B, VGA_G, up_fpga, down_fpga, right_fpga, left_fpga, ps2_clk, ps2_data);
 	input clock, reset, miso;
 	output sclk, mosi, ss;
 	output up, down, left ,right, restx, resty;
@@ -82,18 +82,18 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 
 	AccelerometerCtl accelerometer(.SYSCLK(clock), .RESET(reset), .SCLK(sclk), .MOSI(mosi), .MISO(miso), .SS(ss), .ACCEL_X_OUT(accel_x), .ACCEL_Y_OUT(accel_y), .ACCEL_MAG_OUT(accel_z));
 
-	module VGAController(     
-	 clock, 			// 100 MHz System Clock
-	 reset, 		// Reset Signal
+	VGAController vga(     
+	 clock, 			
+	 reset, 	
 	 up_fpga,
 	 down_fpga,
 	 left_fpga,
 	 right_fpga,
-	 hSync, 		// H Sync Signal
-	 VSync, 		// Veritcal Sync Signal
-	 VGA_R,  // Red Signal Bits
-	 VGA_G,  // Green Signal Bits
-	 VGA_B,  // Blue Signal Bits
+	 hSync, 
+	 VSync,		
+	 VGA_R,  
+	 VGA_G,  
+	 VGA_B,
 	 ps2_clk,
 	 ps2_data,
 	 accel_x,
