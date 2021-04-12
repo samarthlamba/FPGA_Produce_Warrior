@@ -12,7 +12,9 @@ module VGAController(
 	output[3:0] VGA_G,  // Green Signal Bits
 	output[3:0] VGA_B,  // Blue Signal Bits
 	inout ps2_clk,
-	inout ps2_data);
+	inout ps2_data,
+	input x_accelerometer,
+	input y_accelerometer);
 	
 	// Lab Memory Files Location
 	localparam FILES_PATH = "../assetsMemFiles/";
@@ -64,9 +66,11 @@ module VGAController(
         else if(down && screenEnd)
             ycoordinateWater = ycoordinateWater + 1'b1;
         else if(right && screenEnd)
-            xcoordinateApple = xcoordinateApple + 1'b1;
+            xcoordinateWater = xcoordinateWater + 1'b1;
         else if(left && screenEnd)
-            xcoordinateApple = xcoordinateApple - 1'b1;
+            xcoordinateWater = xcoordinateWater - 1'b1;
+		xcoordinateApple = x_accelerometer;
+		ycoordinateApple = y_accelerometer;
     end
 
 	
