@@ -1,2 +1,10 @@
 lfsr:
 iverilog -o lfsr -s lfsr_tb lfsr.v lfsr_tb.v dffe_ref.v mux_2_1.v
+
+
+processor:
+dir /b *.v > FileList.txt
+iverilog -o proc -c FileList.txt
+iverilog -o proc -c FileList.txt -s Wrapper_tb 
+iverilog -o proc -c FileList.txt -s Wrapper_tb -P Wrapper_tb.FILE=\"sample\"
+vvp proc

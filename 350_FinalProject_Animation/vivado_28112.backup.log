@@ -1,0 +1,32 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Sat Apr 10 18:30:50 2021
+# Process ID: 28112
+# Current directory: C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10400 C:\Users\reyam\Desktop\ECE350Project\ECE350_Final_Project\350_FinalProject_Animation\350_FinalProject_Animation.xpr
+# Log file: C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/vivado.log
+# Journal file: C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.xpr
+INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
+Current project path is 'C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation'
+INFO: [Project 1-313] Project file moved from 'C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation' since last save.
+Scanning sources...
+Finished scanning sources
+WARNING: [filemgmt 56-2] IPUserFilesDir: Could not find the directory 'C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.ip_user_files', nor could it be found using path 'C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.ip_user_files'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Users/reyam/Vivado/2020.1/data/ip'.
+open_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:06 . Memory (MB): peak = 1013.527 ; gain = 0.000
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Sat Apr 10 18:31:47 2021] Launched synth_1...
+Run output will be captured here: C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.runs/synth_1/runme.log
+[Sat Apr 10 18:31:47 2021] Launched impl_1...
+Run output will be captured here: C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.runs/impl_1/runme.log
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat Apr 10 18:32:44 2021...
