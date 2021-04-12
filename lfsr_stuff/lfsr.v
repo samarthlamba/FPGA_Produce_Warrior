@@ -22,14 +22,15 @@ module lfsr(out, clk, clr, seed, select);
     dffe_ref dffe7(ffout[6], ffin[6], clk, 1'b1, clr);
     dffe_ref dffe8(ffout[7], ffin[7], clk, 1'b1, clr);
 
-    mux_2_1 mux1(ffin[0], select, seed[0], num_out);
-    mux_2_1 mux2(ffin[1], select, seed[1], ffout[0]);
-    mux_2_1 mux3(ffin[2], select, seed[2], ffout[1]);
-    mux_2_1 mux4(ffin[3], select, seed[3], ffout[2]);
-    mux_2_1 mux5(ffin[4], select, seed[4], ffout[3]);
-    mux_2_1 mux6(ffin[5], select, seed[5], ffout[4]);
-    mux_2_1 mux7(ffin[6], select, seed[6], ffout[5]);
-    mux_2_1 mux8(ffin[7], select, seed[7], num_out);
+   mux_two_one_1bit mux1(select, seed[0], num_out, ffin[0]);
+    mux_two_one_1bit mux2(select, seed[1], ffout[0], ffin[1]);
+    mux_two_one_1bit mux3(select, seed[2], ffout[1], ffin[2]);
+    mux_two_one_1bit mux4(select, seed[3], ffout[2], ffin[3]);
+    mux_two_one_1bit mux5(select, seed[4], ffout[3],ffin[4]);
+    mux_two_one_1bit mux6(select, seed[5], ffout[4], ffin[5]);
+    mux_two_one_1bit mux7(select, seed[6], ffout[5], ffin[6]);
+    mux_two_one_1bit mux8(select, seed[7], num_out, ffin[7]);
+
 
 
     xor n2(num_one, ffout[5], ffout[7]);

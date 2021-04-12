@@ -13,7 +13,7 @@ seed, load);
         begin
             clk = 0;
             load = 0;
-            seed = 7'b0011;
+            seed = 7'd5;
             rst = 0;
             #10 rst = 1;
             #10 rst = 0;
@@ -25,7 +25,7 @@ always
     end
 // program lfsr
 initial begin
-    #100 seed = 4'b0011;
+    #100 seed = 7'd5;
     load = 1;
     #4500 load = 0;
 
@@ -33,7 +33,7 @@ end
 
     always @(q) begin
     #1;
-    $display("Output:%d, %b, %d",q, load, total);
+    $display("Output:%d, %b",q, load);
 
 end
 endmodule
