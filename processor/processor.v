@@ -152,7 +152,9 @@ module processor(
     or checkJumps(isBranchJump, isBLT, isBNE);
     assign sign_extended_branch=inst_out_fd[16]?{{15{1'b1}}, inst_out_fd[16:0]} : {{15{1'b0}}, inst_out_fd[16:0]};
     wire [7:0] randomOut;
-    lfsr randomness(randomOut, clock, inst_out_fd[8], final_inst_in_fd[7:0], oneHotEncodedopCodeFD[16], oneHotEncodedopCodeFD[16]||final_inst_in_fd[31:27] == 5'b10000);
+    
+   // seed = final_inst_in_fd[31:27] == 5'd16?final_inst_in_fd[7:0]:8'd2;
+    lfsr randomness(randomOut, clock, inst_out_fd[8], 8'd2, PC_out!= 32'd0, 1'b1);
     
     //determines next value for PC in case we branched
     cla_32_bit_adder adderAfterPC(new_PC_addition, sign_extended_branch, pc_out_fd, PC_additionSignExtension, 1'b0);

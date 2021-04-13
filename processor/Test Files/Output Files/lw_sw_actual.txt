@@ -1,11 +1,5 @@
-Cycle   9: Wrote 2 into register 16
-Cycle  10: Wrote 4 into register 16
-Cycle  11: Wrote 8 into register 16
-Cycle  12: Wrote 145 into register 16
-Cycle  13: Wrote 34 into register 16
-Cycle  14: Wrote 197 into register 16
-Cycle  15: Wrote 139 into register 16
-Cycle  16: Wrote 22 into register 16
+Cycle   9: Wrote 139 into register 16
+Cycle  16: Wrote 191 into register 16
 ============== Testing Mode ==============
 Reg  0:           0
 Reg  1:           0
@@ -23,7 +17,7 @@ Reg 12:           0
 Reg 13:           0
 Reg 14:           0
 Reg 15:           0
-Reg 16:          22
+Reg 16:         191
 Reg 17:           0
 Reg 18:           0
 Reg 19:           0

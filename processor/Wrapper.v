@@ -24,80 +24,16 @@
  *
  **/
 
-module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx, resty, hSync, VSync, VGA_R, VGA_B, VGA_G, up_fpga, down_fpga, right_fpga, left_fpga);
-	input clock, reset, miso;
-	output sclk, mosi, ss;
-	output up, down, left ,right, restx, resty;
-	output hSync;
-	output VSync;
-	output[3:0] VGA_R, VGA_B, VGA_G;
-	inout ps2_clk;
-	inout ps2_data;
-	input up_fpga, down_fpga, right_fpga, left_fpga;
+module Wrapper (clock, reset);
+	input clock, reset;
 
-    reg up1, down1, left1, right1, restx1, resty1;
-
-	wire[8:0] accel_x, accel_y;
-	wire[11:0] accel_z;
 	wire rwe, mwe;
 	wire[4:0] rd, rs1, rs2;
 	wire[31:0] instAddr, instData, 
 		rData, regA, regB,
 		memAddr, memDataIn, memDataOut;
-	
-	
-	always @(posedge clock) begin
-	    if(accel_x == 385)
-	       restx1 = 1'b1;
-	    else
-	       restx1 = 1'b0;  
-		if(accel_x < 385)
-		   down1 = 1'b1;
-		else
-		   down1 = 1'b0;
-		if(accel_x > 385)
-		   up1 = 1'b1;
-		else
-		   up1 = 1'b0;
-		if(accel_y == 80)
-		   resty1 = 1'b1;
-		else
-		   resty1 = 1'b0;
-		if(accel_y < 80)
-		   left1 = 1'b1;
-		else
-		   left1 = 1'b0;
-		if(accel_y > 80)
-		   right1 = 1'b1;
-		else
-		   right1 = 1'b0;
-	end
-	
-	assign up = up1;
-	assign down = down1;
-	assign right = right1;
-	assign left = left1;
-	assign restx = restx1;
-	assign resty = resty1;
 
-	AccelerometerCtl accelerometer(.SYSCLK(clock), .RESET(reset), .SCLK(sclk), .MOSI(mosi), .MISO(miso), .SS(ss), .ACCEL_X_OUT(accel_x), .ACCEL_Y_OUT(accel_y), .ACCEL_MAG_OUT(accel_z));
 
-	module VGAController(     
-	 clock, 			// 100 MHz System Clock
-	 reset, 		// Reset Signal
-	 up_fpga,
-	 down_fpga,
-	 left_fpga,
-	 right_fpga,
-	 hSync, 		// H Sync Signal
-	 VSync, 		// Veritcal Sync Signal
-	 VGA_R,  // Red Signal Bits
-	 VGA_G,  // Green Signal Bits
-	 VGA_B,  // Blue Signal Bits
-	 ps2_clk,
-	 ps2_data,
-	 accel_x,
-	 accel_y);
 	// ADD YOUR MEMORY FILE HERE
 	localparam INSTR_FILE = "";
 	
