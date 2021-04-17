@@ -182,7 +182,7 @@ module processor(
     wire dataMem;
 
     //Bypass can be put in any place. Works all over
-    bypass bypassChecker(ALUinB, ALUinA, FDBranches, FDBranchesB, dataMem, inst_out_fd, inst_out_dx, inst_out_xm, inst_out_mw, oneHotEncodedopCodeDX, ctrl_writeEnable);
+    bypass bypassChecker(ALUinB, ALUinA, FDBranches, FDBranchesB, dataMem, inst_out_fd, inst_out_dx, inst_out_xm, inst_out_mw, oneHotEncodedopCodeDX);
    
     // checks if it is addi/sw/lw since we need sign extended immediate
     or checkifIsAddiSWLW(isAddi_sw_lw, oneHotEncodedopCodeDX[5], oneHotEncodedopCodeDX[7], oneHotEncodedopCodeDX[8]);
