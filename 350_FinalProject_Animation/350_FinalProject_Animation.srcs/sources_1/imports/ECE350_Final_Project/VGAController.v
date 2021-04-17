@@ -56,7 +56,27 @@ module VGAController(
 	reg[9:0] xcoordinateLemon;
 	reg[8:0] ycoordinateLemon;
 	wire sqcolor;
+	reg waterUp;
+	reg lemonUp;
+	reg pearUp;
+	reg bananaUp;
+	reg appleUp;
+	reg coconutUp;
 	assign sqcolor = 12'h128;
+	
+	   initial begin
+	       waterUp = 1'b1;
+	       lemonUp = 1'b1;
+           pearUp = 1'b1;
+           bananaUp = 1'b1;
+           appleUp = 1'b1;
+          coconutUp = 1'b1;
+            xcoordinateApple = 20;
+            xcoordinatePear = 40;
+            xcoordinateBanana = 60;
+            xcoordinateCoconut =80;
+            xcoordinateLemon =100;
+	   end
 
 	
 	always @(posedge clk) begin
@@ -90,25 +110,62 @@ module VGAController(
     encoder_8_bit chooser2(chosenForeBackground, 1'b1, appleStatus && chosenForeground != 3'd1, waterStatus && chosenForeground != 3'd2, lemonStatus  && chosenForeground != 3'd3, pearStatus && chosenForeground != 3'd4, bananaStatus && chosenForeground != 3'd5, coconutStatus && chosenForeground != 3'd6, 1'b0);
     
     always @(posedge clk) begin
-        if(up && screenEnd)
-            ycoordinateWater = ycoordinateWater - 1'b1;
-        else if(down && screenEnd)
+        if(ycoordinateWater <= 9'd480 && screenEnd && waterUp == 1'b1)
             ycoordinateWater = ycoordinateWater + 1'b1;
-        else if(right && screenEnd)
-            xcoordinateWater = xcoordinateWater + 1'b1;
-        else if(left && screenEnd)
-            xcoordinateWater = xcoordinateWater - 1'b1;
-        
-        ycoordinateApple = 20;
-         xcoordinateApple = 20;
-        xcoordinatePear = 40;;
-        ycoordinatePear = 40;;
- 	    xcoordinateBanana = 60;
-	    ycoordinateBanana =60;
-	    xcoordinateCoconut =80;
-      ycoordinateCoconut =80;
-	    xcoordinateLemon =100;
-	    ycoordinateLemon =100;        
+        else if(ycoordinateWater > 9'd480 && waterUp == 1'b1)
+            waterUp = ~waterUp;
+        if(ycoordinateWater < 9'd180 && waterUp == 1'b0)
+            waterUp = ~waterUp;
+        if(ycoordinateWater >= 9'd180 && screenEnd && waterUp == 1'b0)
+            ycoordinateWater = ycoordinateWater - 1'b1;
+            
+         if(ycoordinateApple <= 9'd480 && screenEnd && appleUp == 1'b1)
+            ycoordinateApple = ycoordinateApple + 1'b1;
+        else if(ycoordinateApple > 9'd480 && appleUp == 1'b1)
+            appleUp = ~appleUp;
+        if(ycoordinateApple < 9'd180 && appleUp == 1'b0)
+            appleUp = ~appleUp;
+        if(ycoordinateApple >= 9'd180 && screenEnd && appleUp == 1'b0)
+            ycoordinateApple = ycoordinateApple - 1'b1;
+            
+                 
+        if(ycoordinatePear <= 9'd480 && screenEnd && pearUp == 1'b1)
+            ycoordinatePear = ycoordinatePear + 1'b1;
+        else if(ycoordinatePear > 9'd480 && pearUp == 1'b1)
+            pearUp = ~pearUp;
+        if(ycoordinatePear < 9'd180 && pearUp == 1'b0)
+            pearUp = ~pearUp;
+        if(ycoordinatePear >= 9'd180 && screenEnd && pearUp == 1'b0)
+            ycoordinatePear = ycoordinatePear - 1'b1;
+            
+         
+        if(ycoordinateBanana <= 9'd480 && screenEnd && bananaUp == 1'b1)
+            ycoordinateBanana = ycoordinateBanana + 1'b1;
+        else if(ycoordinateBanana > 9'd480 && bananaUp == 1'b1)
+            bananaUp = ~bananaUp;
+        if(ycoordinateBanana < 9'd180 && bananaUp == 1'b0)
+            bananaUp = ~bananaUp;
+        if(ycoordinateBanana >= 9'd180 && screenEnd && bananaUp == 1'b0)
+            ycoordinateBanana = ycoordinateBanana - 1'b1;
+ 
+         if(ycoordinateCoconut <= 9'd480 && screenEnd && coconutUp == 1'b1)
+            ycoordinateCoconut = ycoordinateCoconut + 1'b1;
+        else if(ycoordinateCoconut > 9'd480 && coconutUp == 1'b1)
+            coconutUp = ~coconutUp;
+        if(ycoordinateCoconut < 9'd180 && coconutUp == 1'b0)
+            coconutUp = ~coconutUp;
+        if(ycoordinateCoconut >= 9'd180 && screenEnd && coconutUp == 1'b0)
+            ycoordinateCoconut = ycoordinateCoconut - 1'b1;
+                   
+        if(ycoordinateLemon <= 9'd480 && screenEnd && lemonUp == 1'b1)
+            ycoordinateLemon = ycoordinateLemon + 1'b1;
+        else if(ycoordinateLemon > 9'd480 && lemonUp == 1'b1)
+            lemonUp = ~lemonUp;
+        if(ycoordinateLemon < 9'd180 && lemonUp == 1'b0)
+            lemonUp = ~lemonUp;
+        if(ycoordinateLemon >= 9'd180 && screenEnd && lemonUp == 1'b0)
+            ycoordinateLemon = ycoordinateLemon - 1'b1;                
+     
         
     end
 
