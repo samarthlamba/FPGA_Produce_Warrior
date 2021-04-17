@@ -1,0 +1,20 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Fri Apr 16 23:43:01 2021
+# Process ID: 6292
+# Current directory: C:/Users/reyam/Desktop/accelerometer_vga
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent29576 C:\Users\reyam\Desktop\accelerometer_vga\accelerometer_vga.xpr
+# Log file: C:/Users/reyam/Desktop/accelerometer_vga/vivado.log
+# Journal file: C:/Users/reyam/Desktop/accelerometer_vga\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Users/reyam/Vivado/2020.1/data/ip'.
+open_project: Time (s): cpu = 00:00:48 ; elapsed = 00:00:28 . Memory (MB): peak = 1013.230 ; gain = 0.000
+update_compile_order -fileset sources_1
