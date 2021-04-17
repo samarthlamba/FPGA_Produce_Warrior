@@ -13,7 +13,7 @@ seed, load);
         begin
             clk = 0;
             load = 0;
-            seed = 7'd5;
+            seed = 7'd2;
             rst = 0;
             #10 rst = 1;
             #10 rst = 0;
@@ -25,8 +25,7 @@ always
     end
 // program lfsr
 initial begin
-    #100 seed = 7'd5;
-    load = 1;
+    #100 load = 1;
     #4500 load = 0;
 
 end

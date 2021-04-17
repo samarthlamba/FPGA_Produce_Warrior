@@ -12,9 +12,7 @@ module VGAController(
 	output[3:0] VGA_G,  // Green Signal Bits
 	output[3:0] VGA_B,  // Blue Signal Bits
 	inout ps2_clk,
-	inout ps2_data,
-	input x_accelerometer,
-	input y_accelerometer);
+	inout ps2_data);
 	
 	// Lab Memory Files Location
 	localparam FILES_PATH = "../assetsMemFiles/";
@@ -39,27 +37,58 @@ module VGAController(
 
 	reg appleStatus;
 	reg waterStatus;
+	reg lemonStatus;
+	reg pearStatus;
+	reg bananaStatus;
+	reg coconutStatus;
 	reg[9:0] xcoordinateApple;
 	wire[2:0] chosenForeground;
+	wire[2:0] chosenForeBackground;
 	reg[8:0] ycoordinateApple;
 	reg[9:0] xcoordinateWater;
 	reg[8:0] ycoordinateWater;
+	reg[9:0] xcoordinatePear;
+	reg[8:0] ycoordinatePear;
+	reg[9:0] xcoordinateBanana;
+	reg[8:0] ycoordinateBanana;
+	reg[9:0] xcoordinateCoconut;
+	reg[8:0] ycoordinateCoconut;
+	reg[9:0] xcoordinateLemon;
+	reg[8:0] ycoordinateLemon;
 	wire sqcolor;
 	assign sqcolor = 12'h128;
 
 	
 	always @(posedge clk) begin
-		if(x <= xcoordinateApple + 10'd50 && y <= ycoordinateApple + 10'd50 && x >= xcoordinateApple && y >= ycoordinateApple)
+	   if(x < xcoordinateLemon + 10'd50 && y < ycoordinateLemon + 10'd50 && x > xcoordinateLemon && y > ycoordinateLemon)
+			lemonStatus = 1'b1;
+		else
+			lemonStatus = 1'b0;
+		if(x <= xcoordinatePear + 10'd50 && y < ycoordinatePear + 10'd50 && x > xcoordinatePear && y > ycoordinatePear)
+			pearStatus = 1'b1;
+		else
+			pearStatus = 1'b0;
+		if(x < xcoordinateBanana + 10'd50 && y < ycoordinateBanana + 10'd50 && x > xcoordinateBanana && y > ycoordinateBanana)
+			bananaStatus = 1'b1;
+		else
+			bananaStatus = 1'b0;
+		if(x < xcoordinateCoconut + 10'd50 && y < ycoordinateCoconut + 10'd50 && x > xcoordinateCoconut && y > ycoordinateCoconut)
+			coconutStatus = 1'b1;
+		else
+			coconutStatus = 1'b0;
+		if(x < xcoordinateApple + 10'd50 && y < ycoordinateApple + 10'd50 && x >= xcoordinateApple && y > ycoordinateApple)
 			appleStatus = 1'b1;
 		else
 			appleStatus = 1'b0;
-        if(x <= xcoordinateWater + 10'd50 && y <= ycoordinateWater + 10'd50 && x >= xcoordinateWater && y >= ycoordinateWater)
+        if(x < xcoordinateWater + 10'd50 && y < ycoordinateWater + 10'd50 && x >= xcoordinateWater && y > ycoordinateWater)
 			waterStatus = 1'b1;
 		else
 			waterStatus = 1'b0;
 	   
 	end
-    encoder_8_bit chooser(chosenForeground, 1'b1, appleStatus, waterStatus, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0);
+    encoder_8_bit chooser(chosenForeground, 1'b1, appleStatus && colorDataBackgroundApple !=12'h000, waterStatus && colorDataBackgroundWatermelon !=12'h000, lemonStatus && colorDataBackgroundLemon !=12'h000, pearStatus && colorDataBackgroundPear !=12'h000, bananaStatus && colorDataBackgroundBanana !=12'h000, coconutStatus && colorDataBackgroundCoconut !=12'h000, 1'b0);
+    encoder_8_bit chooser2(chosenForeBackground, 1'b1, appleStatus && chosenForeground != 3'd1, waterStatus && chosenForeground != 3'd2, lemonStatus  && chosenForeground != 3'd3, pearStatus && chosenForeground != 3'd4, bananaStatus && chosenForeground != 3'd5, coconutStatus && chosenForeground != 3'd6, 1'b0);
+    
     always @(posedge clk) begin
         if(up && screenEnd)
             ycoordinateWater = ycoordinateWater - 1'b1;
@@ -69,8 +98,18 @@ module VGAController(
             xcoordinateWater = xcoordinateWater + 1'b1;
         else if(left && screenEnd)
             xcoordinateWater = xcoordinateWater - 1'b1;
-		xcoordinateApple = x_accelerometer;
-		ycoordinateApple = y_accelerometer;
+        
+        ycoordinateApple = 20;
+         xcoordinateApple = 20;
+        xcoordinatePear = 40;;
+        ycoordinatePear = 40;;
+ 	    xcoordinateBanana = 60;
+	    ycoordinateBanana =60;
+	    xcoordinateCoconut =80;
+      ycoordinateCoconut =80;
+	    xcoordinateLemon =100;
+	    ycoordinateLemon =100;        
+        
     end
 
 	
@@ -98,9 +137,16 @@ module VGAController(
 	wire[BITS_PER_COLOR-1:0] colorDataBackground; 
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundWatermelon; 
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundApple; 
-	
+	wire[BITS_PER_COLOR-1:0] colorDataBackgroundLemon; 
+	wire[BITS_PER_COLOR-1:0] colorDataBackgroundPear; 
+	wire[BITS_PER_COLOR-1:0] colorDataBackgroundBanana;
+	wire[BITS_PER_COLOR-1:0] colorDataBackgroundCoconut;
 	imageSetter water(colorDataBackgroundWatermelon, clk, x, y, xcoordinateWater, ycoordinateWater);
     imageSetterApple apple(colorDataBackgroundApple, clk, x, y, xcoordinateApple, ycoordinateApple);
+    imageSetterLemon lemon(colorDataBackgroundLemon, clk, x, y, xcoordinateLemon, ycoordinateLemon);
+    imageSetterPear pear(colorDataBackgroundPear, clk, x, y, xcoordinatePear, ycoordinatePear);
+    imageSetterBanana banana(colorDataBackgroundBanana, clk, x, y, xcoordinateBanana, ycoordinateBanana);
+    imageSetterCoconut coconut(colorDataBackgroundCoconut, clk, x, y, xcoordinateCoconut, ycoordinateCoconut);
 //---------------------------------------------------------------------------------------------------------------
 
 	wire[BITS_PER_COLOR-1:0] colorDataBackground1; 
@@ -136,9 +182,16 @@ module VGAController(
 
 	// Assign to output color from register if active
 	wire[BITS_PER_COLOR-1:0] colorOut; 			  // Output color 
+	wire[BITS_PER_COLOR-1:0] colorChoose; 
 	wire[BITS_PER_COLOR-1:0] colordata;
-	mux_eight_one colorDataChooser(colordata, chosenForeground, colorDataBackground1, colorDataBackgroundApple, colorDataBackgroundWatermelon,colorDataBackground1,colorDataBackground1, colorDataBackground1,colorDataBackground1, colorDataBackground1); 
-	assign colorOut = active ? colordata : 12'd0; // When not active, output black
+	wire[BITS_PER_COLOR-1:0] colordataForeBackground;
+	wire[BITS_PER_COLOR-1:0] colorChooseFinal;
+	wire calculation;
+	
+	mux_eight_one colorDataChooser(colordata, chosenForeground, colorDataBackground1, colorDataBackgroundApple, colorDataBackgroundWatermelon,colorDataBackgroundLemon,colorDataBackgroundPear, colorDataBackgroundBanana,colorDataBackgroundCoconut, colorDataBackground1);
+	mux_eight_one colorDataChooser2(colordataForeBackground, chosenForeBackground, colorDataBackground1, colorDataBackgroundApple, colorDataBackgroundWatermelon,colorDataBackgroundLemon,colorDataBackgroundPear, colorDataBackgroundBanana,colorDataBackgroundCoconut, colorDataBackground1);
+	assign colorChoose = colordata;
+	assign colorOut = active ?  colorChoose : 12'd0; // When not active, output black
 
 	// Quickly assign the output colors to their channels using concatenation
 	assign {VGA_R, VGA_G, VGA_B} = colorOut;
