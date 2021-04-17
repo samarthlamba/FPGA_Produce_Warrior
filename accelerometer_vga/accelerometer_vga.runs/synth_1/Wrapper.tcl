@@ -70,6 +70,8 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 2
+set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
 
@@ -86,16 +88,22 @@ OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_mem {
   {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/assetsMemFiles/watermeloncolors.mem}
-  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/assetsMemFiles/appleimage.mem}
-  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/assetsMemFiles/dojoimage.mem}
   {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/assetsMemFiles/watermelonimage.mem}
-  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/assetsMemFiles/applecolors.mem}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/assetsMemFiles/dojoimage.mem}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/assetsMemFiles/appleimage.mem}
   {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/assetsMemFiles/dojocolors.mem}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/assetsMemFiles/applecolors.mem}
 }
 read_verilog -library xil_defaultlib {
   {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/ECE350_Final_Project/RAM.v}
   {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/ECE350_Final_Project/VGAController.v}
   {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/ECE350_Final_Project/VGATimingGenerator.v}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/ECE350_Final_Project/processor/encoder_8_bit.v}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/ECE350_Final_Project/imageSetter.v}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/ECE350_Final_Project/imageSetterApple.v}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/alu/mux_eight_one.v}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/alu/mux_four_one.v}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/alu/mux_two_one.v}
   {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/ECE350_Final_Project/processor/Wrapper.v}
 }
 read_vhdl -library xil_defaultlib {

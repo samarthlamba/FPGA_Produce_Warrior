@@ -93,6 +93,60 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/encoder_8_bit.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/encoder_8_bit.v"/>
+          <Attr Name="ImportTime" Val="1616827375"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/imageSetter.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../imageSetter.v"/>
+          <Attr Name="ImportTime" Val="1618594580"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/imageSetterApple.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../imageSetterApple.v"/>
+          <Attr Name="ImportTime" Val="1618100931"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/alu/mux_eight_one.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/alu/mux_eight_one.v"/>
+          <Attr Name="ImportTime" Val="1618104723"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/alu/mux_four_one.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/alu/mux_four_one.v"/>
+          <Attr Name="ImportTime" Val="1618104723"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/alu/mux_two_one.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/alu/mux_two_one.v"/>
+          <Attr Name="ImportTime" Val="1618104723"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/accelerometer/ADXL362Ctrl.vhd">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../ECE350Project/ECE350_Final_Project/accelerometer/ADXL362Ctrl.vhd"/>
@@ -134,86 +188,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/alu/mux_eight_one.v">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/alu/mux_eight_one.v"/>
-          <Attr Name="ImportTime" Val="1618104723"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/alu/mux_four_one.v">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/alu/mux_four_one.v"/>
-          <Attr Name="ImportTime" Val="1618104723"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/alu/mux_two_one.v">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/alu/mux_two_one.v"/>
-          <Attr Name="ImportTime" Val="1618104723"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v"/>
-          <Attr Name="ImportTime" Val="1618093002"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/VGAController.v">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/VGAController.v"/>
-          <Attr Name="ImportTime" Val="1618176106"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/processor/encoder_8_bit.v">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/processor/encoder_8_bit.v"/>
-          <Attr Name="ImportTime" Val="1618104723"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetter.v">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetter.v"/>
-          <Attr Name="ImportTime" Val="1618104723"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterApple.v">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterApple.v"/>
-          <Attr Name="ImportTime" Val="1618104723"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/watermeloncolors.mem">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/assetsMemFiles/watermeloncolors.mem"/>
@@ -222,42 +196,10 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/appleimage.mem">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/assetsMemFiles/appleimage.mem"/>
-          <Attr Name="ImportTime" Val="1618093978"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/dojoimage.mem">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/assetsMemFiles/dojoimage.mem"/>
-          <Attr Name="ImportTime" Val="1618093002"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/watermelonimage.mem">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/assetsMemFiles/watermelonimage.mem"/>
           <Attr Name="ImportTime" Val="1618093978"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/applecolors.mem">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/assetsMemFiles/applecolors.mem"/>
-          <Attr Name="ImportTime" Val="1618093978"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/dojocolors.mem">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/assetsMemFiles/dojocolors.mem"/>
-          <Attr Name="ImportTime" Val="1618093002"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
@@ -272,33 +214,35 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/imageSetterApple.v">
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/dojoimage.mem">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../imageSetterApple.v"/>
-          <Attr Name="ImportTime" Val="1618100931"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../assets/assetsMemFiles/dojoimage.mem"/>
+          <Attr Name="ImportTime" Val="1617655353"/>
           <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/encoder_8_bit.v">
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/dojocolors.mem">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../processor/encoder_8_bit.v"/>
-          <Attr Name="ImportTime" Val="1616827375"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../assets/assetsMemFiles/dojocolors.mem"/>
+          <Attr Name="ImportTime" Val="1617655353"/>
           <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/imageSetter.v">
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/applecolors.mem">
         <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../imageSetter.v"/>
-          <Attr Name="ImportTime" Val="1618594580"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../assetsMemFiles/applecolors.mem"/>
+          <Attr Name="ImportTime" Val="1617655353"/>
           <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/appleimage.mem">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../assetsMemFiles/appleimage.mem"/>
+          <Attr Name="ImportTime" Val="1617655353"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>

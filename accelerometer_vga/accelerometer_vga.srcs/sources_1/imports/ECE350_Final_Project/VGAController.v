@@ -12,10 +12,12 @@ module VGAController(
 	output[3:0] VGA_G,  // Green Signal Bits
 	output[3:0] VGA_B,  // Blue Signal Bits
 	inout ps2_clk,
-	inout ps2_data);
+	inout ps2_data,
+	input[8:0] x_accelerometer,
+	input[8:0] y_accelerometer);
 	
 	// Lab Memory Files Location
-	localparam FILES_PATH = "C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/assets/assetsMemFiles/";
+	localparam FILES_PATH = "../assetsMemFiles/";
 
 	// Clock divider 100 MHz -> 25 MHz
 	wire clk25; // 25MHz clock 
@@ -35,28 +37,40 @@ module VGAController(
 	wire[9:0] x;
 	wire[8:0] y;
 
-	reg squarestatus;
-	reg[9:0] xcoordinate;
-	reg[8:0] ycoordinate;
+	reg appleStatus;
+	reg waterStatus;
+	reg[9:0] xcoordinateApple;
+	wire[2:0] chosenForeground;
+	reg[8:0] ycoordinateApple;
+	reg[9:0] xcoordinateWater;
+	reg[8:0] ycoordinateWater;
 	wire sqcolor;
 	assign sqcolor = 12'h128;
 
+	
 	always @(posedge clk) begin
-		if(x <= xcoordinate + 10'd50 && y <= ycoordinate + 10'd50 && x >= xcoordinate && y >= ycoordinate)
-			squarestatus = 1'b1;
+		if(x <= xcoordinateApple + 10'd50 && y <= ycoordinateApple + 10'd50 && x >= xcoordinateApple && y >= ycoordinateApple)
+			appleStatus = 1'b1;
 		else
-			squarestatus = 1'b0;
+			appleStatus = 1'b0;
+        if(x <= xcoordinateWater + 10'd50 && y <= ycoordinateWater + 10'd50 && x >= xcoordinateWater && y >= ycoordinateWater)
+			waterStatus = 1'b1;
+		else
+			waterStatus = 1'b0;
+	   
 	end
-
+    encoder_8_bit chooser(chosenForeground, 1'b1, appleStatus, waterStatus, 1'b0, 1'b0, 1'b0, 1'b0, 1'b0);
     always @(posedge clk) begin
         if(up && screenEnd)
-            ycoordinate = ycoordinate - 1'b1;
+            ycoordinateWater = ycoordinateWater - 1'b1;
         else if(down && screenEnd)
-            ycoordinate = ycoordinate + 1'b1;
+            ycoordinateWater = ycoordinateWater + 1'b1;
         else if(right && screenEnd)
-            xcoordinate = xcoordinate + 1'b1;
+            xcoordinateWater = xcoordinateWater + 1'b1;
         else if(left && screenEnd)
-            xcoordinate = xcoordinate - 1'b1;
+            xcoordinateWater = xcoordinateWater - 1'b1;
+		xcoordinateApple = x_accelerometer;
+		ycoordinateApple = y_accelerometer;
     end
 
 	
@@ -81,37 +95,12 @@ module VGAController(
 		PALETTE_COLOR_COUNT = 256, 								 // Number of Colors available
 		PALETTE_ADDRESS_WIDTH = $clog2(PALETTE_COLOR_COUNT) + 1; // Use built in log2 Command
 
-	wire[PIXEL_ADDRESS_WIDTH-1:0] imgAddress;  	 // Image address for the image data
+	wire[BITS_PER_COLOR-1:0] colorDataBackground; 
+	wire[BITS_PER_COLOR-1:0] colorDataBackgroundWatermelon; 
+	wire[BITS_PER_COLOR-1:0] colorDataBackgroundApple; 
 	
-	wire[PALETTE_ADDRESS_WIDTH-1:0] colorAddr; 	 // Color address for the color palette
-	assign imgAddress = x + 640*y;				 // Address calculated coordinate
-
-	RAM #(		
-		.DEPTH(PIXEL_COUNT), 				     // Set RAM depth to contain every pixel
-		.DATA_WIDTH(PALETTE_ADDRESS_WIDTH),      // Set data width according to the color palette
-		.ADDRESS_WIDTH(PIXEL_ADDRESS_WIDTH),     // Set address with according to the pixel count
-		.MEMFILE({FILES_PATH, "appleimage.mem"})) // Memory initialization
-	ImageData(
-		.clk(clk), 						 // Falling edge of the 100 MHz clk
-		.addr(imgAddress),					 // Image data address
-		.dataOut(colorAddr),				 // Color palette address
-		.wEn(1'b0)); 						 // We're always reading
-
-	// Color Palette to Map Color Address to 12-Bit Color
-	wire[BITS_PER_COLOR-1:0] colorDataBackground; // 12-bit color data at current pixel
-
-	RAM #(
-		.DEPTH(PALETTE_COLOR_COUNT), 		       // Set depth to contain every color		
-		.DATA_WIDTH(BITS_PER_COLOR), 		       // Set data width according to the bits per color
-		.ADDRESS_WIDTH(PALETTE_ADDRESS_WIDTH),     // Set address width according to the color count
-		.MEMFILE({FILES_PATH, "applecolors.mem"}))  // Memory initialization
-	ColorPalette(
-		.clk(clk), 							   	   // Rising edge of the 100 MHz clk
-		.addr(colorAddr),					       // Address from the ImageData RAM
-		.dataOut(colorDataBackground),				       // Color at current pixel
-		.wEn(1'b0)); 						       // We're always reading
-
-
+	imageSetter water(colorDataBackgroundWatermelon, clk, x, y, xcoordinateWater, ycoordinateWater);
+    imageSetterApple apple(colorDataBackgroundApple, clk, x, y, xcoordinateApple, ycoordinateApple);
 //---------------------------------------------------------------------------------------------------------------
 
 	wire[BITS_PER_COLOR-1:0] colorDataBackground1; 
@@ -148,7 +137,7 @@ module VGAController(
 	// Assign to output color from register if active
 	wire[BITS_PER_COLOR-1:0] colorOut; 			  // Output color 
 	wire[BITS_PER_COLOR-1:0] colordata;
-	assign colordata = squarestatus ? colorDataBackground : colorDataBackground1;
+	mux_eight_one colorDataChooser(colordata, chosenForeground, colorDataBackground1, colorDataBackgroundApple, colorDataBackgroundWatermelon,colorDataBackground1,colorDataBackground1, colorDataBackground1,colorDataBackground1, colorDataBackground1); 
 	assign colorOut = active ? colordata : 12'd0; // When not active, output black
 
 	// Quickly assign the output colors to their channels using concatenation
