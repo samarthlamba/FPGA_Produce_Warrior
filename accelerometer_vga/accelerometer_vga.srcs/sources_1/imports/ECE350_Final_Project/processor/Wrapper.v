@@ -95,9 +95,7 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	 VGA_G,  
 	 VGA_B,
 	 ps2_clk,
-	 ps2_data,
-	 accel_x,
-	 accel_y);
+	 ps2_data);
 //	// ADD YOUR MEMORY FILE HERE
 //	localparam INSTR_FILE = "";
 	

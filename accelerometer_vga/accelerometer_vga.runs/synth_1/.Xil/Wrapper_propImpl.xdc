@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:C:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.srcs/constrs_1/new/ctr.xdc rfile:../../../accelerometer_vga.srcs/constrs_1/new/ctr.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:{C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/constrs_1/new/ctr.xdc} rfile:../../../accelerometer_vga.srcs/constrs_1/new/ctr.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:1 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN D8 [get_ports {VGA_B[3]}]
 set_property src_info {type:XDC file:1 line:2 export:INPUT save:INPUT read:READ} [current_design]
