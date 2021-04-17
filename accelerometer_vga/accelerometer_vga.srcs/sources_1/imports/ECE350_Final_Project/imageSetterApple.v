@@ -1,4 +1,4 @@
-module imageSetterApple(out, clk, x, y, xcoordinateApple, ycoordinateApple);
+module imageSetter(out, clk, x, y, xcoordinateApple, ycoordinateApple);
 
     input clk;
     output[12-1:0] out;
