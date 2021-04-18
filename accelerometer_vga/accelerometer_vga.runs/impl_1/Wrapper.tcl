@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "C:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.runs/impl_1/Wrapper.tcl"
+  variable script "C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.runs/impl_1/Wrapper.tcl"
   variable category "vivado_impl"
 }
 
@@ -125,7 +125,7 @@ set rc [catch {
   set_param chipscope.maxJobs 2
   set_param xicom.use_bs_reader 1
   open_checkpoint Wrapper_routed.dcp
-  set_property webtalk.parent_dir C:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.cache/wt [current_project]
+  set_property webtalk.parent_dir {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.cache/wt} [current_project]
 set_property TOP Wrapper [current_fileset]
 OPTRACE "read constraints: write_bitstream" START { }
 OPTRACE "read constraints: write_bitstream" END { }

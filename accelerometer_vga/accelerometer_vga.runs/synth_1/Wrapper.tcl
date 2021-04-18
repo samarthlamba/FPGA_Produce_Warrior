@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.runs/synth_1/Wrapper.tcl"
+  variable script "C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.runs/synth_1/Wrapper.tcl"
   variable category "vivado_synth"
 }
 
@@ -78,39 +78,39 @@ create_project -in_memory -part xc7a100tcsg324-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir C:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.cache/wt [current_project]
-set_property parent.project_path C:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.xpr [current_project]
+set_property webtalk.parent_dir {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.cache/wt} [current_project]
+set_property parent.project_path {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.xpr} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo c:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.cache/ip [current_project]
+set_property ip_output_repo {c:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.cache/ip} [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_mem {
-  C:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/assetsMemFiles/watermeloncolors.mem
-  C:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/assetsMemFiles/appleimage.mem
-  C:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/assetsMemFiles/dojoimage.mem
-  C:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/assetsMemFiles/watermelonimage.mem
-  C:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/assetsMemFiles/applecolors.mem
-  C:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/assetsMemFiles/dojocolors.mem
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/assetsMemFiles/watermeloncolors.mem}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/assetsMemFiles/watermelonimage.mem}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/assetsMemFiles/dojoimage.mem}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/assetsMemFiles/appleimage.mem}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/assetsMemFiles/dojocolors.mem}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/assetsMemFiles/applecolors.mem}
 }
 read_verilog -library xil_defaultlib {
-  C:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v
-  C:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/VGAController.v
-  C:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/ECE350_Final_Project/VGATimingGenerator.v
-  C:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/processor/encoder_8_bit.v
-  C:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetter.v
-  C:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterApple.v
-  C:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/alu/mux_eight_one.v
-  C:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/alu/mux_four_one.v
-  C:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/alu/mux_two_one.v
-  C:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/ECE350_Final_Project/processor/Wrapper.v
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/ECE350_Final_Project/RAM.v}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/ECE350_Final_Project/VGAController.v}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/ECE350_Final_Project/VGATimingGenerator.v}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/ECE350_Final_Project/processor/encoder_8_bit.v}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/ECE350_Final_Project/imageSetter.v}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/ECE350_Final_Project/imageSetterApple.v}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/alu/mux_eight_one.v}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/alu/mux_four_one.v}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/alu/mux_two_one.v}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/ECE350_Final_Project/processor/Wrapper.v}
 }
 read_vhdl -library xil_defaultlib {
-  C:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/ECE350_Final_Project/accelerometer/ADXL362Ctrl.vhd
-  C:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/ECE350_Final_Project/accelerometer/AccelArithmetics.vhd
-  C:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/ECE350_Final_Project/accelerometer/AccelerometerCtl.vhd
-  C:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/ECE350_Final_Project/accelerometer/SPI_If.vhd
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/ECE350_Final_Project/accelerometer/ADXL362Ctrl.vhd}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/ECE350_Final_Project/accelerometer/AccelArithmetics.vhd}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/ECE350_Final_Project/accelerometer/AccelerometerCtl.vhd}
+  {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/sources_1/imports/ECE350_Final_Project/accelerometer/SPI_If.vhd}
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -121,8 +121,8 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.srcs/constrs_1/new/ctr.xdc
-set_property used_in_implementation false [get_files C:/Users/reyam/Desktop/accelerometer_vga/accelerometer_vga.srcs/constrs_1/new/ctr.xdc]
+read_xdc {{C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/constrs_1/new/ctr.xdc}}
+set_property used_in_implementation false [get_files {{C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer_vga/accelerometer_vga.srcs/constrs_1/new/ctr.xdc}}]
 
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]

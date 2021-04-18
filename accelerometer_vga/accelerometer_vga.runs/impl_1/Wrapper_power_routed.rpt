@@ -1,8 +1,8 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.1 (win64) Build 2902540 Wed May 27 19:54:49 MDT 2020
-| Date             : Tue Apr 13 19:45:23 2021
-| Host             : DESKTOP-5TEUNA9 running 64-bit major release  (build 9200)
+| Date             : Sat Apr 17 02:16:38 2021
+| Host             : DESKTOP-T6L3BRT running 64-bit major release  (build 9200)
 | Command          : report_power -file Wrapper_power_routed.rpt -pb Wrapper_power_summary_routed.pb -rpx Wrapper_power_routed.rpx
 | Design           : Wrapper
 | Device           : xc7a100tcsg324-1
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+----------------------------------+
-| Total On-Chip Power (W)  | 45.570 (Junction temp exceeded!) |
+| Total On-Chip Power (W)  | 22.506 (Junction temp exceeded!) |
 | Design Power Budget (W)  | Unspecified*                     |
 | Power Budget Margin (W)  | NA                               |
-| Dynamic (W)              | 44.722                           |
+| Dynamic (W)              | 21.657                           |
 | Device Static (W)        | 0.849                            |
 | Effective TJA (C/W)      | 4.6                              |
 | Max Ambient (C)          | 0.0                              |
@@ -52,20 +52,20 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
-| Slice Logic             |     1.094 |     1070 |       --- |             --- |
-|   LUT as Logic          |     0.906 |      509 |     63400 |            0.80 |
+| Slice Logic             |     1.063 |     1069 |       --- |             --- |
+|   LUT as Logic          |     0.876 |      507 |     63400 |            0.80 |
 |   CARRY4                |     0.145 |       58 |     15850 |            0.37 |
 |   Register              |     0.034 |      353 |    126800 |            0.28 |
 |   BUFG                  |     0.006 |        1 |        32 |            3.13 |
 |   F7/F8 Muxes           |     0.003 |        8 |     63400 |            0.01 |
 |   LUT as Shift Register |    <0.001 |        4 |     19000 |            0.02 |
 |   Others                |     0.000 |       33 |       --- |             --- |
-| Signals                 |     3.072 |      926 |       --- |             --- |
+| Signals                 |     2.807 |      928 |       --- |             --- |
 | Block RAM               |     2.108 |     83.5 |       135 |           61.85 |
-| DSPs                    |     1.623 |        3 |       240 |            1.25 |
-| I/O                     |    36.824 |       30 |       210 |           14.29 |
+| DSPs                    |     1.626 |        3 |       240 |            1.25 |
+| I/O                     |    14.052 |       30 |       210 |           14.29 |
 | Static Power            |     0.849 |          |           |                 |
-| Total                   |    45.570 |          |           |                 |
+| Total                   |    22.506 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -75,9 +75,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     8.328 |       7.740 |      0.588 |       NA    | Unspecified | NA         |
-| Vccaux    |       1.800 |     1.441 |       1.349 |      0.093 |       NA    | Unspecified | NA         |
-| Vcco33    |       3.300 |    10.420 |      10.416 |      0.004 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     8.035 |       7.447 |      0.588 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.607 |       0.514 |      0.093 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     3.975 |       3.971 |      0.004 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -142,21 +142,21 @@ Table of Contents
 +-----------------------+-----------+
 | Name                  | Power (W) |
 +-----------------------+-----------+
-| Wrapper               |    44.722 |
-|   accelerometer       |     0.633 |
-|     ADXL_Control      |     0.492 |
-|       SPI_Interface   |     0.039 |
+| Wrapper               |    21.657 |
+|   accelerometer       |     0.656 |
+|     ADXL_Control      |     0.513 |
+|       SPI_Interface   |     0.046 |
 |     Accel_Calculation |     0.001 |
-|   vga                 |     7.163 |
-|     ColorPalette1     |     0.125 |
-|     Display           |     1.462 |
-|     ImageData1        |     1.921 |
-|     apple             |     1.186 |
-|       ColorPalette    |     0.134 |
-|       ImageData       |     0.200 |
-|     water             |     1.187 |
-|       ColorPalette    |     0.108 |
-|       ImageData       |     0.229 |
+|   vga                 |     6.844 |
+|     ColorPalette1     |     0.118 |
+|     Display           |     1.061 |
+|     ImageData1        |     1.949 |
+|     apple             |     1.187 |
+|       ColorPalette    |     0.144 |
+|       ImageData       |     0.196 |
+|     water             |     1.194 |
+|       ColorPalette    |     0.116 |
+|       ImageData       |     0.223 |
 +-----------------------+-----------+
 
 
