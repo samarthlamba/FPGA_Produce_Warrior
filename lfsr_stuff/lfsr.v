@@ -13,7 +13,7 @@ module lfsr(out, clk, clr, seed, select);
     wire num_two;
     wire num_out;
     
-    dffe_ref dffe(ffout[0], ffin[0], clk, 1'b1, clr);
+    dffe_ref dffe(ffout[0], ffin[0], clkcd, 1'b1, clr);
     dffe_ref dffe2(ffout[1], ffin[1], clk, 1'b1, clr);
     dffe_ref dffe3(ffout[2], ffin[2], clk, 1'b1, clr);
     dffe_ref dffe4(ffout[3], ffin[3], clk, 1'b1, clr);
