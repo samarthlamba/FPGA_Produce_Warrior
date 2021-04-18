@@ -58,27 +58,15 @@ module VGAController(
 	reg[9:0] xcoordinateLemon;
 	reg[8:0] ycoordinateLemon;
 	wire sqcolor;
-	wire splashApple;
-	wire splashWatermelon;
-	wire splashLemon;
-	wire splashPear;
-	wire splashCoconut;
-	wire splashBanana;
-	
 	reg waterUp;
 	reg lemonUp;
 	reg pearUp;
 	reg bananaUp;
 	reg appleUp;
 	reg coconutUp;
-	reg [7:0] seed;
-	wire [7:0] randomOut;
-	reg load;
-	reg [3:0] updated;
 	assign sqcolor = 12'h128;
 	
 	   initial begin
-	       updated = 4'b0;
 	       waterUp = 1'b1;
 	       lemonUp = 1'b1;
            pearUp = 1'b1;
@@ -90,11 +78,9 @@ module VGAController(
             xcoordinateBanana = 60;
             xcoordinateCoconut =80;
             xcoordinateLemon =100;
-            seed = 7'd6;
-            #1000 load = 1;
 	   end
 
-	lfsr val(randomOut, clk, 1'b0, seed, load);
+	
 	always @(posedge clk) begin
 	   if(x < xcoordinateLemon + 10'd50 && y < ycoordinateLemon + 10'd50 && x > xcoordinateLemon && y > ycoordinateLemon)
 			lemonStatus = 1'b1;
@@ -122,7 +108,9 @@ module VGAController(
 			waterStatus = 1'b0;
 	   
 	end
-    
+    encoder_8_bit chooser(chosenForeground, 1'b1, appleStatus && colorDataBackgroundApple !=12'h000, waterStatus && colorDataBackgroundWatermelon !=12'h000, lemonStatus && colorDataBackgroundLemon !=12'h000, pearStatus && colorDataBackgroundPear !=12'h000, bananaStatus && colorDataBackgroundBanana !=12'h000, coconutStatus && colorDataBackgroundCoconut !=12'h000, 1'b0);
+    encoder_8_bit chooser2(chosenForeBackground, 1'b1, appleStatus && chosenForeground != 3'd1, waterStatus && chosenForeground != 3'd2, lemonStatus  && chosenForeground != 3'd3, pearStatus && chosenForeground != 3'd4, bananaStatus && chosenForeground != 3'd5, coconutStatus && chosenForeground != 3'd6, 1'b0);
+     
     always @(posedge clk) begin
         if(ycoordinateWater <= 9'd480 && screenEnd && waterUp == 1'b1)
             ycoordinateWater = ycoordinateWater + 1'b1;
@@ -132,6 +120,7 @@ module VGAController(
             waterUp = ~waterUp;
         if(ycoordinateWater >= 9'd180 && screenEnd && waterUp == 1'b0)
             ycoordinateWater = ycoordinateWater - 1'b1;
+            
          if(ycoordinateApple <= 9'd480 && screenEnd && appleUp == 1'b1)
             ycoordinateApple = ycoordinateApple + 1'b1;
         else if(ycoordinateApple > 9'd480 && appleUp == 1'b1)
@@ -179,15 +168,11 @@ module VGAController(
 //        if(ycoordinateLemon >= 9'd180 && screenEnd && lemonUp == 1'b0)
 //            ycoordinateLemon = ycoordinateLemon - 1'b1;   
         xcoordinateLemon = x_accelerometer;
-		ycoordinateLemon = y_accelerometer; 
-		if(updated == 4'b0)
-		  xcoordinateWater =  192 + randomOut;
-		  //updated = 4'b1;
+		ycoordinateLemon = y_accelerometer;             
      
         
     end
-    
-    assign splashWatermelon = waterUp;
+
 	
 	VGATimingGenerator #(
 		.HEIGHT(VIDEO_HEIGHT), // Use the standard VGA Values
@@ -223,38 +208,6 @@ module VGAController(
     imageSetterPear pear(colorDataBackgroundPear, clk, x, y, xcoordinatePear, ycoordinatePear);
     imageSetterBanana banana(colorDataBackgroundBanana, clk, x, y, xcoordinateBanana, ycoordinateBanana);
     imageSetterCoconut coconut(colorDataBackgroundCoconut, clk, x, y, xcoordinateCoconut, ycoordinateCoconut);
-    
-	wire[BITS_PER_COLOR-1:0] colorDataBackgroundAppleSplash; 
-	wire[BITS_PER_COLOR-1:0] colorDataBackgroundWatermelonSplash; 
-	wire[BITS_PER_COLOR-1:0] colorDataBackgroundAppleSplash; 
-	wire[BITS_PER_COLOR-1:0] colorDataBackgroundLemonSplash; 
-	wire[BITS_PER_COLOR-1:0] colorDataBackgroundPearSplash; 
-	wire[BITS_PER_COLOR-1:0] colorDataBackgroundBananaSplash;
-	wire[BITS_PER_COLOR-1:0] colorDataBackgroundCoconutSplash;    
-    imageSetterWatermelonSplash waterSplash(colorDataBackgroundWatermelonSplash, clk, x, y, xcoordinateWater, ycoordinateWater);
-    imageSetterAppleSplash appleSplash(colorDataBackgroundAppleSplash, clk, x, y, xcoordinateApple, ycoordinateApple);
-    imageSetterLemonSplash lemonSplash(colorDataBackgroundLemonSplash, clk, x, y, xcoordinateLemon, ycoordinateLemon);
-    imageSetterPearSplash pearSplash(colorDataBackgroundPearSplash, clk, x, y, xcoordinatePear, ycoordinatePear);
-    imageSetterBananaSplash bananaSplash(colorDataBackgroundBananaSplash, clk, x, y, xcoordinateBanana, ycoordinateBanana);
-    imageSetterCoconutSplash coconutSplash(colorDataBackgroundCoconutSplash, clk, x, y, xcoordinateCoconut, ycoordinateCoconut);
-    
-    wire[BITS_PER_COLOR-1:0] colorDataBackgroundAppleFinal; 
-	wire[BITS_PER_COLOR-1:0] colorDataBackgroundWatermelonFinal; 
-	wire[BITS_PER_COLOR-1:0] colorDataBackgroundLemonFinal; 
-	wire[BITS_PER_COLOR-1:0] colorDataBackgroundPearFinal; 
-	wire[BITS_PER_COLOR-1:0] colorDataBackgroundBananaFinal;
-	wire[BITS_PER_COLOR-1:0] colorDataBackgroundCoconutFinal;    
-	
-	assign colorDataBackgroundAppleFinal = splashApple ? colorDataBackgroundAppleSplash : colorDataBackgroundApple;
-	assign colorDataBackgroundWatermelonFinal = splashWatermelon ? colorDataBackgroundWatermelonSplash : colorDataBackgroundWatermelon;
-	assign colorDataBackgroundLemonFinal = splashLemon ? colorDataBackgroundLemonSplash : colorDataBackgroundLemon;
-	assign colorDataBackgroundPearFinal = splashPear ? colorDataBackgroundPearSplash : colorDataBackgroundPear;
-	assign colorDataBackgroundBananaFinal = splashBanana ? colorDataBackgroundBananaSplash : colorDataBackgroundBanana;
-	assign colorDataBackgroundCoconutFinal = splashCoconut ? colorDataBackgroundCoconutSplash : colorDataBackgroundCoconut;
-	
-     encoder_8_bit chooser(chosenForeground, 1'b1, appleStatus && colorDataBackgroundAppleFinal !=12'h000, waterStatus && colorDataBackgroundWatermelonFinal !=12'h000, lemonStatus && colorDataBackgroundLemonFinal !=12'h000, pearStatus && colorDataBackgroundPearFinal !=12'h000, bananaStatus && colorDataBackgroundBananaFinal !=12'h000, coconutStatus && colorDataBackgroundCoconutFinal !=12'h000, 1'b0);
-    encoder_8_bit chooser2(chosenForeBackground, 1'b1, appleStatus && chosenForeground != 3'd1, waterStatus && chosenForeground != 3'd2, lemonStatus  && chosenForeground != 3'd3, pearStatus && chosenForeground != 3'd4, bananaStatus && chosenForeground != 3'd5, coconutStatus && chosenForeground != 3'd6, 1'b0);
-    
 //---------------------------------------------------------------------------------------------------------------
 
 	wire[BITS_PER_COLOR-1:0] colorDataBackground1; 
@@ -296,7 +249,7 @@ module VGAController(
 	wire[BITS_PER_COLOR-1:0] colorChooseFinal;
 	wire calculation;
 	
-	mux_eight_one colorDataChooser(colordata, chosenForeground, colorDataBackground1, colorDataBackgroundAppleFinal, colorDataBackgroundWatermelonFinal,colorDataBackgroundLemonFinal,colorDataBackgroundPearFinal, colorDataBackgroundBananaFinal,colorDataBackgroundCoconutFinal, colorDataBackground1);
+	mux_eight_one colorDataChooser(colordata, chosenForeground, colorDataBackground1, colorDataBackgroundApple, colorDataBackgroundWatermelon,colorDataBackgroundLemon,colorDataBackgroundPear, colorDataBackgroundBanana,colorDataBackgroundCoconut, colorDataBackground1);
 	mux_eight_one colorDataChooser2(colordataForeBackground, chosenForeBackground, colorDataBackground1, colorDataBackgroundApple, colorDataBackgroundWatermelon,colorDataBackgroundLemon,colorDataBackgroundPear, colorDataBackgroundBanana,colorDataBackgroundCoconut, colorDataBackground1);
 	assign colorChoose = colordata;
 	assign colorOut = active ?  colorChoose : 12'd0; // When not active, output black

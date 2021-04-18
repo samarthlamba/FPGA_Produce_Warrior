@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="49" Path="C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.xpr">
+<Project Version="7" Minor="49" Path="C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="dede34b54c3f4596a348ccc824524436"/>
@@ -228,18 +228,18 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/decoder.v">
+      <File Path="$PSRCDIR/sources_1/imports/regfiletest/decoder.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/decoder.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../regfiletest/decoder.v"/>
           <Attr Name="ImportTime" Val="1618093002"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/Provided Behavioral Components/dffe_ref.v">
+      <File Path="$PSRCDIR/sources_1/imports/regfiletest/dffe_ref.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../processor/Provided Behavioral Components/dffe_ref.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../regfiletest/dffe_ref.v"/>
           <Attr Name="ImportTime" Val="1618093002"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -399,45 +399,45 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/left_shift_16_bits.v">
+      <File Path="$PSRCDIR/sources_1/imports/regfiletest/left_shift_16_bits.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/left_shift_16_bits.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../regfiletest/left_shift_16_bits.v"/>
           <Attr Name="ImportTime" Val="1618093002"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/left_shift_1_bits.v">
+      <File Path="$PSRCDIR/sources_1/imports/regfiletest/left_shift_1_bits.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/left_shift_1_bits.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../regfiletest/left_shift_1_bits.v"/>
           <Attr Name="ImportTime" Val="1618093002"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/left_shift_2_bits.v">
+      <File Path="$PSRCDIR/sources_1/imports/regfiletest/left_shift_2_bits.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/left_shift_2_bits.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../regfiletest/left_shift_2_bits.v"/>
           <Attr Name="ImportTime" Val="1618093002"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/left_shift_4_bits.v">
+      <File Path="$PSRCDIR/sources_1/imports/regfiletest/left_shift_4_bits.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/left_shift_4_bits.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../regfiletest/left_shift_4_bits.v"/>
           <Attr Name="ImportTime" Val="1618093002"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/left_shift_8_bits.v">
+      <File Path="$PSRCDIR/sources_1/imports/regfiletest/left_shift_8_bits.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/left_shift_8_bits.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../regfiletest/left_shift_8_bits.v"/>
           <Attr Name="ImportTime" Val="1618093002"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -525,18 +525,18 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/Provided Behavioral Components/regfile.v">
+      <File Path="$PSRCDIR/sources_1/imports/regfiletest/regfile.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../processor/Provided Behavioral Components/regfile.v"/>
-          <Attr Name="ImportTime" Val="1618202115"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../regfiletest/regfile.v"/>
+          <Attr Name="ImportTime" Val="1618777145"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/register_32bits.v">
+      <File Path="$PSRCDIR/sources_1/imports/regfiletest/register_32bits.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/register_32bits.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../regfiletest/register_32bits.v"/>
           <Attr Name="ImportTime" Val="1618093002"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -559,9 +559,9 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/sll.v">
+      <File Path="$PSRCDIR/sources_1/imports/regfiletest/sll.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/sll.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../regfiletest/sll.v"/>
           <Attr Name="ImportTime" Val="1618093002"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -595,9 +595,9 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/tri_state_buffer.v">
+      <File Path="$PSRCDIR/sources_1/imports/regfiletest/tri_state_buffer.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/tri_state_buffer.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../regfiletest/tri_state_buffer.v"/>
           <Attr Name="ImportTime" Val="1618093002"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -630,6 +630,106 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/processor/Wrapper.v">
         <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/decoder.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/decoder.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/Provided Behavioral Components/dffe_ref.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/Provided Behavioral Components/dffe_ref.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/left_shift_16_bits.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/left_shift_16_bits.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/left_shift_1_bits.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/left_shift_1_bits.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/left_shift_2_bits.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/left_shift_2_bits.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/left_shift_4_bits.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/left_shift_4_bits.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/left_shift_8_bits.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/left_shift_8_bits.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/register_32bits.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/register_32bits.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/sll.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/sll.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/tri_state_buffer.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/tri_state_buffer.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -910,16 +1010,6 @@
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/complement_tb.v"/>
           <Attr Name="ImportTime" Val="1618093002"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/Wrapper.v">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../processor/Wrapper.v"/>
-          <Attr Name="ImportTime" Val="1618709183"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
