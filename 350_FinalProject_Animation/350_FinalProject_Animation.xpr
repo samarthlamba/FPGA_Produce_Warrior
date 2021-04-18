@@ -309,10 +309,28 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/imageSetterAppleSplash.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../imageSetterAppleSplash.v"/>
+          <Attr Name="ImportTime" Val="1618774387"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/imageSetterBanana.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../imageSetterBanana.v"/>
           <Attr Name="ImportTime" Val="1618543043"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/imageSetterBananaSplash.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../imageSetterBananaSplash.v"/>
+          <Attr Name="ImportTime" Val="1618774404"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -327,6 +345,15 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/imageSetterCoconutSplash.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../imageSetterCoconutSplash.v"/>
+          <Attr Name="ImportTime" Val="1618774426"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/imageSetterLemon.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../imageSetterLemon.v"/>
@@ -336,10 +363,37 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/imageSetterLemonSplash.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../imageSetterLemonSplash.v"/>
+          <Attr Name="ImportTime" Val="1618774527"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/imageSetterPear.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../imageSetterPear.v"/>
           <Attr Name="ImportTime" Val="1618543158"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/imageSetterPearSplash.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../imageSetterPearSplash.v"/>
+          <Attr Name="ImportTime" Val="1618774495"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/imageSetterWatermelonSplash.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../imageSetterWatermelonSplash.v"/>
+          <Attr Name="ImportTime" Val="1618774470"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1005,6 +1059,102 @@
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../processor/Test Files/Memory Files/lw_sw.mem"/>
           <Attr Name="ImportTime" Val="1618727518"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/bananasplashcolors.mem">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../assets/assetsMemFiles/bananasplashcolors.mem"/>
+          <Attr Name="ImportTime" Val="1618774212"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/lemonsplashcolors.mem">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../assets/assetsMemFiles/lemonsplashcolors.mem"/>
+          <Attr Name="ImportTime" Val="1618774245"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/coconutsplashimage.mem">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../assets/assetsMemFiles/coconutsplashimage.mem"/>
+          <Attr Name="ImportTime" Val="1618774225"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/coconutsplashcolors.mem">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../assets/assetsMemFiles/coconutsplashcolors.mem"/>
+          <Attr Name="ImportTime" Val="1618774225"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/watermelonsplashimage.mem">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../assets/assetsMemFiles/watermelonsplashimage.mem"/>
+          <Attr Name="ImportTime" Val="1618774178"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/applesplashcolors.mem">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../assets/assetsMemFiles/applesplashcolors.mem"/>
+          <Attr Name="ImportTime" Val="1618774181"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/lemonsplashimage.mem">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../assets/assetsMemFiles/lemonsplashimage.mem"/>
+          <Attr Name="ImportTime" Val="1618774245"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/watermelonsplashcolors.mem">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../assets/assetsMemFiles/watermelonsplashcolors.mem"/>
+          <Attr Name="ImportTime" Val="1618774178"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/pearsplashcolors.mem">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../assets/assetsMemFiles/pearsplashcolors.mem"/>
+          <Attr Name="ImportTime" Val="1618774236"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/bananasplashimage.mem">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../assets/assetsMemFiles/bananasplashimage.mem"/>
+          <Attr Name="ImportTime" Val="1618774212"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/pearsplashimage.mem">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../assets/assetsMemFiles/pearsplashimage.mem"/>
+          <Attr Name="ImportTime" Val="1618774236"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/applesplashimage.mem">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../assets/assetsMemFiles/applesplashimage.mem"/>
+          <Attr Name="ImportTime" Val="1618774181"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>

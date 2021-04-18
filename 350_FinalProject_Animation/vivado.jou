@@ -2,13 +2,112 @@
 # Vivado v2020.1 (64-bit)
 # SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Sun Apr 18 02:47:58 2021
-# Process ID: 4132
-# Current directory: C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent20352 C:\Users\reyam\Desktop\ECE350Project\ECE350_Final_Project\350_FinalProject_Animation\350_FinalProject_Animation.xpr
-# Log file: C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/vivado.log
-# Journal file: C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation\vivado.jou
+# Start of session at: Sun Apr 18 13:14:58 2021
+# Process ID: 7676
+# Current directory: C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent6500 C:\Users\samar\Desktop\Semester 6\ECE350Labs\ECE350_Final_Project\350_FinalProject_Animation\350_FinalProject_Animation.xpr
+# Log file: C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/vivado.log
+# Journal file: C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation\vivado.jou
 #-----------------------------------------------------------
 start_gui
-open_project C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.xpr
+open_project {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.xpr}
 update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.runs/impl_1/Wrapper.bit} [get_hw_devices xc7a100t_0]
+current_hw_device [get_hw_devices xc7a100t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.runs/impl_1/Wrapper.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+add_files -norecurse -scan_for_includes {{C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/imageSetterPearSplash.v} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/imageSetterCoconutSplash.v} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/imageSetterLemonSplash.v} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/imageSetterAppleSplash.v} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/imageSetterBananaSplash.v} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/imageSetterWatermelonSplash.v}}
+import_files -norecurse {{C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/imageSetterPearSplash.v} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/imageSetterCoconutSplash.v} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/imageSetterLemonSplash.v} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/imageSetterAppleSplash.v} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/imageSetterBananaSplash.v} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/imageSetterWatermelonSplash.v}}
+update_compile_order -fileset sources_1
+add_files -norecurse -scan_for_includes {{C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/assets/assetsMemFiles/bananasplashcolors.mem} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/assets/assetsMemFiles/lemonsplashcolors.mem} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/assets/assetsMemFiles/coconutsplashimage.mem} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/assets/assetsMemFiles/coconutsplashcolors.mem} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/assets/assetsMemFiles/watermelonsplashimage.mem} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/assets/assetsMemFiles/applesplashcolors.mem} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/assets/assetsMemFiles/lemonsplashimage.mem} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/assets/assetsMemFiles/watermelonsplashcolors.mem} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/assets/assetsMemFiles/pearsplashcolors.mem} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/assets/assetsMemFiles/bananasplashimage.mem} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/assets/assetsMemFiles/pearsplashimage.mem} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/assets/assetsMemFiles/applesplashimage.mem}}
+import_files -norecurse {{C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/assets/assetsMemFiles/bananasplashcolors.mem} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/assets/assetsMemFiles/lemonsplashcolors.mem} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/assets/assetsMemFiles/coconutsplashimage.mem} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/assets/assetsMemFiles/coconutsplashcolors.mem} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/assets/assetsMemFiles/watermelonsplashimage.mem} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/assets/assetsMemFiles/applesplashcolors.mem} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/assets/assetsMemFiles/lemonsplashimage.mem} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/assets/assetsMemFiles/watermelonsplashcolors.mem} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/assets/assetsMemFiles/pearsplashcolors.mem} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/assets/assetsMemFiles/bananasplashimage.mem} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/assets/assetsMemFiles/pearsplashimage.mem} {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/assets/assetsMemFiles/applesplashimage.mem}}
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.runs/impl_1/Wrapper.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.runs/impl_1/Wrapper.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.runs/impl_1/Wrapper.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.runs/impl_1/Wrapper.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.runs/impl_1/Wrapper.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.runs/impl_1/Wrapper.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.runs/impl_1/Wrapper.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.runs/impl_1/Wrapper.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.runs/impl_1/Wrapper.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.runs/impl_1/Wrapper.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.runs/impl_1/Wrapper.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]

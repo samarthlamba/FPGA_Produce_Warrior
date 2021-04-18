@@ -55,6 +55,8 @@ j b14
 b7: sub $r15, $r15, $r18
 j b15
 b8: sub $r16, $r16, $r18
+b32: nop
+bne $r28, $r0, b32 
 blt $r17, $r9, b1
 b9: blt $r17, $r10, b2
 b10: blt $r17, $r11, b3
@@ -79,7 +81,9 @@ b27: add $r14, $r14, $r18
 j b21
 b28: add $r15, $r15, $r18
 j b22
-b29: add $r16, $r16, $r18
+b29: add $r16, $r16, $r18 #stall now
+b32: nop
+bne $r28, $r0, b32 
 blt $r17, $r9, b30
 b16: blt $r10, $r19, b23
 b17: blt $r11, $r19, b24
@@ -87,13 +91,5 @@ b18: blt $r12, $r19, b25
 b19: blt $r13, $r19, b26
 b20: blt $r14, $r19, b27
 b21: blt $r15, $r19, b28
-b22: blt $r16, $r19, b29
+b22: blt $r16, $r19, b29 
 j b31
-
-
-
-
-
-
-
-
