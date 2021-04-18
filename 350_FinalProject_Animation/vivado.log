@@ -2,10 +2,10 @@
 # Vivado v2020.1 (64-bit)
 # SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Sat Apr 10 21:33:07 2021
-# Process ID: 28636
+# Start of session at: Sat Apr 17 22:21:50 2021
+# Process ID: 37208
 # Current directory: C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent39556 C:\Users\reyam\Desktop\ECE350Project\ECE350_Final_Project\350_FinalProject_Animation\350_FinalProject_Animation.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent35880 C:\Users\reyam\Desktop\ECE350Project\ECE350_Final_Project\350_FinalProject_Animation\350_FinalProject_Animation.xpr
 # Log file: C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/vivado.log
 # Journal file: C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation\vivado.jou
 #-----------------------------------------------------------
@@ -20,50 +20,418 @@ WARNING: [filemgmt 56-2] IPUserFilesDir: Could not find the directory 'C:/Users/
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Users/reyam/Vivado/2020.1/data/ip'.
-open_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:06 . Memory (MB): peak = 1012.730 ; gain = 0.000
+open_project: Time (s): cpu = 00:00:20 ; elapsed = 00:00:08 . Memory (MB): peak = 1013.684 ; gain = 0.000
 update_compile_order -fileset sources_1
+add_files -norecurse -scan_for_includes {C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/accelerometer/AccelerometerCtl.vhd C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/accelerometer/ADXL362Ctrl.vhd C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/sevenseg/seven_seg_counter.v C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/accelerometer/AccelArithmetics.vhd C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/accelerometer/SPI_If.vhd C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/processor/Wrapper.v}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+synth_design -rtl -name rtl_1
+Command: synth_design -rtl -name rtl_1
+Starting synth_design
+Using part: xc7a100tcsg324-1
+Top: Wrapper
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+WARNING: [Synth 8-992] colorDataBackgroundWatermelon is already implicitly declared earlier [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/VGAController.v:199]
+WARNING: [Synth 8-992] colorDataBackgroundApple is already implicitly declared earlier [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/VGAController.v:200]
+WARNING: [Synth 8-992] colorDataBackgroundLemon is already implicitly declared earlier [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/VGAController.v:201]
+WARNING: [Synth 8-992] colorDataBackgroundPear is already implicitly declared earlier [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/VGAController.v:202]
+WARNING: [Synth 8-992] colorDataBackgroundBanana is already implicitly declared earlier [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/VGAController.v:203]
+WARNING: [Synth 8-992] colorDataBackgroundCoconut is already implicitly declared earlier [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/VGAController.v:204]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1476.695 ; gain = 240.168
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-1565] actual for formal port s_axis_cartesian_tdata is neither a static name nor a globally static expression [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/accelerometer/AccelArithmetics.vhd:233]
+INFO: [Synth 8-6157] synthesizing module 'Wrapper' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/processor/Wrapper.v:27]
+INFO: [Synth 8-6157] synthesizing module 'seven_seg_counter' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/sevenseg/seven_seg_counter.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'seven_seg_counter' (1#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/sevenseg/seven_seg_counter.v:1]
+INFO: [Synth 8-638] synthesizing module 'AccelerometerCtl' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/accelerometer/AccelerometerCtl.vhd:70]
+	Parameter SYSCLK_FREQUENCY_HZ bound to: 100000000 - type: integer 
+	Parameter SCLK_FREQUENCY_HZ bound to: 1000000 - type: integer 
+	Parameter NUM_READS_AVG bound to: 16 - type: integer 
+	Parameter UPDATE_FREQUENCY_HZ bound to: 100 - type: integer 
+	Parameter SYSCLK_FREQUENCY_HZ bound to: 100000000 - type: integer 
+	Parameter SCLK_FREQUENCY_HZ bound to: 1000000 - type: integer 
+	Parameter NUM_READS_AVG bound to: 16 - type: integer 
+	Parameter UPDATE_FREQUENCY_HZ bound to: 100 - type: integer 
+INFO: [Synth 8-3491] module 'ADXL362Ctrl' declared at 'C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/accelerometer/ADXL362Ctrl.vhd:89' bound to instance 'ADXL_Control' of component 'ADXL362Ctrl' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/accelerometer/AccelerometerCtl.vhd:163]
+INFO: [Synth 8-638] synthesizing module 'ADXL362Ctrl' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/accelerometer/ADXL362Ctrl.vhd:117]
+	Parameter SYSCLK_FREQUENCY_HZ bound to: 100000000 - type: integer 
+	Parameter SCLK_FREQUENCY_HZ bound to: 1000000 - type: integer 
+	Parameter NUM_READS_AVG bound to: 16 - type: integer 
+	Parameter UPDATE_FREQUENCY_HZ bound to: 100 - type: integer 
+	Parameter SYSCLK_FREQUENCY_HZ bound to: 100000000 - type: integer 
+	Parameter SCLK_FREQUENCY_HZ bound to: 1000000 - type: integer 
+INFO: [Synth 8-3491] module 'SPI_If' declared at 'C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/accelerometer/SPI_If.vhd:42' bound to instance 'SPI_Interface' of component 'SPI_If' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/accelerometer/ADXL362Ctrl.vhd:373]
+INFO: [Synth 8-638] synthesizing module 'SPI_If' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/accelerometer/SPI_If.vhd:66]
+	Parameter SYSCLK_FREQUENCY_HZ bound to: 100000000 - type: integer 
+	Parameter SCLK_FREQUENCY_HZ bound to: 1000000 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'SPI_If' (2#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/accelerometer/SPI_If.vhd:66]
+INFO: [Synth 8-256] done synthesizing module 'ADXL362Ctrl' (3#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/accelerometer/ADXL362Ctrl.vhd:117]
+	Parameter SYSCLK_FREQUENCY_HZ bound to: 100000000 - type: integer 
+	Parameter ACC_X_Y_MAX bound to: 10'b0111111111 
+	Parameter ACC_X_Y_MIN bound to: 10'b0000000000 
+INFO: [Synth 8-3491] module 'AccelArithmetics' declared at 'C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/accelerometer/AccelArithmetics.vhd:50' bound to instance 'Accel_Calculation' of component 'AccelArithmetics' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/accelerometer/AccelerometerCtl.vhd:190]
+INFO: [Synth 8-638] synthesizing module 'AccelArithmetics' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/accelerometer/AccelArithmetics.vhd:75]
+	Parameter SYSCLK_FREQUENCY_HZ bound to: 100000000 - type: integer 
+	Parameter ACC_X_Y_MAX bound to: 10'b0111111111 
+	Parameter ACC_X_Y_MIN bound to: 10'b0000000000 
+INFO: [Synth 8-637] synthesizing blackbox instance 'Magnitude_Calculation' of component 'Square_Root' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/accelerometer/AccelArithmetics.vhd:229]
+INFO: [Synth 8-256] done synthesizing module 'AccelArithmetics' (4#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/accelerometer/AccelArithmetics.vhd:75]
+INFO: [Synth 8-256] done synthesizing module 'AccelerometerCtl' (5#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/accelerometer/AccelerometerCtl.vhd:70]
+WARNING: [Synth 8-7071] port 'ACCEL_TMP_OUT' of module 'AccelerometerCtl' is unconnected for instance 'accelerometer' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/processor/Wrapper.v:90]
+WARNING: [Synth 8-7023] instance 'accelerometer' of module 'AccelerometerCtl' has 10 connections declared, but only 9 given [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/processor/Wrapper.v:90]
+INFO: [Synth 8-6157] synthesizing module 'VGAController' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/VGAController.v:2]
+	Parameter FILES_PATH bound to: ../assetsMemFiles/ - type: string 
+	Parameter VIDEO_WIDTH bound to: 640 - type: integer 
+	Parameter VIDEO_HEIGHT bound to: 480 - type: integer 
+	Parameter PIXEL_COUNT bound to: 307200 - type: integer 
+	Parameter PIXEL_ADDRESS_WIDTH bound to: 20 - type: integer 
+	Parameter BITS_PER_COLOR bound to: 12 - type: integer 
+	Parameter PALETTE_COLOR_COUNT bound to: 256 - type: integer 
+	Parameter PALETTE_ADDRESS_WIDTH bound to: 9 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'encoder_8_bit' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/processor/encoder_8_bit.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'encoder_8_bit' (6#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/processor/encoder_8_bit.v:1]
+INFO: [Synth 8-6157] synthesizing module 'VGATimingGenerator' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/VGATimingGenerator.v:2]
+	Parameter HEIGHT bound to: 480 - type: integer 
+	Parameter WIDTH bound to: 640 - type: integer 
+	Parameter H_FRONT_PORCH bound to: 16 - type: integer 
+	Parameter H_SYNC_WIDTH bound to: 96 - type: integer 
+	Parameter H_BACK_PORCH bound to: 48 - type: integer 
+	Parameter H_SYNC_START bound to: 656 - type: integer 
+	Parameter H_SYNC_END bound to: 752 - type: integer 
+	Parameter H_LINE bound to: 800 - type: integer 
+	Parameter V_FRONT_PORCH bound to: 11 - type: integer 
+	Parameter V_SYNC_WIDTH bound to: 2 - type: integer 
+	Parameter V_BACK_PORCH bound to: 31 - type: integer 
+	Parameter V_SYNC_START bound to: 491 - type: integer 
+	Parameter V_SYNC_END bound to: 493 - type: integer 
+	Parameter V_LINE bound to: 524 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'VGATimingGenerator' (7#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/VGATimingGenerator.v:2]
+INFO: [Synth 8-6157] synthesizing module 'imageSetter' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetter.v:1]
+	Parameter VIDEO_WIDTH bound to: 640 - type: integer 
+	Parameter VIDEO_HEIGHT bound to: 480 - type: integer 
+	Parameter PIXEL_COUNT_FRUIT bound to: 2500 - type: integer 
+	Parameter FILES_PATH bound to: ../assetsMemFiles/ - type: string 
+	Parameter PIXEL_ADDRESS_WIDTH_FRUIT bound to: 13 - type: integer 
+	Parameter PIXEL_COUNT bound to: 307200 - type: integer 
+	Parameter PIXEL_ADDRESS_WIDTH bound to: 20 - type: integer 
+	Parameter BITS_PER_COLOR bound to: 12 - type: integer 
+	Parameter PALETTE_COLOR_COUNT bound to: 256 - type: integer 
+	Parameter PALETTE_ADDRESS_WIDTH bound to: 9 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'RAM' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:2]
+	Parameter DATA_WIDTH bound to: 9 - type: integer 
+	Parameter ADDRESS_WIDTH bound to: 13 - type: integer 
+	Parameter DEPTH bound to: 2500 - type: integer 
+	Parameter MEMFILE bound to: 296'b00101110001011100010111101100001011100110111001101100101011101000111001101001101011001010110110101000110011010010110110001100101011100110010111101110111011000010111010001100101011100100110110101100101011011000110111101101110011010010110110101100001011001110110010100101110011011010110010101101101 
+INFO: [Synth 8-3876] $readmem data file '../assetsMemFiles/watermelonimage.mem' is read successfully [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'RAM' (8#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:2]
+WARNING: [Synth 8-7071] port 'dataIn' of module 'RAM' is unconnected for instance 'ImageData' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetter.v:36]
+WARNING: [Synth 8-7023] instance 'ImageData' of module 'RAM' has 5 connections declared, but only 4 given [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetter.v:36]
+INFO: [Synth 8-6157] synthesizing module 'RAM__parameterized0' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:2]
+	Parameter DATA_WIDTH bound to: 12 - type: integer 
+	Parameter ADDRESS_WIDTH bound to: 9 - type: integer 
+	Parameter DEPTH bound to: 256 - type: integer 
+	Parameter MEMFILE bound to: 304'b0010111000101110001011110110000101110011011100110110010101110100011100110100110101100101011011010100011001101001011011000110010101110011001011110111011101100001011101000110010101110010011011010110010101101100011011110110111001100011011011110110110001101111011100100111001100101110011011010110010101101101 
+INFO: [Synth 8-3876] $readmem data file '../assetsMemFiles/watermeloncolors.mem' is read successfully [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'RAM__parameterized0' (8#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:2]
+WARNING: [Synth 8-7071] port 'dataIn' of module 'RAM' is unconnected for instance 'ColorPalette' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetter.v:50]
+WARNING: [Synth 8-7023] instance 'ColorPalette' of module 'RAM' has 5 connections declared, but only 4 given [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetter.v:50]
+INFO: [Synth 8-6155] done synthesizing module 'imageSetter' (9#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetter.v:1]
+INFO: [Synth 8-6157] synthesizing module 'imageSetterApple' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterApple.v:1]
+	Parameter VIDEO_WIDTH bound to: 640 - type: integer 
+	Parameter VIDEO_HEIGHT bound to: 480 - type: integer 
+	Parameter PIXEL_COUNT_FRUIT bound to: 2500 - type: integer 
+	Parameter FILES_PATH bound to: ../assetsMemFiles/ - type: string 
+	Parameter PIXEL_ADDRESS_WIDTH_FRUIT bound to: 13 - type: integer 
+	Parameter PIXEL_COUNT bound to: 307200 - type: integer 
+	Parameter PIXEL_ADDRESS_WIDTH bound to: 20 - type: integer 
+	Parameter BITS_PER_COLOR bound to: 12 - type: integer 
+	Parameter PALETTE_COLOR_COUNT bound to: 256 - type: integer 
+	Parameter PALETTE_ADDRESS_WIDTH bound to: 9 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'RAM__parameterized1' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:2]
+	Parameter DATA_WIDTH bound to: 9 - type: integer 
+	Parameter ADDRESS_WIDTH bound to: 13 - type: integer 
+	Parameter DEPTH bound to: 2500 - type: integer 
+	Parameter MEMFILE bound to: 256'b0010111000101110001011110110000101110011011100110110010101110100011100110100110101100101011011010100011001101001011011000110010101110011001011110110000101110000011100000110110001100101011010010110110101100001011001110110010100101110011011010110010101101101 
+INFO: [Synth 8-3876] $readmem data file '../assetsMemFiles/appleimage.mem' is read successfully [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'RAM__parameterized1' (9#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:2]
+WARNING: [Synth 8-7071] port 'dataIn' of module 'RAM' is unconnected for instance 'ImageData' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterApple.v:36]
+WARNING: [Synth 8-7023] instance 'ImageData' of module 'RAM' has 5 connections declared, but only 4 given [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterApple.v:36]
+INFO: [Synth 8-6157] synthesizing module 'RAM__parameterized2' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:2]
+	Parameter DATA_WIDTH bound to: 12 - type: integer 
+	Parameter ADDRESS_WIDTH bound to: 9 - type: integer 
+	Parameter DEPTH bound to: 256 - type: integer 
+	Parameter MEMFILE bound to: 264'b001011100010111000101111011000010111001101110011011001010111010001110011010011010110010101101101010001100110100101101100011001010111001100101111011000010111000001110000011011000110010101100011011011110110110001101111011100100111001100101110011011010110010101101101 
+INFO: [Synth 8-3876] $readmem data file '../assetsMemFiles/applecolors.mem' is read successfully [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'RAM__parameterized2' (9#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:2]
+WARNING: [Synth 8-7071] port 'dataIn' of module 'RAM' is unconnected for instance 'ColorPalette' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterApple.v:50]
+WARNING: [Synth 8-7023] instance 'ColorPalette' of module 'RAM' has 5 connections declared, but only 4 given [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterApple.v:50]
+INFO: [Synth 8-6155] done synthesizing module 'imageSetterApple' (10#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterApple.v:1]
+INFO: [Synth 8-6157] synthesizing module 'imageSetterLemon' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterLemon.v:1]
+	Parameter VIDEO_WIDTH bound to: 640 - type: integer 
+	Parameter VIDEO_HEIGHT bound to: 480 - type: integer 
+	Parameter PIXEL_COUNT_FRUIT bound to: 2500 - type: integer 
+	Parameter FILES_PATH bound to: ../assetsMemFiles/ - type: string 
+	Parameter PIXEL_ADDRESS_WIDTH_FRUIT bound to: 13 - type: integer 
+	Parameter PIXEL_COUNT bound to: 307200 - type: integer 
+	Parameter PIXEL_ADDRESS_WIDTH bound to: 20 - type: integer 
+	Parameter BITS_PER_COLOR bound to: 12 - type: integer 
+	Parameter PALETTE_COLOR_COUNT bound to: 256 - type: integer 
+	Parameter PALETTE_ADDRESS_WIDTH bound to: 9 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'RAM__parameterized3' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:2]
+	Parameter DATA_WIDTH bound to: 9 - type: integer 
+	Parameter ADDRESS_WIDTH bound to: 13 - type: integer 
+	Parameter DEPTH bound to: 2500 - type: integer 
+	Parameter MEMFILE bound to: 256'b0010111000101110001011110110000101110011011100110110010101110100011100110100110101100101011011010100011001101001011011000110010101110011001011110110110001100101011011010110111101101110011010010110110101100001011001110110010100101110011011010110010101101101 
+INFO: [Synth 8-3876] $readmem data file '../assetsMemFiles/lemonimage.mem' is read successfully [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'RAM__parameterized3' (10#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:2]
+WARNING: [Synth 8-7071] port 'dataIn' of module 'RAM' is unconnected for instance 'ImageData' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterLemon.v:36]
+WARNING: [Synth 8-7023] instance 'ImageData' of module 'RAM' has 5 connections declared, but only 4 given [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterLemon.v:36]
+INFO: [Synth 8-6157] synthesizing module 'RAM__parameterized4' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:2]
+	Parameter DATA_WIDTH bound to: 12 - type: integer 
+	Parameter ADDRESS_WIDTH bound to: 9 - type: integer 
+	Parameter DEPTH bound to: 256 - type: integer 
+	Parameter MEMFILE bound to: 264'b001011100010111000101111011000010111001101110011011001010111010001110011010011010110010101101101010001100110100101101100011001010111001100101111011011000110010101101101011011110110111001100011011011110110110001101111011100100111001100101110011011010110010101101101 
+INFO: [Synth 8-3876] $readmem data file '../assetsMemFiles/lemoncolors.mem' is read successfully [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'RAM__parameterized4' (10#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:2]
+WARNING: [Synth 8-7071] port 'dataIn' of module 'RAM' is unconnected for instance 'ColorPalette' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterLemon.v:50]
+WARNING: [Synth 8-7023] instance 'ColorPalette' of module 'RAM' has 5 connections declared, but only 4 given [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterLemon.v:50]
+INFO: [Synth 8-6155] done synthesizing module 'imageSetterLemon' (11#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterLemon.v:1]
+INFO: [Synth 8-6157] synthesizing module 'imageSetterPear' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterPear.v:1]
+	Parameter VIDEO_WIDTH bound to: 640 - type: integer 
+	Parameter VIDEO_HEIGHT bound to: 480 - type: integer 
+	Parameter PIXEL_COUNT_FRUIT bound to: 2500 - type: integer 
+	Parameter FILES_PATH bound to: ../assetsMemFiles/ - type: string 
+	Parameter PIXEL_ADDRESS_WIDTH_FRUIT bound to: 13 - type: integer 
+	Parameter PIXEL_COUNT bound to: 307200 - type: integer 
+	Parameter PIXEL_ADDRESS_WIDTH bound to: 20 - type: integer 
+	Parameter BITS_PER_COLOR bound to: 12 - type: integer 
+	Parameter PALETTE_COLOR_COUNT bound to: 256 - type: integer 
+	Parameter PALETTE_ADDRESS_WIDTH bound to: 9 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'RAM__parameterized5' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:2]
+	Parameter DATA_WIDTH bound to: 9 - type: integer 
+	Parameter ADDRESS_WIDTH bound to: 13 - type: integer 
+	Parameter DEPTH bound to: 2500 - type: integer 
+	Parameter MEMFILE bound to: 248'b00101110001011100010111101100001011100110111001101100101011101000111001101001101011001010110110101000110011010010110110001100101011100110010111101110000011001010110000101110010011010010110110101100001011001110110010100101110011011010110010101101101 
+INFO: [Synth 8-3876] $readmem data file '../assetsMemFiles/pearimage.mem' is read successfully [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'RAM__parameterized5' (11#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:2]
+WARNING: [Synth 8-7071] port 'dataIn' of module 'RAM' is unconnected for instance 'ImageData' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterPear.v:36]
+WARNING: [Synth 8-7023] instance 'ImageData' of module 'RAM' has 5 connections declared, but only 4 given [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterPear.v:36]
+INFO: [Synth 8-6157] synthesizing module 'RAM__parameterized6' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:2]
+	Parameter DATA_WIDTH bound to: 12 - type: integer 
+	Parameter ADDRESS_WIDTH bound to: 9 - type: integer 
+	Parameter DEPTH bound to: 256 - type: integer 
+	Parameter MEMFILE bound to: 256'b0010111000101110001011110110000101110011011100110110010101110100011100110100110101100101011011010100011001101001011011000110010101110011001011110111000001100101011000010111001001100011011011110110110001101111011100100111001100101110011011010110010101101101 
+INFO: [Synth 8-3876] $readmem data file '../assetsMemFiles/pearcolors.mem' is read successfully [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'RAM__parameterized6' (11#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:2]
+WARNING: [Synth 8-7071] port 'dataIn' of module 'RAM' is unconnected for instance 'ColorPalette' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterPear.v:50]
+WARNING: [Synth 8-7023] instance 'ColorPalette' of module 'RAM' has 5 connections declared, but only 4 given [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterPear.v:50]
+INFO: [Synth 8-6155] done synthesizing module 'imageSetterPear' (12#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterPear.v:1]
+INFO: [Synth 8-6157] synthesizing module 'imageSetterBanana' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterBanana.v:1]
+	Parameter VIDEO_WIDTH bound to: 640 - type: integer 
+	Parameter VIDEO_HEIGHT bound to: 480 - type: integer 
+	Parameter PIXEL_COUNT_FRUIT bound to: 2500 - type: integer 
+	Parameter FILES_PATH bound to: ../assetsMemFiles/ - type: string 
+	Parameter PIXEL_ADDRESS_WIDTH_FRUIT bound to: 13 - type: integer 
+	Parameter PIXEL_COUNT bound to: 307200 - type: integer 
+	Parameter PIXEL_ADDRESS_WIDTH bound to: 20 - type: integer 
+	Parameter BITS_PER_COLOR bound to: 12 - type: integer 
+	Parameter PALETTE_COLOR_COUNT bound to: 256 - type: integer 
+	Parameter PALETTE_ADDRESS_WIDTH bound to: 9 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'RAM__parameterized7' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:2]
+	Parameter DATA_WIDTH bound to: 9 - type: integer 
+	Parameter ADDRESS_WIDTH bound to: 13 - type: integer 
+	Parameter DEPTH bound to: 2500 - type: integer 
+	Parameter MEMFILE bound to: 264'b001011100010111000101111011000010111001101110011011001010111010001110011010011010110010101101101010001100110100101101100011001010111001100101111011000100110000101101110011000010110111001100001011010010110110101100001011001110110010100101110011011010110010101101101 
+INFO: [Synth 8-3876] $readmem data file '../assetsMemFiles/bananaimage.mem' is read successfully [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'RAM__parameterized7' (12#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:2]
+WARNING: [Synth 8-7071] port 'dataIn' of module 'RAM' is unconnected for instance 'ImageData' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterBanana.v:36]
+WARNING: [Synth 8-7023] instance 'ImageData' of module 'RAM' has 5 connections declared, but only 4 given [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterBanana.v:36]
+INFO: [Synth 8-6157] synthesizing module 'RAM__parameterized8' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:2]
+	Parameter DATA_WIDTH bound to: 12 - type: integer 
+	Parameter ADDRESS_WIDTH bound to: 9 - type: integer 
+	Parameter DEPTH bound to: 256 - type: integer 
+	Parameter MEMFILE bound to: 272'b00101110001011100010111101100001011100110111001101100101011101000111001101001101011001010110110101000110011010010110110001100101011100110010111101100010011000010110111001100001011011100110000101100011011011110110110001101111011100100111001100101110011011010110010101101101 
+INFO: [Synth 8-3876] $readmem data file '../assetsMemFiles/bananacolors.mem' is read successfully [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'RAM__parameterized8' (12#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:2]
+WARNING: [Synth 8-7071] port 'dataIn' of module 'RAM' is unconnected for instance 'ColorPalette' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterBanana.v:50]
+WARNING: [Synth 8-7023] instance 'ColorPalette' of module 'RAM' has 5 connections declared, but only 4 given [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterBanana.v:50]
+INFO: [Synth 8-6155] done synthesizing module 'imageSetterBanana' (13#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterBanana.v:1]
+INFO: [Synth 8-6157] synthesizing module 'imageSetterCoconut' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterCoconut.v:1]
+	Parameter VIDEO_WIDTH bound to: 640 - type: integer 
+	Parameter VIDEO_HEIGHT bound to: 480 - type: integer 
+	Parameter PIXEL_COUNT_FRUIT bound to: 2500 - type: integer 
+	Parameter FILES_PATH bound to: ../assetsMemFiles/ - type: string 
+	Parameter PIXEL_ADDRESS_WIDTH_FRUIT bound to: 13 - type: integer 
+	Parameter PIXEL_COUNT bound to: 307200 - type: integer 
+	Parameter PIXEL_ADDRESS_WIDTH bound to: 20 - type: integer 
+	Parameter BITS_PER_COLOR bound to: 12 - type: integer 
+	Parameter PALETTE_COLOR_COUNT bound to: 256 - type: integer 
+	Parameter PALETTE_ADDRESS_WIDTH bound to: 9 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'RAM__parameterized9' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:2]
+	Parameter DATA_WIDTH bound to: 9 - type: integer 
+	Parameter ADDRESS_WIDTH bound to: 13 - type: integer 
+	Parameter DEPTH bound to: 2500 - type: integer 
+	Parameter MEMFILE bound to: 272'b00101110001011100010111101100001011100110111001101100101011101000111001101001101011001010110110101000110011010010110110001100101011100110010111101100011011011110110001101101111011011100111010101110100011010010110110101100001011001110110010100101110011011010110010101101101 
+INFO: [Synth 8-3876] $readmem data file '../assetsMemFiles/coconutimage.mem' is read successfully [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'RAM__parameterized9' (13#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:2]
+WARNING: [Synth 8-7071] port 'dataIn' of module 'RAM' is unconnected for instance 'ImageData' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterCoconut.v:36]
+WARNING: [Synth 8-7023] instance 'ImageData' of module 'RAM' has 5 connections declared, but only 4 given [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterCoconut.v:36]
+INFO: [Synth 8-6157] synthesizing module 'RAM__parameterized10' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:2]
+	Parameter DATA_WIDTH bound to: 12 - type: integer 
+	Parameter ADDRESS_WIDTH bound to: 9 - type: integer 
+	Parameter DEPTH bound to: 256 - type: integer 
+	Parameter MEMFILE bound to: 280'b0010111000101110001011110110000101110011011100110110010101110100011100110100110101100101011011010100011001101001011011000110010101110011001011110110001101101111011000110110111101101110011101010111010001100011011011110110110001101111011100100111001100101110011011010110010101101101 
+INFO: [Synth 8-3876] $readmem data file '../assetsMemFiles/coconutcolors.mem' is read successfully [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'RAM__parameterized10' (13#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:2]
+WARNING: [Synth 8-7071] port 'dataIn' of module 'RAM' is unconnected for instance 'ColorPalette' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterCoconut.v:50]
+WARNING: [Synth 8-7023] instance 'ColorPalette' of module 'RAM' has 5 connections declared, but only 4 given [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterCoconut.v:50]
+INFO: [Synth 8-6155] done synthesizing module 'imageSetterCoconut' (14#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/imageSetterCoconut.v:1]
+INFO: [Synth 8-6157] synthesizing module 'RAM__parameterized11' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:2]
+	Parameter DATA_WIDTH bound to: 9 - type: integer 
+	Parameter ADDRESS_WIDTH bound to: 20 - type: integer 
+	Parameter DEPTH bound to: 307200 - type: integer 
+	Parameter MEMFILE bound to: 248'b00101110001011100010111101100001011100110111001101100101011101000111001101001101011001010110110101000110011010010110110001100101011100110010111101100100011011110110101001101111011010010110110101100001011001110110010100101110011011010110010101101101 
+INFO: [Synth 8-3876] $readmem data file '../assetsMemFiles/dojoimage.mem' is read successfully [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'RAM__parameterized11' (14#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:2]
+WARNING: [Synth 8-7071] port 'dataIn' of module 'RAM' is unconnected for instance 'ImageData1' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/VGAController.v:224]
+WARNING: [Synth 8-7023] instance 'ImageData1' of module 'RAM' has 5 connections declared, but only 4 given [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/VGAController.v:224]
+INFO: [Synth 8-6157] synthesizing module 'RAM__parameterized12' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:2]
+	Parameter DATA_WIDTH bound to: 12 - type: integer 
+	Parameter ADDRESS_WIDTH bound to: 9 - type: integer 
+	Parameter DEPTH bound to: 256 - type: integer 
+	Parameter MEMFILE bound to: 256'b0010111000101110001011110110000101110011011100110110010101110100011100110100110101100101011011010100011001101001011011000110010101110011001011110110010001101111011010100110111101100011011011110110110001101111011100100111001100101110011011010110010101101101 
+INFO: [Synth 8-3876] $readmem data file '../assetsMemFiles/dojocolors.mem' is read successfully [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'RAM__parameterized12' (14#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/RAM.v:2]
+WARNING: [Synth 8-7071] port 'dataIn' of module 'RAM' is unconnected for instance 'ColorPalette1' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/VGAController.v:237]
+WARNING: [Synth 8-7023] instance 'ColorPalette1' of module 'RAM' has 5 connections declared, but only 4 given [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/VGAController.v:237]
+INFO: [Synth 8-6157] synthesizing module 'mux_eight_one' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/alu/mux_eight_one.v:1]
+INFO: [Synth 8-6157] synthesizing module 'mux_four_one' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/alu/mux_four_one.v:1]
+INFO: [Synth 8-6157] synthesizing module 'mux_two_one' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/alu/mux_two_one.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'mux_two_one' (15#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/alu/mux_two_one.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'mux_four_one' (16#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/alu/mux_four_one.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'mux_eight_one' (17#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/alu/mux_eight_one.v:1]
+WARNING: [Synth 8-689] width (12) of port connection 'out' does not match port width (32) of module 'mux_eight_one' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/VGAController.v:252]
+WARNING: [Synth 8-689] width (12) of port connection 'out' does not match port width (32) of module 'mux_eight_one' [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/VGAController.v:253]
+INFO: [Synth 8-6155] done synthesizing module 'VGAController' (18#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/ECE350_Final_Project/VGAController.v:2]
+INFO: [Synth 8-6155] done synthesizing module 'Wrapper' (19#1) [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/processor/Wrapper.v:27]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1697.430 ; gain = 460.902
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1706.996 ; gain = 470.469
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1706.996 ; gain = 470.469
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.052 . Memory (MB): peak = 1706.996 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-141] Inserted 3 OBUFs to IO ports without IO buffers.
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/constrs_1/imports/ECE350_Final_Project/constraints.xdc]
+CRITICAL WARNING: [Designutils 20-1307] Command '//' is not supported in the xdc constraint file. [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/constrs_1/imports/ECE350_Final_Project/constraints.xdc:1]
+WARNING: [Vivado 12-584] No ports matched 'clk'. [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/constrs_1/imports/ECE350_Final_Project/constraints.xdc:2]
+WARNING: [Vivado 12-584] No ports matched 'clk'. [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/constrs_1/imports/ECE350_Final_Project/constraints.xdc:3]
+CRITICAL WARNING: [Designutils 20-1307] Command '//' is not supported in the xdc constraint file. [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/constrs_1/imports/ECE350_Final_Project/constraints.xdc:5]
+CRITICAL WARNING: [Designutils 20-1307] Command '//' is not supported in the xdc constraint file. [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/constrs_1/imports/ECE350_Final_Project/constraints.xdc:9]
+CRITICAL WARNING: [Designutils 20-1307] Command '//' is not supported in the xdc constraint file. [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/constrs_1/imports/ECE350_Final_Project/constraints.xdc:35]
+WARNING: [Vivado 12-584] No ports matched 'vSync'. [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/constrs_1/imports/ECE350_Final_Project/constraints.xdc:37]
+WARNING: [Vivado 12-584] No ports matched 'vSync'. [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/constrs_1/imports/ECE350_Final_Project/constraints.xdc:39]
+CRITICAL WARNING: [Designutils 20-1307] Command '//' is not supported in the xdc constraint file. [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/constrs_1/imports/ECE350_Final_Project/constraints.xdc:41]
+Finished Parsing XDC File [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/constrs_1/imports/ECE350_Final_Project/constraints.xdc]
+WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/constrs_1/imports/ECE350_Final_Project/constraints.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/Wrapper_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
+Completed Processing XDC Constraints
+
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1737.762 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:29 ; elapsed = 00:00:19 . Memory (MB): peak = 1747.500 ; gain = 510.973
+87 Infos, 44 Warnings, 5 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:34 ; elapsed = 00:00:26 . Memory (MB): peak = 1747.500 ; gain = 733.816
+set_property IOSTANDARD LVCMOS33 [get_ports [list {anode[3]} {anode[2]} {anode[1]} {anode[0]}]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list {LEDvals[6]} {LEDvals[5]} {LEDvals[4]} {LEDvals[3]} {LEDvals[2]} {LEDvals[1]} {LEDvals[0]}]]
+place_ports {anode[3]} J17
+place_ports {anode[2]} J18
+place_ports {anode[3]} J14
+place_ports {anode[2]} T9
+place_ports {anode[1]} J18
+place_ports {anode[0]} J17
+place_ports {LEDvals[6]} T10
+place_ports {LEDvals[5]} R10
+place_ports {LEDvals[4]} K16
+place_ports {LEDvals[3]} K13
+place_ports {LEDvals[2]} P15
+place_ports {LEDvals[1]} T11
+place_ports {LEDvals[0]} L18
+set_property IOSTANDARD LVCMOS33 [get_ports [list y3]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list y2]]
+place_ports y3 M13
+place_ports y2 L16
+set_property IOSTANDARD LVCMOS33 [get_ports [list VSync]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list up_fpga]]
+place_ports VSync B12
+startgroup
+set_property package_pin "" [get_ports [list  up]]
+place_ports up_fpga M18
+endgroup
+place_ports up V12
+place_ports ss D15
+place_ports sclk F15
+startgroup
+set_property package_pin "" [get_ports [list  right]]
+place_ports right_fpga M17
+endgroup
+place_ports right V15
+place_ports resty T15
+set_property IOSTANDARD LVCMOS33 [get_ports [list ss]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list sclk]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list right_fpga]]
+place_ports restx U14
+set_property IOSTANDARD LVCMOS33 [get_ports [list restx]]
+place_ports mosi F14
+set_property IOSTANDARD LVCMOS33 [get_ports [list mosi]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list miso]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list left_fpga]]
+place_ports miso E15
+place_ports left_fpga P14
+startgroup
+set_property package_pin "" [get_ports [list  left]]
+place_ports left_fpga P17
+endgroup
+place_ports left V14
+set_property IOSTANDARD LVCMOS33 [get_ports [list down_fpga]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list clock]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list choose]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list a7]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list a6]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list a5]]
+set_property IOSTANDARD LVCMOS33 [get_ports [list a4]]
+place_ports clock E3
+place_ports choose R13
+startgroup
+set_property package_pin "" [get_ports [list  down]]
+place_ports down_fpga P18
+endgroup
+place_ports down V11
+place_ports a7 P14
+place_ports a6 T14
+place_ports a5 K2
+place_ports a4 U13
+set_property IOSTANDARD LVCMOS33 [get_ports [list resty]]
+set_property target_constrs_file C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/constrs_1/imports/ECE350_Final_Project/constraints.xdc [current_fileset -constrset]
+save_constraints -force
 reset_run synth_1
 launch_runs impl_1 -to_step write_bitstream -jobs 4
-[Sat Apr 10 21:33:44 2021] Launched synth_1...
+[Sat Apr 17 22:54:24 2021] Launched synth_1...
 Run output will be captured here: C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.runs/synth_1/runme.log
-[Sat Apr 10 21:33:44 2021] Launched impl_1...
+[Sat Apr 17 22:54:24 2021] Launched impl_1...
 Run output will be captured here: C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.runs/impl_1/runme.log
-open_hw_manager
-connect_hw_server -allow_non_jtag
-INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
-INFO: [Labtools 27-2222] Launching hw_server...
-INFO: [Labtools 27-2221] Launch Output:
-
-****** Xilinx hw_server v2020.1
-  **** Build date : May 27 2020 at 20:24:38
-    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
-
-
-INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:3042
-INFO: [Labtools 27-3417] Launching cs_server...
-INFO: [Labtools 27-2221] Launch Output:
-
-
-****** Xilinx cs_server v2020.1.0
-  **** Build date : May 13 2020-21:10:29
-    ** Copyright 2017-2020 Xilinx, Inc. All Rights Reserved.
-
-
-
-connect_hw_server: Time (s): cpu = 00:00:02 ; elapsed = 00:00:10 . Memory (MB): peak = 1012.730 ; gain = 0.000
-open_hw_target
-INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292B065C2A
-open_hw_target: Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 2249.324 ; gain = 1236.594
-set_property PROGRAM.FILE {C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.runs/impl_1/VGAController.bit} [get_hw_devices xc7a100t_0]
-current_hw_device [get_hw_devices xc7a100t_0]
-refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
-INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
-set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
-set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
-set_property PROGRAM.FILE {C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.runs/impl_1/VGAController.bit} [get_hw_devices xc7a100t_0]
-program_hw_devices [get_hw_devices xc7a100t_0]
-INFO: [Labtools 27-3164] End of startup status: HIGH
-refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
-INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
-exit
-INFO: [Common 17-206] Exiting Vivado at Sat Apr 10 22:29:34 2021...
