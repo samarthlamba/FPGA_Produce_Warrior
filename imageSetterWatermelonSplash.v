@@ -1,4 +1,4 @@
-module imageSetterAppleSplash(out, clk, x, y, xcoordinateApple, ycoordinateApple);
+module imageSetterWatermelonSplash(out, clk, x, y, xcoordinateApple, ycoordinateApple);
 
     input clk;
     output[12-1:0] out;
@@ -32,7 +32,7 @@ module imageSetterAppleSplash(out, clk, x, y, xcoordinateApple, ycoordinateApple
 		.DEPTH(PIXEL_COUNT_FRUIT), 				     // Set RAM depth to contain every pixel
 		.DATA_WIDTH(PALETTE_ADDRESS_WIDTH),      // Set data width according to the color palette
 		.ADDRESS_WIDTH(PIXEL_ADDRESS_WIDTH_FRUIT),     // Set address with according to the pixel count
-		.MEMFILE({FILES_PATH, {"applesplash", "image.mem"}})) // Memory initialization
+		.MEMFILE({FILES_PATH, {"watermelonsplash", "image.mem"}})) // Memory initialization
 	ImageData(
 		.clk(clk), 						 // Falling edge of the 100 MHz clk
 		.addr(imgAddress),					 // Image data address
@@ -46,7 +46,7 @@ module imageSetterAppleSplash(out, clk, x, y, xcoordinateApple, ycoordinateApple
 		.DEPTH(PALETTE_COLOR_COUNT), 		       // Set depth to contain every color		
 		.DATA_WIDTH(BITS_PER_COLOR), 		       // Set data width according to the bits per color
 		.ADDRESS_WIDTH(PALETTE_ADDRESS_WIDTH),     // Set address width according to the color count
-		.MEMFILE({FILES_PATH, {"applesplash", "colors.mem"}}))  // Memory initialization
+		.MEMFILE({FILES_PATH, {"watermelonsplash", "colors.mem"}}))  // Memory initialization
 	ColorPalette(
 		.clk(clk), 							   	   // Rising edge of the 100 MHz clk
 		.addr(colorAddr),					       // Address from the ImageData RAM

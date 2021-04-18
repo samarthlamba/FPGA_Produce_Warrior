@@ -13,10 +13,11 @@ seed, load);
         begin
             clk = 0;
             load = 0;
-            seed = 7'd2;
+            seed = 7'd3;
             rst = 0;
-            #10 rst = 1;
-            #10 rst = 0;
+            
+    #100 load = 1;
+    #4500 load = 0;
         end
 // drive clock
 always
@@ -24,15 +25,16 @@ always
         #50 clk = !clk;
     end
 // program lfsr
-initial begin
-    #100 load = 1;
-    #4500 load = 0;
-
-end
 
     always @(q) begin
     #1;
     $display("Output:%d, %b",q, load);
 
 end
+ initial begin
+        // Output file name 
+        $dumpfile("lfsr.vcd");
+        //Module to capture and what level, 0 means all wires
+        $dumpvars(0, lfsr_tb);
+    end
 endmodule
