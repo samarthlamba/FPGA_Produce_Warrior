@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Sun Apr 11 15:57:16 2021
+# Process ID: 14124
+# Current directory: C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer/accelerometer.runs/synth_1
+# Command line: vivado.exe -log Nexys4UserDemo.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Nexys4UserDemo.tcl
+# Log file: C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer/accelerometer.runs/synth_1/Nexys4UserDemo.vds
+# Journal file: C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/accelerometer/accelerometer.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source Nexys4UserDemo.tcl -notrace

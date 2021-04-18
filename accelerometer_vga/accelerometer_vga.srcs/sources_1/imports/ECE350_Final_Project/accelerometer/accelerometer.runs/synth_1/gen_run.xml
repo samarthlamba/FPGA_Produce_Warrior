@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1618171033">
+  <File Type="PA-TCL" Name="Nexys4UserDemo.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="Nexys4UserDemo_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="Nexys4UserDemo_reports.tcl"/>
+  <File Type="RDS-RDS" Name="Nexys4UserDemo.vds"/>
+  <File Type="RDS-UTIL" Name="Nexys4UserDemo_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="Nexys4UserDemo_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="Nexys4UserDemo.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="Nexys4UserDemo_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="Nexys4UserDemo_timing_summary_synth.pb"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/ADXL362Ctrl.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/hdl/ADXL362Ctrl.vhd"/>
+        <Attr Name="ImportTime" Val="1618170946"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/AccelArithmetics.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/hdl/AccelArithmetics.vhd"/>
+        <Attr Name="ImportTime" Val="1618170946"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/accelerometer/AccelDisplay.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/AccelDisplay.vhd"/>
+        <Attr Name="ImportTime" Val="1618169342"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/AccelerometerCtl.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/hdl/AccelerometerCtl.vhd"/>
+        <Attr Name="ImportTime" Val="1618170946"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/AudioDemo.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/hdl/AudioDemo.vhd"/>
+        <Attr Name="ImportTime" Val="1618170946"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/Dbncr.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/hdl/Dbncr.vhd"/>
+        <Attr Name="ImportTime" Val="1618170946"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/FPGAMonitor.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/hdl/FPGAMonitor.vhd"/>
+        <Attr Name="ImportTime" Val="1618170946"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/LedBar.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/hdl/LedBar.vhd"/>
+        <Attr Name="ImportTime" Val="1618170946"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/LocalRst.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/hdl/LocalRst.vhd"/>
+        <Attr Name="ImportTime" Val="1618170946"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/LogoDisplay.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/hdl/LogoDisplay.vhd"/>
+        <Attr Name="ImportTime" Val="1618170947"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/MicDisplay.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/hdl/MicDisplay.vhd"/>
+        <Attr Name="ImportTime" Val="1618170947"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/MouseCtl.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/hdl/MouseCtl.vhd"/>
+        <Attr Name="ImportTime" Val="1618170947"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/MouseDisplay.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/hdl/MouseDisplay.vhd"/>
+        <Attr Name="ImportTime" Val="1618170947"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/OverlayCtl.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/hdl/OverlayCtl.vhd"/>
+        <Attr Name="ImportTime" Val="1618170947"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/PdmDes.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/hdl/PdmDes.vhd"/>
+        <Attr Name="ImportTime" Val="1618170947"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/PdmSer.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/hdl/PdmSer.vhd"/>
+        <Attr Name="ImportTime" Val="1618170947"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/Ps2Interface.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/hdl/Ps2Interface.vhd"/>
+        <Attr Name="ImportTime" Val="1618170947"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/PsramCntrl.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/hdl/PsramCntrl.vhd"/>
+        <Attr Name="ImportTime" Val="1618170947"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/Pwm.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/hdl/Pwm.vhd"/>
+        <Attr Name="ImportTime" Val="1618170947"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/RgbLed.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/hdl/RgbLed.vhd"/>
+        <Attr Name="ImportTime" Val="1618170947"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/RgbLedDisplay.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/hdl/RgbLedDisplay.vhd"/>
+        <Attr Name="ImportTime" Val="1618170947"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/SPI_If.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/hdl/SPI_If.vhd"/>
+        <Attr Name="ImportTime" Val="1618170947"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/TWICtl.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/hdl/TWICtl.vhd"/>
+        <Attr Name="ImportTime" Val="1618170947"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/TempDisplay.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/hdl/TempDisplay.vhd"/>
+        <Attr Name="ImportTime" Val="1618170947"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/TempSensorCtl.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/hdl/TempSensorCtl.vhd"/>
+        <Attr Name="ImportTime" Val="1618170947"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/Vga.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/hdl/Vga.vhd"/>
+        <Attr Name="ImportTime" Val="1618170947"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/sSegDemo.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/hdl/sSegDemo.vhd"/>
+        <Attr Name="ImportTime" Val="1618170947"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/sSegDisplay.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/hdl/sSegDisplay.vhd"/>
+        <Attr Name="ImportTime" Val="1618170947"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/Nexys4UserDemo.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/hdl/Nexys4UserDemo.vhd"/>
+        <Attr Name="ImportTime" Val="1618170947"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/hdl/AccelDisplay.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/hdl/AccelDisplay.vhd"/>
+        <Attr Name="ImportTime" Val="1618170946"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="Nexys4UserDemo"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/new/constraints.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/constrs_1/imports/constraints/Nexys4_Master.xdc">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../../../Downloads/Nexys-4-OOB-master/Nexys-4-OOB-master/src/constraints/Nexys4_Master.xdc"/>
+        <Attr Name="ImportTime" Val="1618170946"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/new/constraints.xdc"/>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020">
+      <Desc>Vivado Synthesis Defaults</Desc>
+    </StratHandle>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>

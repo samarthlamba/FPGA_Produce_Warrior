@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="49" Path="C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.xpr">
+<Project Version="7" Minor="49" Path="C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="dede34b54c3f4596a348ccc824524436"/>
@@ -75,6 +75,15 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/VGAController.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../VGAController.v"/>
+          <Attr Name="ImportTime" Val="1617842120"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/VGATimingGenerator.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../VGATimingGenerator.v"/>
@@ -111,6 +120,42 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/imageSetterBanana.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../imageSetterBanana.v"/>
+          <Attr Name="ImportTime" Val="1618543043"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/imageSetterCoconut.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../imageSetterCoconut.v"/>
+          <Attr Name="ImportTime" Val="1618543076"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/imageSetterLemon.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../imageSetterLemon.v"/>
+          <Attr Name="ImportTime" Val="1618543187"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/imageSetterPear.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../imageSetterPear.v"/>
+          <Attr Name="ImportTime" Val="1618543158"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/imports/alu/mux_eight_one.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../finalProject/processor/alu/mux_eight_one.v"/>
@@ -138,10 +183,39 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/VGAController.v">
+      <File Path="$PSRCDIR/sources_1/imports/sevenseg/seven_seg_counter.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../VGAController.v"/>
-          <Attr Name="ImportTime" Val="1617842120"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/accelerometer/ADXL362Ctrl.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/accelerometer/AccelArithmetics.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/accelerometer/AccelerometerCtl.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/accelerometer/SPI_If.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/processor/Wrapper.v">
+        <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -158,7 +232,7 @@
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/image.mem">
-        <FileInfo>
+        <FileInfo RelPath="image.mem">
           <Attr Name="ImportPath" Val="$PPRDIR/../assets/assetsMemFiles/image.mem"/>
           <Attr Name="ImportTime" Val="1617569148"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -166,7 +240,7 @@
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/applecolors.mem">
-        <FileInfo>
+        <FileInfo RelPath="applecolors.mem">
           <Attr Name="ImportPath" Val="$PPRDIR/../assets/assetsMemFiles/applecolors.mem"/>
           <Attr Name="ImportTime" Val="1617842120"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -174,7 +248,7 @@
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/colors.mem">
-        <FileInfo>
+        <FileInfo RelPath="colors.mem">
           <Attr Name="ImportPath" Val="$PPRDIR/../assets/assetsMemFiles/colors.mem"/>
           <Attr Name="ImportTime" Val="1617569148"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -182,7 +256,7 @@
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/dojocolors.mem">
-        <FileInfo>
+        <FileInfo RelPath="dojocolors.mem">
           <Attr Name="ImportPath" Val="$PPRDIR/../assets/assetsMemFiles/dojocolors.mem"/>
           <Attr Name="ImportTime" Val="1617573247"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -190,7 +264,7 @@
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/appleimage.mem">
-        <FileInfo>
+        <FileInfo RelPath="appleimage.mem">
           <Attr Name="ImportPath" Val="$PPRDIR/../assets/assetsMemFiles/appleimage.mem"/>
           <Attr Name="ImportTime" Val="1617842120"/>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -198,16 +272,88 @@
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/dojoimage.mem">
-        <FileInfo>
+        <FileInfo RelPath="dojoimage.mem">
           <Attr Name="ImportPath" Val="$PPRDIR/../assets/assetsMemFiles/dojoimage.mem"/>
           <Attr Name="ImportTime" Val="1617573247"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/apple2colors.mem">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/pearimage.mem">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/bananacolors.mem">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/watermelonimage.mem">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/watermeloncolors.mem">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/coconutcolors.mem">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/pearcolors.mem">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/bananaimage.mem">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/lemoncolors.mem">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/lemonimage.mem">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/coconutimage.mem">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/apple2image.mem">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="VGAController"/>
+        <Option Name="TopModule" Val="Wrapper"/>
         <Option Name="TopAutoSet" Val="TRUE"/>
       </Config>
     </FileSet>
@@ -222,6 +368,7 @@
         </FileInfo>
       </File>
       <Config>
+        <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/imports/ECE350_Final_Project/constraints.xdc"/>
         <Option Name="ConstrsType" Val="XDC"/>
       </Config>
     </FileSet>
@@ -229,7 +376,7 @@
       <Filter Type="Srcs"/>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="VGAController"/>
+        <Option Name="TopModule" Val="Wrapper"/>
         <Option Name="TopLib" Val="xil_defaultlib"/>
         <Option Name="TopAutoSet" Val="TRUE"/>
         <Option Name="TransportPathDelay" Val="0"/>

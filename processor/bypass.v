@@ -1,8 +1,8 @@
-module bypass(ALUinB, ALUinA, FDBranches, FDBranchesB, dataMem, inst_out_fd, DX_inst, XM_inst, MW_inst, oneHotEncodedopCodeDX, isSavingToRegister);
+module bypass(ALUinB, ALUinA, FDBranches, FDBranchesB, dataMem, inst_out_fd, DX_inst, XM_inst, MW_inst, oneHotEncodedopCodeDX);
 //describes all the red bypass on slide 32: http://people.ee.duke.edu/~jab/ece350/Protected/Lecture%2013.pdf. 
 //From left to right
 input [31:0] inst_out_fd, DX_inst, XM_inst, MW_inst, oneHotEncodedopCodeDX;
-input isSavingToRegister;
+
 output [1:0] ALUinB, ALUinA, FDBranches,FDBranchesB;
 output dataMem;
 
@@ -10,11 +10,11 @@ output dataMem;
 wire Branch0,Branch1, Branch2, isUpdatingInstructionDX, isUpdatingInstructionXM, isUpdatingInstructionMW;
   //  xnor dxRSAndxmRD(ALUinAtemp, DX_inst, )
 // assign ALUinAtemp = 
-  assign isUpdatingInstructionDX = (DX_inst[31:27] == 5'b0 || DX_inst[31:27] == 5'b01000 || DX_inst[31:27] == 5'b00101 || DX_inst[31:27] == 5'b00011);
+  assign isUpdatingInstructionDX = (DX_inst[31:27] == 5'b10000 || DX_inst[31:27] == 5'b0 || DX_inst[31:27] == 5'b01000 || DX_inst[31:27] == 5'b00101 || DX_inst[31:27] == 5'b00011);
   assign Branch0 = inst_out_fd[26:22] == DX_inst[26:22] && DX_inst[26:22] != 5'b0 && isUpdatingInstructionDX; //add r0 check
-  assign isUpdatingInstructionXM = (XM_inst[31:27] == 5'b0 || XM_inst[31:27] == 5'b01000 || XM_inst[31:27] == 5'b00101 || XM_inst[31:27] == 5'b00011);
+  assign isUpdatingInstructionXM = (XM_inst[31:27] == 5'b10000 || XM_inst[31:27] == 5'b0 || XM_inst[31:27] == 5'b01000 || XM_inst[31:27] == 5'b00101 || XM_inst[31:27] == 5'b00011);
   assign Branch1 = inst_out_fd[26:22] == XM_inst[26:22] && XM_inst[26:22] != 5'b0 && isUpdatingInstructionXM;
-  assign isUpdatingInstructionMW = (MW_inst[31:27] == 5'b0 || MW_inst[31:27] == 5'b01000 || MW_inst[31:27] == 5'b00101 || MW_inst[31:27] == 5'b00011);
+  assign isUpdatingInstructionMW = (MW_inst[31:27] == 5'b10000 || MW_inst[31:27] == 5'b0 || MW_inst[31:27] == 5'b01000 || MW_inst[31:27] == 5'b00101 || MW_inst[31:27] == 5'b00011);
   assign Branch2 = inst_out_fd[26:22] == MW_inst[26:22] && MW_inst[26:22] != 5'b0 && isUpdatingInstructionMW;
 
   
@@ -37,7 +37,7 @@ wire ALUinA0,ALUinA1, ALUinA2, ALUinA3;
 // assign ALUinAtemp = 
 
   assign ALUinA0 = DX_inst[21:17] == XM_inst[26:22] && XM_inst[26:22] != 5'b0 && isUpdatingInstructionXM; //add r0 check
-  assign ALUinA1 = isSavingToRegister && DX_inst[21:17] == MW_inst[26:22] && MW_inst[26:22] != 5'b0 && isUpdatingInstructionMW;
+  assign ALUinA1 = DX_inst[21:17] == MW_inst[26:22] && MW_inst[26:22] != 5'b0 && isUpdatingInstructionMW;
   assign ALUinA3 = XM_inst[31:27] == 5'b01000 &&  ALUinA0 && isUpdatingInstructionXM;//output to data mem
   assign ALUinA2 = ~(ALUinA0 || ALUinA1 || ALUinA3);
   

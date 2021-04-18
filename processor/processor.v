@@ -154,7 +154,7 @@ module processor(
     wire [7:0] randomOut;
     
    // seed = final_inst_in_fd[31:27] == 5'd16?final_inst_in_fd[7:0]:8'd2;
-    lfsr randomness(randomOut, clock, inst_out_fd[8], 8'd2, PC_out!= 32'd0, 1'b1);
+    lfsr randomness(randomOut, clock, 1'b0, 8'd2, PC_out!= 32'd0, 1'b1);
     
     //determines next value for PC in case we branched
     cla_32_bit_adder adderAfterPC(new_PC_addition, sign_extended_branch, pc_out_fd, PC_additionSignExtension, 1'b0);
@@ -182,7 +182,7 @@ module processor(
     wire dataMem;
 
     //Bypass can be put in any place. Works all over
-    bypass bypassChecker(ALUinB, ALUinA, FDBranches, FDBranchesB, dataMem, inst_out_fd, inst_out_dx, inst_out_xm, inst_out_mw, oneHotEncodedopCodeDX, ctrl_writeEnable);
+    bypass bypassChecker(ALUinB, ALUinA, FDBranches, FDBranchesB, dataMem, inst_out_fd, inst_out_dx, inst_out_xm, inst_out_mw, oneHotEncodedopCodeDX);
    
     // checks if it is addi/sw/lw since we need sign extended immediate
     or checkifIsAddiSWLW(isAddi_sw_lw, oneHotEncodedopCodeDX[5], oneHotEncodedopCodeDX[7], oneHotEncodedopCodeDX[8]);
