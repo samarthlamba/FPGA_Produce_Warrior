@@ -1,0 +1,14 @@
+alu.v
+decoder.v
+dffe_ref.v
+dffe_ref_neg.v
+divider.v
+division.v
+multdiv.v
+multiplication.v
+multiplier.v
+regfile.v
+regfile_tb.v
+register_32bits.v
+srLatch.v
+tri_state_buffer.v
