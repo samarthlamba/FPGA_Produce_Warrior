@@ -12,7 +12,9 @@ module VGAController(
 	output[3:0] VGA_G,  // Green Signal Bits
 	output[3:0] VGA_B,  // Blue Signal Bits
 	inout ps2_clk,
-	inout ps2_data);
+	inout ps2_data,
+	input[8:0] x_accelerometer,
+	input[8:0] y_accelerometer);
 	
 	// Lab Memory Files Location
 	localparam FILES_PATH = "../assetsMemFiles/";
@@ -157,14 +159,16 @@ module VGAController(
         if(ycoordinateCoconut >= 9'd180 && screenEnd && coconutUp == 1'b0)
             ycoordinateCoconut = ycoordinateCoconut - 1'b1;
                    
-        if(ycoordinateLemon <= 9'd480 && screenEnd && lemonUp == 1'b1)
-            ycoordinateLemon = ycoordinateLemon + 1'b1;
-        else if(ycoordinateLemon > 9'd480 && lemonUp == 1'b1)
-            lemonUp = ~lemonUp;
-        if(ycoordinateLemon < 9'd180 && lemonUp == 1'b0)
-            lemonUp = ~lemonUp;
-        if(ycoordinateLemon >= 9'd180 && screenEnd && lemonUp == 1'b0)
-            ycoordinateLemon = ycoordinateLemon - 1'b1;                
+//        if(ycoordinateLemon <= 9'd480 && screenEnd && lemonUp == 1'b1)
+//            ycoordinateLemon = ycoordinateLemon + 1'b1;
+//        else if(ycoordinateLemon > 9'd480 && lemonUp == 1'b1)
+//            lemonUp = ~lemonUp;
+//        if(ycoordinateLemon < 9'd180 && lemonUp == 1'b0)
+//            lemonUp = ~lemonUp;
+//        if(ycoordinateLemon >= 9'd180 && screenEnd && lemonUp == 1'b0)
+//            ycoordinateLemon = ycoordinateLemon - 1'b1;   
+        xcoordinateLemon = x_accelerometer;
+		ycoordinateLemon = y_accelerometer;             
      
         
     end
