@@ -108,7 +108,7 @@ module VGAController(
 	end
     encoder_8_bit chooser(chosenForeground, 1'b1, appleStatus && colorDataBackgroundApple !=12'h000, waterStatus && colorDataBackgroundWatermelon !=12'h000, lemonStatus && colorDataBackgroundLemon !=12'h000, pearStatus && colorDataBackgroundPear !=12'h000, bananaStatus && colorDataBackgroundBanana !=12'h000, coconutStatus && colorDataBackgroundCoconut !=12'h000, 1'b0);
     encoder_8_bit chooser2(chosenForeBackground, 1'b1, appleStatus && chosenForeground != 3'd1, waterStatus && chosenForeground != 3'd2, lemonStatus  && chosenForeground != 3'd3, pearStatus && chosenForeground != 3'd4, bananaStatus && chosenForeground != 3'd5, coconutStatus && chosenForeground != 3'd6, 1'b0);
-    
+     
     always @(posedge clk) begin
         if(ycoordinateWater <= 9'd480 && screenEnd && waterUp == 1'b1)
             ycoordinateWater = ycoordinateWater + 1'b1;
