@@ -66,10 +66,64 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/DX.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/DX.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/FD.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/FD.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/MW.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/MW.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/PC.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/PC.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/RAM.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../RAM.v"/>
           <Attr Name="ImportTime" Val="1617564913"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/RAM.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/RAM.v"/>
+          <Attr Name="ImportTime" Val="1618728254"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/ROM.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/ROM.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -93,10 +147,145 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/XM.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/XM.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/Provided Behavioral Components/alu.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/Provided Behavioral Components/alu.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/bitwise_not.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/bitwise_not.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/booth.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/booth.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/booth_calc.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/booth_calc.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/bypass.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/bypass.v"/>
+          <Attr Name="ImportTime" Val="1618707553"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/cla_32_bit_adder.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/cla_32_bit_adder.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/cla_8_bit_adder.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/cla_8_bit_adder.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/complement.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/complement.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/decoder.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/decoder.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/Provided Behavioral Components/dffe_ref.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/Provided Behavioral Components/dffe_ref.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/Provided Behavioral Components/dffe_ref_neg.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/Provided Behavioral Components/dffe_ref_neg.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/division.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/division.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/encoder.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/encoder.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/imports/processor/encoder_8_bit.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../finalProject/processor/encoder_8_bit.v"/>
           <Attr Name="ImportTime" Val="1616827375"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/four_bit_flip_flop.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/four_bit_flip_flop.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -156,6 +345,78 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/left_shift_16_bits.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/left_shift_16_bits.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/left_shift_1_bits.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/left_shift_1_bits.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/left_shift_2_bits.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/left_shift_2_bits.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/left_shift_4_bits.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/left_shift_4_bits.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/left_shift_8_bits.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/left_shift_8_bits.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/lfsr.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/lfsr.v"/>
+          <Attr Name="ImportTime" Val="1618202115"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/Provided Behavioral Components/multdiv.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/Provided Behavioral Components/multdiv.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/multiplication.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/multiplication.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/imports/alu/mux_eight_one.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../finalProject/processor/alu/mux_eight_one.v"/>
@@ -183,8 +444,107 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/imports/alu/mux_two_one_1bit.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../finalProject/processor/alu/mux_two_one_1bit.v"/>
+          <Attr Name="ImportTime" Val="1616454430"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/overflow.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/overflow.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/processor.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/processor.v"/>
+          <Attr Name="ImportTime" Val="1618708648"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/Provided Behavioral Components/regfile.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/Provided Behavioral Components/regfile.v"/>
+          <Attr Name="ImportTime" Val="1618202115"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/register_32bits.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/register_32bits.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/register_65bits.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/register_65bits.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/imports/sevenseg/seven_seg_counter.v">
         <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/sll.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/sll.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/srLatch.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/srLatch.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/stall.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/stall.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/t_flip_flop.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/t_flip_flop.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/tri_state_buffer.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/tri_state_buffer.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -216,16 +576,6 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/processor/Wrapper.v">
         <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/alu/mux_two_one_1bit.v">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../finalProject/processor/alu/mux_two_one_1bit.v"/>
-          <Attr Name="ImportTime" Val="1616454430"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -347,6 +697,314 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/apple2image.mem">
         <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/right_shift_1_bits.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/right_shift_1_bits.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/right_shift_2_bits.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/right_shift_2_bits.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/right_shift_4_bits.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/right_shift_4_bits.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/multdiv_tb.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/multdiv_tb.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/mux_two_one_1bit.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/mux_two_one_1bit.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/booth_calc_tb.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/booth_calc_tb.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/booth_tb.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/booth_tb.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/bitwise_and.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/bitwise_and.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/right_shift_8_bits.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/right_shift_8_bits.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/Wrapper_tb.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/Wrapper_tb.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/alu_tb.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/alu_tb.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/right_shift_16_bits.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/right_shift_16_bits.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/Provided Behavioral Components/divider.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/Provided Behavioral Components/divider.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/mux_32_one.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/mux_32_one.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/bitwise_or.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/bitwise_or.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/complement_tb.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/complement_tb.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/Wrapper.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/Wrapper.v"/>
+          <Attr Name="ImportTime" Val="1618709183"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/mux_four_one.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/mux_four_one.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/multiplication_tb.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/multiplication_tb.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/mux_eight_one.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/mux_eight_one.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/encoder_8_bit_tb.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/encoder_8_bit_tb.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/regfile_tb.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/regfile_tb.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/encoder_8_bit.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/encoder_8_bit.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/Provided Behavioral Components/multiplier.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/Provided Behavioral Components/multiplier.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/mux_two_one.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/mux_two_one.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/sra.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/sra.v"/>
+          <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/alu/mux_two_one_1bit.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../alu/mux_two_one_1bit.v"/>
+          <Attr Name="ImportTime" Val="1618725316"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/alu/mux_two_one.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../alu/mux_two_one.v"/>
+          <Attr Name="ImportTime" Val="1618725316"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/alu/mux_eight_one.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../alu/mux_eight_one.v"/>
+          <Attr Name="ImportTime" Val="1618725316"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/alu/mux_four_one.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../alu/mux_four_one.v"/>
+          <Attr Name="ImportTime" Val="1618725316"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Memory Files/lw_sw.mem">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/Test Files/Memory Files/lw_sw.mem"/>
+          <Attr Name="ImportTime" Val="1618727518"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>

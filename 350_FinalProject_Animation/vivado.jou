@@ -2,93 +2,13 @@
 # Vivado v2020.1 (64-bit)
 # SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Sat Apr 17 22:21:50 2021
-# Process ID: 37208
+# Start of session at: Sun Apr 18 02:47:58 2021
+# Process ID: 4132
 # Current directory: C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent35880 C:\Users\reyam\Desktop\ECE350Project\ECE350_Final_Project\350_FinalProject_Animation\350_FinalProject_Animation.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent20352 C:\Users\reyam\Desktop\ECE350Project\ECE350_Final_Project\350_FinalProject_Animation\350_FinalProject_Animation.xpr
 # Log file: C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/vivado.log
 # Journal file: C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.xpr
 update_compile_order -fileset sources_1
-add_files -norecurse -scan_for_includes {C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/accelerometer/AccelerometerCtl.vhd C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/accelerometer/ADXL362Ctrl.vhd C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/sevenseg/seven_seg_counter.v C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/accelerometer/AccelArithmetics.vhd C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/accelerometer/SPI_If.vhd C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/processor/Wrapper.v}
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-synth_design -rtl -name rtl_1
-set_property IOSTANDARD LVCMOS33 [get_ports [list {anode[3]} {anode[2]} {anode[1]} {anode[0]}]]
-set_property IOSTANDARD LVCMOS33 [get_ports [list {LEDvals[6]} {LEDvals[5]} {LEDvals[4]} {LEDvals[3]} {LEDvals[2]} {LEDvals[1]} {LEDvals[0]}]]
-place_ports {anode[3]} J17
-place_ports {anode[2]} J18
-place_ports {anode[3]} J14
-place_ports {anode[2]} T9
-place_ports {anode[1]} J18
-place_ports {anode[0]} J17
-place_ports {LEDvals[6]} T10
-place_ports {LEDvals[5]} R10
-place_ports {LEDvals[4]} K16
-place_ports {LEDvals[3]} K13
-place_ports {LEDvals[2]} P15
-place_ports {LEDvals[1]} T11
-place_ports {LEDvals[0]} L18
-set_property IOSTANDARD LVCMOS33 [get_ports [list y3]]
-set_property IOSTANDARD LVCMOS33 [get_ports [list y2]]
-place_ports y3 M13
-place_ports y2 L16
-set_property IOSTANDARD LVCMOS33 [get_ports [list VSync]]
-set_property IOSTANDARD LVCMOS33 [get_ports [list up_fpga]]
-place_ports VSync B12
-startgroup
-set_property package_pin "" [get_ports [list  up]]
-place_ports up_fpga M18
-endgroup
-place_ports up V12
-place_ports ss D15
-place_ports sclk F15
-startgroup
-set_property package_pin "" [get_ports [list  right]]
-place_ports right_fpga M17
-endgroup
-place_ports right V15
-place_ports resty T15
-set_property IOSTANDARD LVCMOS33 [get_ports [list ss]]
-set_property IOSTANDARD LVCMOS33 [get_ports [list sclk]]
-set_property IOSTANDARD LVCMOS33 [get_ports [list right_fpga]]
-place_ports restx U14
-set_property IOSTANDARD LVCMOS33 [get_ports [list restx]]
-place_ports mosi F14
-set_property IOSTANDARD LVCMOS33 [get_ports [list mosi]]
-set_property IOSTANDARD LVCMOS33 [get_ports [list miso]]
-set_property IOSTANDARD LVCMOS33 [get_ports [list left_fpga]]
-place_ports miso E15
-place_ports left_fpga P14
-startgroup
-set_property package_pin "" [get_ports [list  left]]
-place_ports left_fpga P17
-endgroup
-place_ports left V14
-set_property IOSTANDARD LVCMOS33 [get_ports [list down_fpga]]
-set_property IOSTANDARD LVCMOS33 [get_ports [list clock]]
-set_property IOSTANDARD LVCMOS33 [get_ports [list choose]]
-set_property IOSTANDARD LVCMOS33 [get_ports [list a7]]
-set_property IOSTANDARD LVCMOS33 [get_ports [list a6]]
-set_property IOSTANDARD LVCMOS33 [get_ports [list a5]]
-set_property IOSTANDARD LVCMOS33 [get_ports [list a4]]
-place_ports clock E3
-place_ports choose R13
-startgroup
-set_property package_pin "" [get_ports [list  down]]
-place_ports down_fpga P18
-endgroup
-place_ports down V11
-place_ports a7 P14
-place_ports a6 T14
-place_ports a5 K2
-place_ports a4 U13
-set_property IOSTANDARD LVCMOS33 [get_ports [list resty]]
-set_property target_constrs_file C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/constrs_1/imports/ECE350_Final_Project/constraints.xdc [current_fileset -constrset]
-save_constraints -force
-reset_run synth_1
-launch_runs impl_1 -to_step write_bitstream -jobs 4
-wait_on_run impl_1
