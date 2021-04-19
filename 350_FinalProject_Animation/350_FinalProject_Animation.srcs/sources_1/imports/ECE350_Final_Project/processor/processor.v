@@ -106,8 +106,9 @@ module processor(
     
     //---------------------------------------------------------------------------------------------------//
     //FD section
-    wire [31:0] inst_out_fd;
+    wire [31:0] inst_out_fd, inst_out_fd_final;
     FD fd1(inst_out_fd, pc_out_fd, final_inst_in_fd, PC_in, clock, en, reset);
+    assign inst_out_fd_final = inst_out_fd;
 
     //creates decoder
     decoder opCode0(1'b1, inst_out_fd[31:27], oneHotEncodedopCodeFD);
@@ -158,7 +159,12 @@ module processor(
     
     //determines next value for PC in case we branched
     cla_32_bit_adder adderAfterPC(new_PC_addition, sign_extended_branch, pc_out_fd, PC_additionSignExtension, 1'b0);
-    
+    reg [31:0] dffe_out;
+    always @(inst_out_fd) begin
+        dffe_out = inst_out_fd;
+    end
+    wire [31:0] final_dffeout;
+    assign final_dffeout = dffe_out;
     //-------------------------------------------------------------------------------------------//
     // Decode Execute
     wire [31:0] inst_out_dx, pc_out_dx, A_out_dx, B_out_dx, sign_extended_immediate;
@@ -169,7 +175,7 @@ module processor(
     wire [4:0] actualALU_op, ctrl_shiftamt;
     wire [2:0] rStatus;
 
-    DX DXLatch(inst_out_dx, pc_out_dx, A_out_dx, B_out_dx, inst_out_fd, pc_out_fd, data_readRegA, data_readRegB, clock, en, reset);
+    DX DXLatch(inst_out_dx, pc_out_dx, A_out_dx, B_out_dx, final_dffeout, pc_out_fd, data_readRegA, data_readRegB, clock, en, reset);
   
     decoder opCode(1'b1, inst_out_dx[31:27], oneHotEncodedopCodeDX);
 
