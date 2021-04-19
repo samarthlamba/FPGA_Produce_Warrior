@@ -24,7 +24,7 @@
  *
  **/
 
-module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx, resty, hSync, VSync, VGA_R, VGA_B, VGA_G, up_fpga, down_fpga, right_fpga, left_fpga, ps2_clk, ps2_data, anode, a7, a6, a5, a4, y2, y3, LEDvals, choose, sevenreset);
+module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx, resty, hSync, VSync, VGA_R, VGA_B, VGA_G, up_fpga, down_fpga, right_fpga, left_fpga, ps2_clk, ps2_data, anode, a7, a6, a5, a4, y2, y3, LEDvals, choose, sevenreset, LED_out, LED_out2);
 	input clock, reset, miso, sevenreset;
 	output sclk, mosi, ss;
 	output up, down, left ,right, restx, resty;
@@ -32,6 +32,8 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	output VSync;
 	output[3:0] VGA_R, VGA_B, VGA_G;
 	output[3:0] anode;
+	output LED_out;
+	output LED_out2;
 	output a7, a6, a5, a4;
 	inout ps2_clk;
 	inout ps2_data;
@@ -94,12 +96,23 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	assign restx = restx1;
 	assign resty = resty1;
 
-	
 	// ADD YOUR MEMORY FILE HERE
-	localparam INSTR_FILE = "../Memory Files/lw_sw";
+	localparam INSTR_FILE = "C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/Memory Files/lw_sw";
+	reg clk50 = 0;
+	reg [3:0] counter50Mh = 4'd0;
+	wire [3:0]counterLimit;
+	assign counterLimit =4'd10;
 	
+	always @(posedge clock) begin
+	   if(counter50Mh < counterLimit)
+	           counter50Mh <= counter50Mh +1;
+	   else begin
+	       counter50Mh <= 0;
+	       clk50 <= ~clk50;
+	   end
+	   end
 	// Main Processing Unit
-	processor CPU(.clock(clock), .reset(reset), 
+	processor CPU(.clock(clk50), .reset(reset), 
 								
 		// ROM
 		.address_imem(instAddr), .q_imem(instData),
@@ -115,12 +128,12 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	
 	// Instruction Memory (ROM)
 	ROM #(.MEMFILE({INSTR_FILE, ".mem"}))
-	InstMem(.clk(clock), 
+	InstMem(.clk(clk50), 
 		.addr(instAddr[11:0]), 
 		.dataOut(instData));
 	
 	// Register File
-	regfile RegisterFile(.clock(clock), 
+	regfile RegisterFile(.clock(clk50), 
 		.ctrl_writeEnable(rwe), .ctrl_reset(reset), 
 		.ctrl_writeReg(rd),
 		.ctrl_readRegA(rs1), .ctrl_readRegB(rs2), 
@@ -130,7 +143,7 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	.reg_14_y(reg_14_y), .reg_15_y(reg_15_y), .reg_16_y(reg_16_y), .reg_29_rand(reg_29_rand));
 						
 	// Processor Memory (RAM)
-	RAM ProcMem(.clk(clock), 
+	RAM ProcMem(.clk(clk50), 
 		.wEn(mwe), 
 		.addr(memAddr[11:0]), 
 		.dataIn(memDataIn), 

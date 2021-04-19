@@ -116,3 +116,5 @@ set_property PACKAGE_PIN H17 [get_ports LED_out2]
 
 
 set_property ALLOW_COMBINATORIAL_LOOPS true [get_nets CPU/DXLatch/regPC/d_flip_flop27/q_reg_1]
+
+set_property ALLOW_COMBINATORIAL_LOOPS true [get_nets CPU/DXLatch/regPC/d_flip_flop2/q_reg_2]

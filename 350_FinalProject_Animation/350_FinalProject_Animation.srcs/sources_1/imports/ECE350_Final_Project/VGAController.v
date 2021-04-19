@@ -11,7 +11,7 @@ module VGAController(
 	output[3:0] VGA_R,  // Red Signal Bits
 	output[3:0] VGA_G,  // Green Signal Bits
 	output[3:0] VGA_B,  // Blue Signal Bits
-	inout ps2_clk,
+	inout ps2_clk, 
 	inout ps2_data,
 	input[8:0] x_accelerometer,
 	input[8:0] y_accelerometer,
@@ -97,7 +97,6 @@ module VGAController(
             #1000 load = 1;
 	   end
 
-	lfsr val(randomOut, clk, 1'b0, seed, load);
 	always @(posedge clk) begin
 	   if(x < xcoordinateLemon + 10'd50 && y < ycoordinateLemon + 10'd50 && x > xcoordinateLemon && y > ycoordinateLemon)
 			lemonStatus = 1'b1;
@@ -121,12 +120,12 @@ module VGAController(
 			appleStatus = 1'b0;
         if(x < xcoordinateWater + 10'd50 && y < ycoordinateWater + 10'd50 && x >= xcoordinateWater && y > ycoordinateWater)
 			waterStatus = 1'b1;
-		else
-			waterStatus = 1'b0;
+		else 
+			waterStatus = 1'b0; 
 	   
-	end
-    always @(posedge screenEnd) begin
-    
+	end 
+    always @(posedge clk) begin
+     
       xcoordinateWater =  reg_1_x[9:0];
     end
     always @(posedge clk) begin

@@ -120,9 +120,9 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	// ADD YOUR MEMORY FILE HERE
 	localparam INSTR_FILE = "C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/Memory Files/lw_sw";
 	reg clk50 = 0;
-	reg [3:0] counter50Mh = 4'd0;
-	wire [3:0]counterLimit;
-	assign counterLimit =4'd10;
+	reg [7:0] counter50Mh = 7'd0;
+	wire [7:0]counterLimit;
+	assign counterLimit =7'd100;
 	
 	always @(posedge clock) begin
 	   if(counter50Mh < counterLimit)
@@ -162,8 +162,8 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	.reg_out2(reg_2_x), .reg_out3(reg_3_x), .reg_out4(reg_4_x), .reg_out5(reg_5_x), .reg_out6(reg_6_x), .reg_out7(reg_7_x),
 	.reg_out8(reg_8_x), .reg_out9(reg_9_y), .reg_out10(reg_10_y), .reg_out11(reg_11_y), .reg_out12(reg_12_y), .reg_out13(reg_13_y),
 	.reg_out14(reg_14_y), .reg_out15(reg_15_y), .reg_out16(reg_16_y), .reg_out29(reg_29_rand));
-     assign LED_out = reg_1_x != 32'b0 || reg_2_x != 32'b0;   
-     assign LED_out2 = reg_3_x != 32'b0 || reg_4_x != 32'b0;
+     assign LED_out = reg_1_x == 32'd192;   
+     assign LED_out2 = reg_1_x == 32'd314;
 // Processor Memory (RAM)
 	RAMproc ProcMem(.clk(clk50), 
 		.wEn(mwe), 
