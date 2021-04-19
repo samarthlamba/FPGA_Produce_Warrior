@@ -75,6 +75,8 @@ module VGAController(
 	wire [7:0] randomOut;
 	reg load;
 	reg [3:0] updated;
+	
+	wire waterUpAndSplash;
 	assign sqcolor = 12'h128;
 	
 	   initial begin
@@ -186,8 +188,17 @@ module VGAController(
      
         
     end
-    
-    assign splashWatermelon = waterUp;
+    wire splashWatercheck;
+    wire splashApplecheck;
+    wire splashPearcheck;
+    wire splashCoconutcheck;
+    wire splashBananacheck;
+    imagecollision watermelonsplash(xcoordinateWater, ycoordinateWater, x_accelerometer, y_accelerometer, 10'd50, splashWatercheck);
+    imagecollision applesplash(xcoordinateApple, ycoordinateApple, x_accelerometer, y_accelerometer, 10'd50, splashApplecheck);
+    imagecollision pearsplash(xcoordinatePear, ycoordinatePear, x_accelerometer, y_accelerometer, 10'd50, splashPearcheck);
+    imagecollision coconutsplash(xcoordinateCoconut, ycoordinateCoconut, x_accelerometer, y_accelerometer, 10'd50, splashCoconutcheck);
+    imagecollision bananasplash(xcoordinateBanana, ycoordinateBanana, x_accelerometer, y_accelerometer, 10'd50, splashBananacheck);
+    //assign splashWatermelon = waterUp;
 	
 	VGATimingGenerator #(
 		.HEIGHT(VIDEO_HEIGHT), // Use the standard VGA Values
@@ -226,7 +237,7 @@ module VGAController(
     
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundAppleSplash; 
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundWatermelonSplash; 
-	wire[BITS_PER_COLOR-1:0] colorDataBackgroundAppleSplash; 
+	//wire[BITS_PER_COLOR-1:0] colorDataBackgroundAppleSplash; 
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundLemonSplash; 
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundPearSplash; 
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundBananaSplash;
@@ -240,11 +251,39 @@ module VGAController(
     
     wire[BITS_PER_COLOR-1:0] colorDataBackgroundAppleFinal; 
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundWatermelonFinal; 
+	//integer[BITS_PER_COLOR-1:0] colorDataBackgroundWate
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundLemonFinal; 
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundPearFinal; 
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundBananaFinal;
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundCoconutFinal;    
 	
+//	always @(posedge clk) begin
+//	   if(waterUp == 1'b1) begin
+	   
+//	   end
+//	end
+    integer Watercount = 0;
+    integer Applecount = 0;
+    integer Pearcount = 0;
+    integer Bananacount = 0;
+    integer Coconutcount = 0;
+    reg splashWater = 1'b0;
+   always @(posedge clk) begin
+    if(splashWatercheck == 1'b1) begin
+        Watercount <= Watercount + 1;
+        splashWater <= 1'b1;
+    end
+    if(waterUp == 1'b1) begin
+        if(Watercount > 0) begin
+        splashWater <= 1'b1;
+        end
+    end
+    if(waterUp == 1'b0) begin
+        Watercount <= 0;
+    end
+   end
+    assign splashWatermelon = splashWater;
+	   
 	assign colorDataBackgroundAppleFinal = splashApple ? colorDataBackgroundAppleSplash : colorDataBackgroundApple;
 	assign colorDataBackgroundWatermelonFinal = splashWatermelon ? colorDataBackgroundWatermelonSplash : colorDataBackgroundWatermelon;
 	assign colorDataBackgroundLemonFinal = splashLemon ? colorDataBackgroundLemonSplash : colorDataBackgroundLemon;
