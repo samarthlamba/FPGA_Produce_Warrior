@@ -117,3 +117,8 @@ set_property IOSTANDARD LVCMOS33 [get_ports resty]
 set_property IOSTANDARD LVCMOS33 [get_ports sevenreset]
 set_property PACKAGE_PIN U18 [get_ports sevenreset]
 
+
+set_property IOSTANDARD LVCMOS33 [get_ports LED_out]
+set_property IOSTANDARD LVCMOS33 [get_ports LED_out2]
+set_property PACKAGE_PIN K15 [get_ports LED_out]
+set_property PACKAGE_PIN H17 [get_ports LED_out2]

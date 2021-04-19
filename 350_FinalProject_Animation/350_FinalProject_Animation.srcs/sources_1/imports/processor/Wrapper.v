@@ -24,7 +24,7 @@
  *
  **/
 
-module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx, resty, hSync, VSync, VGA_R, VGA_B, VGA_G, up_fpga, down_fpga, right_fpga, left_fpga, ps2_clk, ps2_data, anode, a7, a6, a5, a4, y2, y3, LEDvals, choose, sevenreset);
+module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx, resty, hSync, VSync, VGA_R, VGA_B, VGA_G, up_fpga, down_fpga, right_fpga, left_fpga, ps2_clk, ps2_data, anode, a7, a6, a5, a4, y2, y3, LEDvals, choose, sevenreset, LED_out, LED_out2);
 	input clock, reset, miso, sevenreset;
 	output sclk, mosi, ss;
 	output up, down, left ,right, restx, resty;
@@ -32,6 +32,8 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	output VSync;
 	output[3:0] VGA_R, VGA_B, VGA_G;
 	output[3:0] anode;
+	output LED_out;
+	output LED_out2;
 	output a7, a6, a5, a4;
 	inout ps2_clk;
 	inout ps2_data;
@@ -112,7 +114,9 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	 ps2_clk,
 	 ps2_data,
 	 accel_x,
-	 accel_y);
+	 accel_y,
+	 reg_1_x,
+	 screenEndVal);
 	// ADD YOUR MEMORY FILE HERE
 	localparam INSTR_FILE = "../Memory Files/lw_sw";
 	
@@ -146,8 +150,9 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	.reg_2_x(reg_2_x), .reg_3_x(reg_3_x), .reg_4_x(reg_4_x), .reg_5_x(reg_5_x), .reg_6_x(reg_6_x), .reg_7_x(reg_7_x),
 	.reg_8_x(reg_8_x), .reg_9_y(reg_9_y), .reg_10_y(reg_10_y), .reg_11_y(reg_11_y), .reg_12_y(reg_12_y), .reg_13_y(reg_13_y),
 	.reg_14_y(reg_14_y), .reg_15_y(reg_15_y), .reg_16_y(reg_16_y), .reg_29_rand(reg_29_rand));
-						
-	// Processor Memory (RAM)
+     assign LED_out = instData != 32'b0;   
+     assign LED_out2 = instData >= 32'd255;
+// Processor Memory (RAM)
 	RAMproc ProcMem(.clk(clock), 
 		.wEn(mwe), 
 		.addr(memAddr[11:0]), 

@@ -14,11 +14,13 @@ module VGAController(
 	inout ps2_clk,
 	inout ps2_data,
 	input[8:0] x_accelerometer,
-	input[8:0] y_accelerometer);
+	input[8:0] y_accelerometer,
+	input [31:0] reg_1_x,
+	output screenEndVal);
 	
 	// Lab Memory Files Location
 	localparam FILES_PATH = "../assetsMemFiles/";
-
+    
 	// Clock divider 100 MHz -> 25 MHz
 	wire clk25; // 25MHz clock 
 	reg[1:0] pixCounter = 0;      // Pixel counter to divide the clock
@@ -76,6 +78,7 @@ module VGAController(
 	reg load;
 	reg [3:0] updated;
 	assign sqcolor = 12'h128;
+	assign screenEndVal = ~screenEnd;
 	
 	   initial begin
 	       updated = 4'b0;
@@ -122,7 +125,10 @@ module VGAController(
 			waterStatus = 1'b0;
 	   
 	end
+    always @(posedge screenEnd) begin
     
+      xcoordinateWater =  reg_1_x[9:0];
+    end
     always @(posedge clk) begin
         if(ycoordinateWater <= 9'd480 && screenEnd && waterUp == 1'b1)
             ycoordinateWater = ycoordinateWater + 1'b1;
@@ -180,8 +186,6 @@ module VGAController(
 //            ycoordinateLemon = ycoordinateLemon - 1'b1;   
         xcoordinateLemon = x_accelerometer;
 		ycoordinateLemon = y_accelerometer; 
-		if(updated == 4'b0)
-		  xcoordinateWater =  192 + randomOut;
 		  //updated = 4'b1;
      
         
