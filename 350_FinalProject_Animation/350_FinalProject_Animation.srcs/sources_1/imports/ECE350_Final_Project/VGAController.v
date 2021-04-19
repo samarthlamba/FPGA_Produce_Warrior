@@ -194,10 +194,10 @@ module VGAController(
     wire splashCoconutcheck;
     wire splashBananacheck;
     imagecollision watermelonsplash(xcoordinateWater, ycoordinateWater, x_accelerometer, y_accelerometer, 10'd50, splashWatercheck);
-    imagecollision applesplash(xcoordinateApple, ycoordinateApple, x_accelerometer, y_accelerometer, 10'd50, splashApple);
-    imagecollision pearsplash(xcoordinatePear, ycoordinatePear, x_accelerometer, y_accelerometer, 10'd50, splashPear);
-    imagecollision coconutsplash(xcoordinateCoconut, ycoordinateCoconut, x_accelerometer, y_accelerometer, 10'd50, splashCoconut);
-    imagecollision bananasplash(xcoordinateBanana, ycoordinateBanana, x_accelerometer, y_accelerometer, 10'd50, splashBanana);
+    imagecollision applesplash(xcoordinateApple, ycoordinateApple, x_accelerometer, y_accelerometer, 10'd50, splashApplecheck);
+    imagecollision pearsplash(xcoordinatePear, ycoordinatePear, x_accelerometer, y_accelerometer, 10'd50, splashPearcheck);
+    imagecollision coconutsplash(xcoordinateCoconut, ycoordinateCoconut, x_accelerometer, y_accelerometer, 10'd50, splashCoconutcheck);
+    imagecollision bananasplash(xcoordinateBanana, ycoordinateBanana, x_accelerometer, y_accelerometer, 10'd50, splashBananacheck);
     //assign splashWatermelon = waterUp;
 	
 	VGATimingGenerator #(
@@ -268,6 +268,10 @@ module VGAController(
     integer Bananacount = 0;
     integer Coconutcount = 0;
     reg splashWater = 1'b0;
+    reg splashApples = 1'b0;
+    reg splashPears = 1'b0;
+    reg splashBananas = 1'b0;
+    reg splashCoconuts = 1'b0;
    always @(posedge clk) begin
     if(splashWatercheck == 1'b1) begin
         Watercount <= Watercount + 1;
@@ -280,9 +284,67 @@ module VGAController(
     end
     if(waterUp == 1'b0) begin
         Watercount <= 0;
+        splashWater <= 1'b0;
+    end
+    if(splashApplecheck == 1'b1) begin
+        Applecount <= Applecount + 1;
+        splashApples <= 1'b1;
+    end
+    if(appleUp == 1'b1) begin
+        if(Applecount > 0) begin
+        splashApples <= 1'b1;
+        end
+    end
+    if(appleUp == 1'b0) begin
+        Applecount <= 0;
+        splashApples <= 1'b0;
+    end
+    if(splashPearcheck == 1'b1) begin
+        Pearcount <= Pearcount + 1;
+        splashPears <= 1'b1;
+    end
+    if(pearUp == 1'b1) begin
+        if(Pearcount > 0) begin
+        splashPears <= 1'b1;
+        end
+    end
+    if(pearUp == 1'b0) begin
+        Pearcount <= 0;
+        splashPears <= 1'b0;
+    end
+    if(splashBananacheck == 1'b1) begin
+        Bananacount <= Bananacount + 1;
+        splashBananas <= 1'b1;
+    end
+    if(bananaUp == 1'b1) begin
+        if(Bananacount > 0) begin
+        splashBananas <= 1'b1;
+        end
+    end
+    if(bananaUp == 1'b0) begin
+        Bananacount <= 0;
+        splashBananas <= 1'b0;
+    end
+    if(splashCoconutcheck == 1'b1) begin
+        Coconutcount <= Coconutcount + 1;
+        splashCoconuts <= 1'b1;
+    end
+    if(coconutUp == 1'b1) begin
+        if(Coconutcount > 0) begin
+        splashCoconuts <= 1'b1;
+        end
+    end
+    if(coconutUp == 1'b0) begin
+        Coconutcount <= 0;
+        splashCoconuts <= 1'b0;
     end
    end
     assign splashWatermelon = splashWater;
+    assign splashApple = splashApples;
+    assign splashPear = splashPears;
+    assign splashBanana = splashBananas;
+    assign splashCoconut = splashCoconuts;
+    
 	   
 	assign colorDataBackgroundAppleFinal = splashApple ? colorDataBackgroundAppleSplash : colorDataBackgroundApple;
 	assign colorDataBackgroundWatermelonFinal = splashWatermelon ? colorDataBackgroundWatermelonSplash : colorDataBackgroundWatermelon;
