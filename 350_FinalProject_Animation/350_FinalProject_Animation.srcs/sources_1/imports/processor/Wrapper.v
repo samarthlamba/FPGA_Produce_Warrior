@@ -118,7 +118,7 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	 reg_1_x,
 	 screenEndVal);
 	// ADD YOUR MEMORY FILE HERE
-	localparam INSTR_FILE = "../Memory Files/lw_sw";
+	localparam INSTR_FILE = "../Memory Files/addi_basic";
 	
 	// Main Processing Unit
 	processor CPU(.clock(clock), .reset(reset), 
@@ -150,8 +150,8 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	.reg_2_x(reg_2_x), .reg_3_x(reg_3_x), .reg_4_x(reg_4_x), .reg_5_x(reg_5_x), .reg_6_x(reg_6_x), .reg_7_x(reg_7_x),
 	.reg_8_x(reg_8_x), .reg_9_y(reg_9_y), .reg_10_y(reg_10_y), .reg_11_y(reg_11_y), .reg_12_y(reg_12_y), .reg_13_y(reg_13_y),
 	.reg_14_y(reg_14_y), .reg_15_y(reg_15_y), .reg_16_y(reg_16_y), .reg_29_rand(reg_29_rand));
-     assign LED_out = instData != 32'b0;   
-     assign LED_out2 = instData >= 32'd255;
+     assign LED_out = reg_1_x != 32'b0;   
+     assign LED_out2 = reg_2_x != 32'b0;
 // Processor Memory (RAM)
 	RAMproc ProcMem(.clk(clock), 
 		.wEn(mwe), 

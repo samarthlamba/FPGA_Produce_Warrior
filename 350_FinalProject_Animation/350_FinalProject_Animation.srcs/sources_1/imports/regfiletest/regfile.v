@@ -24,26 +24,6 @@ module regfile (
 	reg_out19, reg_out20, reg_out21, reg_out22, reg_out23, reg_out24, reg_out25, reg_out26, reg_out27, reg_out28, reg_out29, reg_out30, reg_out31,
 	decoder_output;
 
-	assign reg_1_x = reg_out1;
-	assign reg_2_x = reg_out2;
-	assign reg_3_x = reg_out3;
-	assign reg_4_x = reg_out4;
-	assign reg_5_x = reg_out5;
-	assign reg_6_x = reg_out6;
-	assign reg_7_x = reg_out7;
-	assign reg_8_x = reg_out8;
-
-	assign reg_9_y = reg_out9;
-	assign reg_10_y = reg_out10;
-	assign reg_11_y = reg_out11;
-	assign reg_12_y = reg_out12;
-	assign reg_13_y = reg_out13;
-	assign reg_14_y = reg_out14;
-	assign reg_15_y = reg_out15;
-	assign reg_16_y = reg_out16;
-
-	assign reg_29_rand = reg_out29;
-
 	wire [31:0] and_gate, read_source1, read_source2;
 	decoder decoder1(ctrl_writeEnable, ctrl_writeReg, decoder_output);
 	decoder decoder2(1'b1, ctrl_readRegA, read_source1);
@@ -165,6 +145,24 @@ module regfile (
 	tri_state_buffer tri_state_outputB30(reg_out30, read_source2[30], data_readRegB);
 	tri_state_buffer tri_state_outputB31(reg_out31, read_source2[31], data_readRegB);
 
+    assign reg_1_x = reg_out1;
+	assign reg_2_x = reg_out2;
+	assign reg_3_x = reg_out3;
+	assign reg_4_x = reg_out4;
+	assign reg_5_x = reg_out5;
+	assign reg_6_x = reg_out6;
+	assign reg_7_x = reg_out7;
+	assign reg_8_x = reg_out8;
 
+	assign reg_9_y = reg_out9;
+	assign reg_10_y = reg_out10;
+	assign reg_11_y = reg_out11;
+	assign reg_12_y = reg_out12;
+	assign reg_13_y = reg_out13;
+	assign reg_14_y = reg_out14;
+	assign reg_15_y = reg_out15;
+	assign reg_16_y = reg_out16;
+
+	assign reg_29_rand = reg_out29;
 
 endmodule
