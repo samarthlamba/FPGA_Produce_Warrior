@@ -43,6 +43,14 @@ module Wrapper_tb #(parameter FILE = "nop");
 	localparam DEFAULT_CYCLES = 255;
 
 	// Inputs to the processor
+	wire[31:0] reg_1_x, 
+	reg_2_x, reg_3_x, reg_4_x, reg_5_x, reg_6_x, reg_7_x,
+	reg_8_x;
+	wire[31:0] reg_9_y, reg_10_y, reg_11_y, reg_12_y, reg_13_y,
+	reg_14_y, reg_15_y, reg_16_y;
+	wire[31:0]reg_29_rand;
+	wire [31:0] screenEndVal;
+
 	reg clock = 0, reset = 0;
 
 	// I/O for the processor
@@ -105,7 +113,10 @@ module Wrapper_tb #(parameter FILE = "nop");
 		.ctrl_writeEnable(rwe), .ctrl_reset(reset), 
 		.ctrl_writeReg(rd),
 		.ctrl_readRegA(rs1_in), .ctrl_readRegB(rs2), 
-		.data_writeReg(rData), .data_readRegA(regA), .data_readRegB(regB));
+		.data_writeReg(rData), .data_readRegA(regA), .data_readRegB(regB), .screenEndVal(screenEndVal), .reg_1_x(reg_1_x), 
+	.reg_2_x(reg_2_x), .reg_3_x(reg_3_x), .reg_4_x(reg_4_x), .reg_5_x(reg_5_x), .reg_6_x(reg_6_x), .reg_7_x(reg_7_x),
+	.reg_8_x(reg_8_x), .reg_9_y(reg_9_y), .reg_10_y(reg_10_y), .reg_11_y(reg_11_y), .reg_12_y(reg_12_y), .reg_13_y(reg_13_y),
+	.reg_14_y(reg_14_y), .reg_15_y(reg_15_y), .reg_16_y(reg_16_y), .reg_29_rand(reg_29_rand));
 						
 	// Processor Memory (RAM)
 	RAM ProcMem(.clk(clock), 
