@@ -118,11 +118,11 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	 reg_1_x,
 	 screenEndVal);
 	// ADD YOUR MEMORY FILE HERE
-	localparam INSTR_FILE = "C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.srcs/sources_1/imports/Memory Files/lw_sw";
+	localparam INSTR_FILE = "../Memory Files/lw_sw";
 	reg clk50 = 0;
-	reg [3:0] counter50Mh = 4'd0;
-	wire [3:0]counterLimit;
-	assign counterLimit =4'd10;
+	reg counter50Mh = 1'd0;
+	wire counterLimit;
+	assign counterLimit =1'd1;
 	
 	always @(posedge clock) begin
 	   if(counter50Mh < counterLimit)
