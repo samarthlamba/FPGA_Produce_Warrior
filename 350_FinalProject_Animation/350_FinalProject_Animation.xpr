@@ -309,10 +309,10 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/lfsr.v">
+      <File Path="$PSRCDIR/sources_1/imports/processor/lfsr.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../processor/lfsr.v"/>
-          <Attr Name="ImportTime" Val="1618202115"/>
+          <Attr Name="ImportTime" Val="1618906112"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>

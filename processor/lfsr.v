@@ -3,6 +3,7 @@ module lfsr(out, clk);
     integer               data_file    ; // file handler
     integer               scan_file    ; // file handler
     reg signed [21:0] captured_data;
+   
     output reg [7:0] out;
     `define NULL 0    
     

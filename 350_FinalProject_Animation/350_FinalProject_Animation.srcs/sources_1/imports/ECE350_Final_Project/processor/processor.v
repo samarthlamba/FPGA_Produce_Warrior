@@ -104,7 +104,7 @@ module processor(
     //determine if nop needs to be inputted. Only for isBex, isJr, isBranchJump if things were branched. Makes things faster
     assign actual_inst_in_fd = futureBranch?32'b0: inst_in_fd;
     assign final_inst_in_fd = isJalFD_in?{actual_inst_in_fd[31:27], {5{1'b1}}, 22'b0}:actual_inst_in_fd;
-    
+     
     //---------------------------------------------------------------------------------------------------//
     //FD section
     wire [31:0] inst_out_fd, inst_out_fd_final;
