@@ -233,7 +233,6 @@ module VGAController(
     
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundAppleSplash; 
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundWatermelonSplash; 
-	wire[BITS_PER_COLOR-1:0] colorDataBackgroundAppleSplash; 
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundLemonSplash; 
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundPearSplash; 
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundBananaSplash;

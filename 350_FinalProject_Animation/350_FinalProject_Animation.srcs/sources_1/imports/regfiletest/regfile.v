@@ -11,7 +11,7 @@ module regfile (
 	output [31:0] data_readRegA, data_readRegB;
 	output [31:0] reg_out1, reg_out2, reg_out3, reg_out4, reg_out5, reg_out6, reg_out7, reg_out8, 
 	reg_out9, reg_out10, reg_out11, reg_out12, reg_out13, reg_out14, reg_out15, reg_out16, reg_out29;
-
+     
 
 	// add your code here
 	wire [31:0] reg_out0, reg_out17, reg_out18, 

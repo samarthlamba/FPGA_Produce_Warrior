@@ -119,7 +119,7 @@ module Wrapper_tb #(parameter FILE = "nop");
 	.reg_out14(reg_14_y), .reg_out15(reg_15_y), .reg_out16(reg_16_y), .reg_out29(reg_29_rand));
 						
 	// Processor Memory (RAM)
-	RAM ProcMem(.clk(clock), 
+	RAMproc ProcMem(.clk(clock), 
 		.wEn(mwe), 
 		.addr(memAddr[11:0]), 
 		.dataIn(memDataIn), 
