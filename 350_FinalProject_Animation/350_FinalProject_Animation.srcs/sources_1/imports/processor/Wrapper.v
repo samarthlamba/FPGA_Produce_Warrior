@@ -60,8 +60,8 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	reg_14_y, reg_15_y, reg_16_y;
 	wire[31:0]reg_29_rand;
 	 
-	 
-	
+	AccelerometerCtl accelerometer(.SYSCLK(clock), .RESET(reset), .SCLK(sclk), .MOSI(mosi), .MISO(miso), .SS(ss), .ACCEL_X_OUT(accel_x), .ACCEL_Y_OUT(accel_y), .ACCEL_MAG_OUT(accel_z));
+	seven_seg_counter callcount(clock, sevenreset, anode, a7, a6, a5, a4, y2, y3, LEDvals, choose);
 	always @(posedge clock) begin
 	    if(accel_x == 385)
 	       restx1 = 1'b1;
@@ -150,7 +150,11 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	 ps2_clk,
 	 ps2_data,
 	 accel_x,
-	 accel_y);
+	 accel_y,
+	 reg_1_x,
+	 reg_2_x,
+	 reg_3_x,
+	 clk50);
 	// Register File
 	regfile RegisterFile(.clock(clk50), 
 		.ctrl_writeEnable(rwe), .ctrl_reset(reset), 
@@ -160,7 +164,7 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	.reg_out2(reg_2_x), .reg_out3(reg_3_x), .reg_out4(reg_4_x), .reg_out5(reg_5_x), .reg_out6(reg_6_x), .reg_out7(reg_7_x),
 	.reg_out8(reg_8_x), .reg_out9(reg_9_y), .reg_out10(reg_10_y), .reg_out11(reg_11_y), .reg_out12(reg_12_y), .reg_out13(reg_13_y),
 	.reg_out14(reg_14_y), .reg_out15(reg_15_y), .reg_out16(reg_16_y), .reg_out29(reg_29_rand));
-     assign LED_out = randomOut == 8'd0;   
+     assign LED_out = reg_1_x == 32'd0;   
      assign LED_out2 = reg_1_x == 32'd191;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 // Processor Memory (RAM)
 	RAMproc ProcMem(.clk(clk50), 

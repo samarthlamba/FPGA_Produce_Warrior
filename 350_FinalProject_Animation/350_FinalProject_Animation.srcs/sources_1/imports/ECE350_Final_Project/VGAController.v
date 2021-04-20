@@ -18,7 +18,6 @@ module VGAController(
 	input [31:0] reg_1_x,
 	input [31:0] reg_2_x,
 	input [31:0] reg_3_x,
-	output screenEndVal,
 	input clk50);
 	
 	// Lab Memory Files Location
@@ -127,7 +126,7 @@ module VGAController(
 			waterStatus = 1'b0; 
 	   
 	end 
-    always @(posedge clk) begin
+    always @(posedge clk50 && reg_1_x != 10'd0 && screenEnd) begin
         xcoordinateWater =  reg_1_x[9:0];
             xcoordinateApple = reg_2_x[9:0]+170;
             xcoordinatePear = reg_3_x[9:0];
