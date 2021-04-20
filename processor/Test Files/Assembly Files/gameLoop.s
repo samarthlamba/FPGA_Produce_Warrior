@@ -3,7 +3,7 @@ nop
 nop
 nop # 0,0 is top left 640, 480 is bottom right
 nop
-b31: addi $r17, $r0, 240 #initialized middle
+addi $r17, $r0, 240 #initialized middle
 addi $r19, $r0, 244 #initialized middle
 addi $r1, $r0, 192 #define 192
 addi $r2, $r0, 192 #define 192

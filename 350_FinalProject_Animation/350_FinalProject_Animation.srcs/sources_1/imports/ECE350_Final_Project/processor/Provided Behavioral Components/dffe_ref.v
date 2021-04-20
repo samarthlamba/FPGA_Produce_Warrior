@@ -7,7 +7,7 @@ module dffe_ref(q, d, clk, en, clr);
    wire clr;
 
    //Output
-   output q;
+   output q; 
    
    //Register
    reg q;

@@ -155,16 +155,11 @@ module processor(
     wire [7:0] randomOut;
     
    // seed = final_inst_in_fd[31:27] == 5'd16?final_inst_in_fd[7:0]:8'd2;
-    lfsr randomness(randomOut, clock, 1'b0, 8'd2, PC_out!= 32'd0, 1'b1);
+    lfsr randomness(randomOut, clock);
     
     //determines next value for PC in case we branched
     cla_32_bit_adder adderAfterPC(new_PC_addition, sign_extended_branch, pc_out_fd, PC_additionSignExtension, 1'b0);
-    reg [31:0] dffe_out;
-    always @(inst_out_fd) begin
-        dffe_out = inst_out_fd;
-    end
-    wire [31:0] final_dffeout;
-    assign final_dffeout = dffe_out;
+
     //-------------------------------------------------------------------------------------------//
     // Decode Execute
     wire [31:0] inst_out_dx, pc_out_dx, A_out_dx, B_out_dx, sign_extended_immediate;
@@ -175,7 +170,7 @@ module processor(
     wire [4:0] actualALU_op, ctrl_shiftamt;
     wire [2:0] rStatus;
 
-    DX DXLatch(inst_out_dx, pc_out_dx, A_out_dx, B_out_dx, final_dffeout, pc_out_fd, data_readRegA, data_readRegB, clock, en, reset);
+    DX DXLatch(inst_out_dx, pc_out_dx, A_out_dx, B_out_dx, inst_out_fd, pc_out_fd, data_readRegA, data_readRegB, clock, en, reset);
   
     decoder opCode(1'b1, inst_out_dx[31:27], oneHotEncodedopCodeDX);
 
@@ -222,8 +217,8 @@ module processor(
     assign en = ~isStall; 
     assign o_in_xmSW = oneHotEncodedopCodeDX[3]?pc_out_dx: data_result_alu;
     assign o_xm_setX = oneHotEncodedopCodeDX[21]?setXValueDX : o_in_xmSW;//finalDataResult;
-
-    assign o_xm_rand = oneHotEncodedopCodeDX[16]? {24'b0, randomOut}:o_xm_setX;
+   
+    assign o_xm_rand = (inst_out_dx[31:27] ==5'b10000)? {24'b0, randomOut}:o_xm_setX;
     assign o_xm_multResult = isMultDiv? mult_result:o_xm_rand;
     //8 bit encoder to determine the rStatus value absed on if there was an overflow in any of the operation
     encoder_8_bit rStatusEncoder(rStatus, 1'b1, overflow && actualALU_op == 5'd0, overflow && actualALU_op ==5'd1, overflow && actualALU_op == 5'd2, overflow_multiplication && actualALU_op == 5'd0,overflow_division && actualALU_op == 5'd0, 1'b0, 1'b0);
@@ -232,7 +227,7 @@ module processor(
  
  //----------------------------------------------------------------------------------------------//
     // XM Stage
-    XM XMLatch(inst_out_xm, B_out_xm, o_out_xm, inst_in_xm, B_out_dx, o_in_xm, clock, en, reset);
+    XM XMLatch(inst_out_xm, B_out_xm, o_out_xm, inst_in_xm, B_out_dx, o_xm_rand, clock, en, reset);
     decoder opCode2(1'b1, inst_out_xm[31:27], oneHotEncodedopCodeXM);
 
     //determines data memory values. Only needs to be written in for sw

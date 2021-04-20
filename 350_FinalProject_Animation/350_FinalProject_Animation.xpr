@@ -498,15 +498,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/alu/mux_two_one_1bit.v">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../finalProject/processor/alu/mux_two_one_1bit.v"/>
-          <Attr Name="ImportTime" Val="1616454430"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/alu/overflow.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../processor/alu/overflow.v"/>
@@ -630,6 +621,16 @@
       </File>
       <File Path="$PSRCDIR/sources_1/imports/processor/Wrapper.v">
         <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/alu/mux_two_one_1bit.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../finalProject/processor/alu/mux_two_one_1bit.v"/>
+          <Attr Name="ImportTime" Val="1616454430"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1255,6 +1256,12 @@
           <Attr Name="ImportTime" Val="1618798870"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/processor/randomFile.txt">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/randomFile.txt"/>
+          <Attr Name="ImportTime" Val="1618891613"/>
         </FileInfo>
       </File>
       <Config>

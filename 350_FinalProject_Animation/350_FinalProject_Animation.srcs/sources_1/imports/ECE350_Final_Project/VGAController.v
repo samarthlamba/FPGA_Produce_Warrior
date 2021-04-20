@@ -16,7 +16,10 @@ module VGAController(
 	input[8:0] x_accelerometer,
 	input[8:0] y_accelerometer,
 	input [31:0] reg_1_x,
-	output screenEndVal);
+	input [31:0] reg_2_x,
+	input [31:0] reg_3_x,
+	output screenEndVal,
+	input clk50);
 	
 	// Lab Memory Files Location
 	localparam FILES_PATH = "../assetsMemFiles/";
@@ -88,8 +91,8 @@ module VGAController(
            bananaUp = 1'b1;
            appleUp = 1'b1;
           coconutUp = 1'b1;
-            xcoordinateApple = 20;
-            xcoordinatePear = 40;
+            xcoordinateApple = 0;
+            xcoordinatePear = 0;
             xcoordinateBanana = 60;
             xcoordinateCoconut =80;
             xcoordinateLemon =100;
@@ -125,8 +128,9 @@ module VGAController(
 	   
 	end 
     always @(posedge clk) begin
-     
-      xcoordinateWater =  reg_1_x[9:0];
+        xcoordinateWater =  reg_1_x[9:0];
+            xcoordinateApple = reg_2_x[9:0]+170;
+            xcoordinatePear = reg_3_x[9:0];
     end
     always @(posedge clk) begin
         if(ycoordinateWater <= 9'd480 && screenEnd && waterUp == 1'b1)

@@ -109,14 +109,14 @@ module Wrapper_tb #(parameter FILE = "nop");
 		.dataOut(instData));
 	
 	// Register File
-	regfile RegisterFile(.clock(clock), 
+	regfile RegisterFile(.clock(clk50), 
 		.ctrl_writeEnable(rwe), .ctrl_reset(reset), 
 		.ctrl_writeReg(rd),
-		.ctrl_readRegA(rs1_in), .ctrl_readRegB(rs2), 
-		.data_writeReg(rData), .data_readRegA(regA), .data_readRegB(regB), .screenEndVal(screenEndVal), .reg_1_x(reg_1_x), 
-	.reg_2_x(reg_2_x), .reg_3_x(reg_3_x), .reg_4_x(reg_4_x), .reg_5_x(reg_5_x), .reg_6_x(reg_6_x), .reg_7_x(reg_7_x),
-	.reg_8_x(reg_8_x), .reg_9_y(reg_9_y), .reg_10_y(reg_10_y), .reg_11_y(reg_11_y), .reg_12_y(reg_12_y), .reg_13_y(reg_13_y),
-	.reg_14_y(reg_14_y), .reg_15_y(reg_15_y), .reg_16_y(reg_16_y), .reg_29_rand(reg_29_rand));
+		.ctrl_readRegA(rs1), .ctrl_readRegB(rs2), 
+		.data_writeReg(rData), .data_readRegA(regA), .data_readRegB(regB), .screenEndVal(screenEndVal), .reg_out1(reg_1_x), 
+	.reg_out2(reg_2_x), .reg_out3(reg_3_x), .reg_out4(reg_4_x), .reg_out5(reg_5_x), .reg_out6(reg_6_x), .reg_out7(reg_7_x),
+	.reg_out8(reg_8_x), .reg_out9(reg_9_y), .reg_out10(reg_10_y), .reg_out11(reg_11_y), .reg_out12(reg_12_y), .reg_out13(reg_13_y),
+	.reg_out14(reg_14_y), .reg_out15(reg_15_y), .reg_out16(reg_16_y), .reg_out29(reg_29_rand));
 						
 	// Processor Memory (RAM)
 	RAM ProcMem(.clk(clock), 
