@@ -114,6 +114,7 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	   end
 	   end
 	// Main Processing Unit
+	
     wire [7:0] randomOut;
 	processor CPU(.clock(clk50), .reset(reset), 
 								
@@ -134,7 +135,22 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	InstMem(.clk(clk50), 
 		.addr(instAddr[11:0]), 
 		.dataOut(instData));
-	
+	VGAController vga(     
+	 clock, 			
+	 reset, 	
+	 up_fpga,
+	 down_fpga,
+	 left_fpga,
+	 right_fpga,
+	 hSync, 
+	 VSync,		
+	 VGA_R,  
+	 VGA_G,  
+	 VGA_B,
+	 ps2_clk,
+	 ps2_data,
+	 accel_x,
+	 accel_y);
 	// Register File
 	regfile RegisterFile(.clock(clk50), 
 		.ctrl_writeEnable(rwe), .ctrl_reset(reset), 
@@ -145,7 +161,7 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	.reg_out8(reg_8_x), .reg_out9(reg_9_y), .reg_out10(reg_10_y), .reg_out11(reg_11_y), .reg_out12(reg_12_y), .reg_out13(reg_13_y),
 	.reg_out14(reg_14_y), .reg_out15(reg_15_y), .reg_out16(reg_16_y), .reg_out29(reg_29_rand));
      assign LED_out = randomOut == 8'd0;   
-     assign LED_out2 = reg_1_x == 32'd0;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+     assign LED_out2 = reg_1_x == 32'd191;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 // Processor Memory (RAM)
 	RAMproc ProcMem(.clk(clk50), 
 		.wEn(mwe), 
