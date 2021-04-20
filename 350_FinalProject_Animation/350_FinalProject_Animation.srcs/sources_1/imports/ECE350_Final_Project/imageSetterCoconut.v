@@ -4,7 +4,7 @@ module imageSetterCoconut(out, clk, x, y, xcoordinateApple1, ycoordinateApple1);
     output[12-1:0] out;
     input[9:0] x;
 	input[8:0] y;
-	input[9:0] xcoordinateApple1;
+	input[9:0] xcoordinateApple1; 
 	input[8:0] ycoordinateApple1;
 	reg [40:0] name;
 
