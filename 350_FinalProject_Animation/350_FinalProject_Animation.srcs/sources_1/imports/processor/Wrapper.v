@@ -96,9 +96,7 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	assign restx = restx1;
 	assign resty = resty1;
 
-	AccelerometerCtl accelerometer(.SYSCLK(clock), .RESET(reset), .SCLK(sclk), .MOSI(mosi), .MISO(miso), .SS(ss), .ACCEL_X_OUT(accel_x), .ACCEL_Y_OUT(accel_y), .ACCEL_MAG_OUT(accel_z));
-    seven_seg_counter callcount(clock, sevenreset, anode, a7, a6, a5, a4, y2, y3, LEDvals, choose);
-    
+
 
 	// ADD YOUR MEMORY FILE HERE
 	localparam INSTR_FILE = "../Memory Files/lw_sw";
@@ -116,27 +114,7 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	   end
 	   end
 	// Main Processing Unit
-		VGAController vga(     
-	 clock, 			
-	 reset, 	
-	 up_fpga,
-	 down_fpga,
-	 left_fpga,
-	 right_fpga,
-	 hSync, 
-	 VSync,		
-	 VGA_R,  
-	 VGA_G,  
-	 VGA_B,
-	 ps2_clk,
-	 ps2_data,
-	 accel_x,
-	 accel_y,
-	 reg_1_x,
-	 reg_2_x,
-	 reg_29_rand,
-	 screenEndVal,
-	 clk50);
+    wire [7:0] randomOut;
 	processor CPU(.clock(clk50), .reset(reset), 
 								
 		// ROM
@@ -149,7 +127,7 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 									
 		// RAM
 		.wren(mwe), .address_dmem(memAddr), 
-		.data(memDataIn), .q_dmem(memDataOut)); 
+		.data(memDataIn), .q_dmem(memDataOut), .randomOut(randomOut)); 
 	
 	// Instruction Memory (ROM)
 	ROM #(.MEMFILE({INSTR_FILE, ".mem"}))
@@ -166,7 +144,7 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	.reg_out2(reg_2_x), .reg_out3(reg_3_x), .reg_out4(reg_4_x), .reg_out5(reg_5_x), .reg_out6(reg_6_x), .reg_out7(reg_7_x),
 	.reg_out8(reg_8_x), .reg_out9(reg_9_y), .reg_out10(reg_10_y), .reg_out11(reg_11_y), .reg_out12(reg_12_y), .reg_out13(reg_13_y),
 	.reg_out14(reg_14_y), .reg_out15(reg_15_y), .reg_out16(reg_16_y), .reg_out29(reg_29_rand));
-     assign LED_out = reg_1_x == 32'd192;   
+     assign LED_out = randomOut == 8'd0;   
      assign LED_out2 = reg_1_x == 32'd0;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 // Processor Memory (RAM)
 	RAMproc ProcMem(.clk(clk50), 

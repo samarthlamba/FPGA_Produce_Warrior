@@ -40,8 +40,8 @@ module processor(
     ctrl_readRegB,                  // O: Register to read from port B of RegFile
     data_writeReg,                  // O: Data to write to for RegFile
     data_readRegA,                  // I: Data from port A of RegFile
-    data_readRegB                   // I: Data from port B of RegFile
-	 
+    data_readRegB,                   // I: Data from port B of RegFile
+	randomOut
 	);
 
 	// Control signals
@@ -50,6 +50,7 @@ module processor(
 	// Imem
     output [31:0] address_imem;
 	input [31:0] q_imem;
+	output [7:0] randomOut;
 
 	// Dmem
 	output [31:0] address_dmem, data;
@@ -152,7 +153,7 @@ module processor(
     and checkIsBEQ(isBNE, oneHotEncodedopCodeFD[2], updatedReadRegA != updatedReadRegB);
     or checkJumps(isBranchJump, isBLT, isBNE);
     assign sign_extended_branch=inst_out_fd[16]?{{15{1'b1}}, inst_out_fd[16:0]} : {{15{1'b0}}, inst_out_fd[16:0]};
-    wire [7:0] randomOut;
+
     
    // seed = final_inst_in_fd[31:27] == 5'd16?final_inst_in_fd[7:0]:8'd2;
     lfsr randomness(randomOut, clock);

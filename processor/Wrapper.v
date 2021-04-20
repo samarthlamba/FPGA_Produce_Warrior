@@ -147,7 +147,7 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
      assign LED_out = reg_1_x == 32'd192;   
      assign LED_out2 = reg_1_x == 32'd0;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 // Processor Memory (RAM)
-	RAM ProcMem(.clk(clk50), 
+	RAMProc ProcMem(.clk(clk50), 
 		.wEn(mwe), 
 		.addr(memAddr[11:0]), 
 		.dataIn(memDataIn), 
