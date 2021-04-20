@@ -127,6 +127,7 @@ module VGAController(
 	   
 	end 
     always @(posedge clk50 && reg_1_x != 10'd0 && screenEnd) begin
+        if(clk25 && reg_1_x > 32'b0)
         xcoordinateWater =  reg_1_x[9:0];
             xcoordinateApple = reg_2_x[9:0]+170;
             xcoordinatePear = reg_3_x[9:0];
