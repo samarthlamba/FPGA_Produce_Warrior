@@ -14,7 +14,9 @@ module VGAController(
 	inout ps2_clk,
 	inout ps2_data,
 	input[8:0] x_accelerometer,
-	input[8:0] y_accelerometer);
+	input[8:0] y_accelerometer,
+	output lostlife,
+	output livescount);
 	
 	// Lab Memory Files Location
 	localparam FILES_PATH = "../assetsMemFiles/";
@@ -339,6 +341,19 @@ module VGAController(
         splashCoconuts <= 1'b0;
     end
    end
+   
+   reg counts = 1'b0;
+   reg lifelost = 1'b0;
+   always@(posedge clk) begin
+    if(counts == 0 && ycoordinateWater >= 9'd480 && colorDataBackgroundWatermelonFinal == colorDataBackgroundWatermelon) begin
+        lifelost <= 1'b1;
+        counts <= 1'b1;
+        end
+    end
+    
+    assign lostlife = lifelost;
+    assign livescount = counts;
+    
     assign splashWatermelon = splashWater;
     assign splashApple = splashApples;
     assign splashPear = splashPears;

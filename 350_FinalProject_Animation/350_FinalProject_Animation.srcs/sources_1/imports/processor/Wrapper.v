@@ -57,8 +57,8 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	wire[31:0] reg_9_y, reg_10_y, reg_11_y, reg_12_y, reg_13_y,
 	reg_14_y, reg_15_y, reg_16_y;
 	wire[31:0]reg_29_rand;
-	 
-	 
+	wire lostlife;
+	wire livescount;
 	
 	always @(posedge clock) begin
 	    if(accel_x == 385)
@@ -95,7 +95,7 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	assign resty = resty1;
 
 	AccelerometerCtl accelerometer(.SYSCLK(clock), .RESET(reset), .SCLK(sclk), .MOSI(mosi), .MISO(miso), .SS(ss), .ACCEL_X_OUT(accel_x), .ACCEL_Y_OUT(accel_y), .ACCEL_MAG_OUT(accel_z));
-    seven_seg_counter callcount(clock, sevenreset, anode, a7, a6, a5, a4, y2, y3, LEDvals, choose);
+    seven_seg_counter callcount(clock, sevenreset, anode, a7, a6, a5, a4, y2, y3, LEDvals, lostlife);
     
 	VGAController vga(     
 	 clock, 			
@@ -112,7 +112,9 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	 ps2_clk,
 	 ps2_data,
 	 accel_x,
-	 accel_y);
+	 accel_y,
+	 lostlife,
+	 livescount);
 	// ADD YOUR MEMORY FILE HERE
 	localparam INSTR_FILE = "../Memory Files/lw_sw";
 	
