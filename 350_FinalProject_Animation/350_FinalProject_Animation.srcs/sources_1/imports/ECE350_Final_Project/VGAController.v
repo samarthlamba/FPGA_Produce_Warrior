@@ -18,7 +18,8 @@ module VGAController(
 	input [31:0] reg_1_x,
 	input [31:0] reg_2_x,
 	input [31:0] reg_3_x,
-	input clk50);
+	input clk50,
+	output screenEndVal);
 	
 	// Lab Memory Files Location
 	localparam FILES_PATH = "../assetsMemFiles/";
@@ -216,7 +217,7 @@ module VGAController(
 		BITS_PER_COLOR = 12, 	  								 // Nexys A7 uses 12 bits/color
 		PALETTE_COLOR_COUNT = 256, 								 // Number of Colors available
 		PALETTE_ADDRESS_WIDTH = $clog2(PALETTE_COLOR_COUNT) + 1; // Use built in log2 Command
-
+    
 	wire[BITS_PER_COLOR-1:0] colorDataBackground; 
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundWatermelon; 
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundApple; 

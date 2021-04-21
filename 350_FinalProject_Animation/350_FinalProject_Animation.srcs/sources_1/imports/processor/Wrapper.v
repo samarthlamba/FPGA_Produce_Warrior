@@ -154,17 +154,18 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	 reg_1_x,
 	 reg_2_x,
 	 reg_3_x,
-	 clk50);
+	 clk50,
+	 screenEndVal);
 	// Register File
 	regfile RegisterFile(.clock(clk50), 
 		.ctrl_writeEnable(rwe), .ctrl_reset(reset), 
 		.ctrl_writeReg(rd),
 		.ctrl_readRegA(rs1), .ctrl_readRegB(rs2), 
-		.data_writeReg(rData), .data_readRegA(regA), .data_readRegB(regB), .screenEndVal(screenEndVal), .reg_out1(reg_1_x), 
+		.data_writeReg(rData), .data_readRegA(regA), .data_readRegB(regB), .screenEndVal(32'b0), .reg_out1(reg_1_x), 
 	.reg_out2(reg_2_x), .reg_out3(reg_3_x), .reg_out4(reg_4_x), .reg_out5(reg_5_x), .reg_out6(reg_6_x), .reg_out7(reg_7_x),
 	.reg_out8(reg_8_x), .reg_out9(reg_9_y), .reg_out10(reg_10_y), .reg_out11(reg_11_y), .reg_out12(reg_12_y), .reg_out13(reg_13_y),
 	.reg_out14(reg_14_y), .reg_out15(reg_15_y), .reg_out16(reg_16_y), .reg_out29(reg_29_rand));
-     assign LED_out = reg_1_x == 32'd0;   
+     assign LED_out = instData == 32'd0;   
      assign LED_out2 = reg_1_x == 32'd191;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 // Processor Memory (RAM)
 	RAMproc ProcMem(.clk(clk50), 
