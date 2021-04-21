@@ -342,13 +342,21 @@ module VGAController(
     end
    end
    
-   reg counts = 1'b0;
+   reg[2:0] counts = 3'b000;
    reg lifelost = 1'b0;
+   reg threshold = 1'b0;
+   // TODO: this just automatically goes to 3 lives no matter what...lostlife is whether or not the lives need to be displayed
+   //livescount is what to display (see seven seg counter)
    always@(posedge clk) begin
-    if(counts == 0 && ycoordinateWater >= 9'd480 && colorDataBackgroundWatermelonFinal == colorDataBackgroundWatermelon) begin
+    if(ycoordinateWater <= 9'd200)
+        threshold <=1'b1;
+        
+    if(threshold <= 1'b1) begin
+    if (counts == 3'b000 && ycoordinateWater >= 9'd480 && colorDataBackgroundWatermelonFinal == colorDataBackgroundWatermelon) begin
         lifelost <= 1'b1;
-        counts <= 1'b1;
-        end
+        counts <= 3'b001;
+    end
+    end
     end
     
     assign lostlife = lifelost;
