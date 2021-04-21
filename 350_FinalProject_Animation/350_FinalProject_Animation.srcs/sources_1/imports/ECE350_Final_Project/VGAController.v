@@ -18,6 +18,9 @@ module VGAController(
 	input [31:0] reg_1_x,
 	input [31:0] reg_2_x,
 	input [31:0] reg_3_x,
+	input [31:0] reg_4_x,
+	input [31:0] reg_5_x,
+	input [31:0] reg_6_x,
 	input clk50,
 	output screenEndVal);
 	
@@ -129,9 +132,12 @@ module VGAController(
 	end 
     always @(posedge clk50 && reg_1_x != 10'd0 && screenEnd) begin
         if(clk25 && reg_1_x > 32'b0)
-        xcoordinateWater =  reg_1_x[9:0];
-            xcoordinateApple = reg_2_x[9:0]+170;
-            xcoordinatePear = reg_3_x[9:0];
+        xcoordinateWater =  reg_1_x[9:0] +192;
+            xcoordinateApple = reg_2_x[9:0]+192;
+            xcoordinatePear = reg_3_x[9:0] +192;
+            xcoordinateBanana = reg_4_x[9:0] +192;
+            xcoordinateCoconut = reg_5_x[9:0] +192;
+            //xcoordinateLemon = reg_6_x[9:0] +192;
     end
     always @(posedge clk) begin
         if(ycoordinateWater <= 9'd480 && screenEnd && waterUp == 1'b1)

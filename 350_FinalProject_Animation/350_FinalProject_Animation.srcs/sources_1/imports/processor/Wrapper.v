@@ -154,6 +154,9 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	 reg_1_x,
 	 reg_2_x,
 	 reg_3_x,
+	 reg_4_x,
+	 reg_5_x,
+	 reg_6_x,
 	 clk50,
 	 screenEndVal);
 	// Register File
