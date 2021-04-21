@@ -22,7 +22,8 @@ module VGAController(
 	input [31:0] reg_5_x,
 	input [31:0] reg_6_x,
 	input clk50,
-	output screenEndVal);
+	output screenEndVal,
+	input clock_final);
 	
 	// Lab Memory Files Location
 	localparam FILES_PATH = "../assetsMemFiles/";
@@ -139,7 +140,7 @@ module VGAController(
             xcoordinateCoconut = reg_5_x[9:0] + reg_5_x[9:0] - 30;
             //xcoordinateLemon = reg_6_x[9:0] +192;
     end
-    always @(posedge clk) begin
+    always @(posedge clock_final) begin
         if(ycoordinateWater <= 9'd480 && screenEnd && waterUp == 1'b1)
             ycoordinateWater = ycoordinateWater + 1'b1;
         else if(ycoordinateWater > 9'd480 && waterUp == 1'b1)

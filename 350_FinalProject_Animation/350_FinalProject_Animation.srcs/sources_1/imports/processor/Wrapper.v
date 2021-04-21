@@ -24,8 +24,8 @@
  *
  **/
 
-module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx, resty, hSync, VSync, VGA_R, VGA_B, VGA_G, up_fpga, down_fpga, right_fpga, left_fpga, ps2_clk, ps2_data, anode, a7, a6, a5, a4, y2, y3, LEDvals, choose, sevenreset, LED_out, LED_out2);
-	input clock, reset, miso, sevenreset;
+module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx, resty, hSync, VSync, VGA_R, VGA_B, VGA_G, up_fpga, down_fpga, right_fpga, left_fpga, ps2_clk, ps2_data, anode, a7, a6, a5, a4, y2, y3, LEDvals, choose, sevenreset, LED_out, LED_out2, switch);
+	input clock, reset, miso, sevenreset, switch;
 	output sclk, mosi, ss;
 	output up, down, left ,right, restx, resty;
 	output hSync;
@@ -59,10 +59,13 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	wire[31:0] reg_9_y, reg_10_y, reg_11_y, reg_12_y, reg_13_y,
 	reg_14_y, reg_15_y, reg_16_y;
 	wire[31:0]reg_29_rand;
-	 
-	AccelerometerCtl accelerometer(.SYSCLK(clock), .RESET(reset), .SCLK(sclk), .MOSI(mosi), .MISO(miso), .SS(ss), .ACCEL_X_OUT(accel_x), .ACCEL_Y_OUT(accel_y), .ACCEL_MAG_OUT(accel_z));
-	seven_seg_counter callcount(clock, sevenreset, anode, a7, a6, a5, a4, y2, y3, LEDvals, choose);
-	always @(posedge clock) begin
+	wire clock_final;
+	
+	
+	assign clock_final = switch ? 1'b0 : clock;
+	AccelerometerCtl accelerometer(.SYSCLK(clock_final), .RESET(reset), .SCLK(sclk), .MOSI(mosi), .MISO(miso), .SS(ss), .ACCEL_X_OUT(accel_x), .ACCEL_Y_OUT(accel_y), .ACCEL_MAG_OUT(accel_z));
+	seven_seg_counter callcount(clock_final, sevenreset, anode, a7, a6, a5, a4, y2, y3, LEDvals, choose);
+	always @(posedge clock_final) begin
 	    if(accel_x == 385)
 	       restx1 = 1'b1;
 	    else
@@ -106,7 +109,9 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	assign counterLimit =7'd100;
 	
 	always @(posedge clock) begin
-	   if(counter50Mh < counterLimit)
+	   if(switch == 1'b1)
+	       clk50 = 1'b0;
+	   else if(counter50Mh < counterLimit)
 	           counter50Mh <= counter50Mh +1;
 	   else begin
 	       counter50Mh <= 0;
@@ -116,6 +121,7 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	// Main Processing Unit
 	
     wire [7:0] randomOut;
+    wire isStalling;
 	processor CPU(.clock(clk50), .reset(reset), 
 								
 		// ROM
@@ -128,7 +134,7 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 									
 		// RAM
 		.wren(mwe), .address_dmem(memAddr), 
-		.data(memDataIn), .q_dmem(memDataOut), .randomOut(randomOut)); 
+		.data(memDataIn), .q_dmem(memDataOut), .screenEnd(1'b0), .stall2(isStalling)); 
 	
 	// Instruction Memory (ROM)
 	ROM #(.MEMFILE({INSTR_FILE, ".mem"}))
@@ -158,7 +164,8 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	 reg_5_x,
 	 reg_6_x,
 	 clk50,
-	 screenEndVal);
+	 screenEndVal,
+	 clock_final);
 	// Register File
 	regfile RegisterFile(.clock(clk50), 
 		.ctrl_writeEnable(rwe), .ctrl_reset(reset), 
@@ -169,7 +176,7 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	.reg_out8(reg_8_x), .reg_out9(reg_9_y), .reg_out10(reg_10_y), .reg_out11(reg_11_y), .reg_out12(reg_12_y), .reg_out13(reg_13_y),
 	.reg_out14(reg_14_y), .reg_out15(reg_15_y), .reg_out16(reg_16_y), .reg_out29(reg_29_rand));
      assign LED_out = instData == 32'd0;   
-     assign LED_out2 = reg_1_x == 32'd191;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+     assign LED_out2 = isStalling;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
 // Processor Memory (RAM)
 	RAMproc ProcMem(.clk(clk50), 
 		.wEn(mwe), 

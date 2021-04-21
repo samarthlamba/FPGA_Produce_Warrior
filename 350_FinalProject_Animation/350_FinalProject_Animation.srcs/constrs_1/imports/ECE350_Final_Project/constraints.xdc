@@ -119,4 +119,6 @@ set_property ALLOW_COMBINATORIAL_LOOPS true [get_nets CPU/DXLatch/regPC/d_flip_f
 
 set_property ALLOW_COMBINATORIAL_LOOPS true [get_nets CPU/DXLatch/regPC/d_flip_flop2/q_reg_2]
 
-set_property ALLOW_COMBINATORIAL_LOOPS true [get_nets CPU/DXLatch/regPC/d_flip_flop28/q_i_8__60_n_0]
+
+set_property PACKAGE_PIN J15 [get_ports switch]
+set_property IOSTANDARD LVCMOS33 [get_ports switch]

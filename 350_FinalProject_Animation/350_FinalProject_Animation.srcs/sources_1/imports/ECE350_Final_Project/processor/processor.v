@@ -21,13 +21,15 @@ module processor(
     data_writeReg,                  // O: Data to write to for RegFile
     data_readRegA,                  // I: Data from port A of RegFile
     data_readRegB,                   // I: Data from port B of RegFile
-    randomOut
+    screenEnd,
+    stall2
 	 
 	);
 
 	// Control signals
 	input clock, reset;
-	output [7:0] randomOut;
+	input screenEnd;
+	output stall2;
 	
 	// Imem
     output [31:0] address_imem;
@@ -60,7 +62,7 @@ module processor(
     wire [4:0] temp_ctrl_readRegA;
     wire [1:0] FDBranches, FDBranchesB;
     wire isBLT, isBNE, en, isJump, finalSign;
-   
+   wire stallInst;
     //PC counter    
     or jumps(isJalorJ, isJalFD_in, isJump);
     encoder_8_bit typeOfJump(JumpType, 1'b1, isJalorJ, isJr, isBex, isBranchJump, 1'b0, 1'b0, 1'b0);
@@ -70,7 +72,9 @@ module processor(
 
     //Fetch Decode
     assign address_imem = PC_out;
-    or needToSendInnop(futureBranch, isBex, isJr, isBranchJump);
+    assign stallInst = inst_in_fd[31:27] == 5'b10001;
+    assign stall2 =stallInst;
+    or needToSendInnop(futureBranch, isBex, isJr, isBranchJump, stallInst);
     assign inst_in_fd = q_imem;
    
     //check to see if is Jump instruction. Makes things faster. Happens in very first cycle
@@ -201,7 +205,7 @@ module processor(
     //if multiplication/division then we choose multiplication/division
     assign finalDataResult = isMultDiv? data_result_multiplication:data_result_alu;
     //determines if we need to stall and sets the early latches to off if needed
-    assign en = ~isStall; 
+    assign en = ~isStall || stallInst&&!screenEnd; 
     assign o_in_xmSW = oneHotEncodedopCodeDX[3]?pc_out_dx: data_result_alu;
     assign o_xm_setX = oneHotEncodedopCodeDX[21]?setXValueDX : o_in_xmSW;//finalDataResult;
 
