@@ -350,7 +350,7 @@ module VGAController(
    // TODO: this just automatically goes to 3 lives no matter what...lostlife is whether or not the lives need to be displayed
    //livescount is what to display (see seven seg counter)
    always@(posedge clk) begin
-    if(ycoordinateWater >= 476 && waterUp == 1'b0 && splashWater == 1'b0) begin
+    if((ycoordinateWater >= 476 && waterUp == 1'b0 && splashWater == 1'b0) || (ycoordinateApple >= 476 && appleUp == 1'b0 && splashApple == 1'b0) || (ycoordinatePear >= 476 && pearUp == 1'b0 && splashPear == 1'b0) || (ycoordinateBanana >= 476 && bananaUp == 1'b0 && splashBanana == 1'b0) || (ycoordinateCoconut >= 476 && coconutUp == 1'b0 && splashCoconut == 1'b0)) begin
         lifelost <= 1'b1;
          counts = counts + 1'b1;
     end
