@@ -284,7 +284,7 @@ module VGAController(
         splashWater <= 1'b1;
         end
     end
-    if(waterUp == 1'b0) begin
+    if(waterUp == 1'b0 && ycoordinateWater >=479) begin
         Watercount <= 0;
         splashWater <= 1'b0;
     end
@@ -297,7 +297,7 @@ module VGAController(
         splashApples <= 1'b1;
         end
     end
-    if(appleUp == 1'b0) begin
+    if(appleUp == 1'b0 && ycoordinateApple >=479) begin
         Applecount <= 0;
         splashApples <= 1'b0;
     end
@@ -310,7 +310,7 @@ module VGAController(
         splashPears <= 1'b1;
         end
     end
-    if(pearUp == 1'b0) begin
+    if(pearUp == 1'b0 && ycoordinatePear >=479) begin
         Pearcount <= 0;
         splashPears <= 1'b0;
     end
@@ -323,7 +323,7 @@ module VGAController(
         splashBananas <= 1'b1;
         end
     end
-    if(bananaUp == 1'b0) begin
+    if(bananaUp == 1'b0 && ycoordinatePear >=479) begin
         Bananacount <= 0;
         splashBananas <= 1'b0;
     end
@@ -336,7 +336,7 @@ module VGAController(
         splashCoconuts <= 1'b1;
         end
     end
-    if(coconutUp == 1'b0) begin
+    if(coconutUp == 1'b0 && ycoordinateCoconut >=479) begin
         Coconutcount <= 0;
         splashCoconuts <= 1'b0;
     end

@@ -8,7 +8,7 @@ module imagecollision(x, y,  x2, y2, size, collision);
     reg collisionval;
 
     always @(*) begin
-        if(x2 <= x + size && y2 <= y + size && x2 >= x && y2 >= y)
+        if(x2 <= x + size && y2 <= y + size && x2 >= x && y2 >= y || x <= x2+ size && y <= y2 + size && x >= x2 && y >= y2)
             collisionval = 1'b1;
         else
             collisionval = 1'b0;
