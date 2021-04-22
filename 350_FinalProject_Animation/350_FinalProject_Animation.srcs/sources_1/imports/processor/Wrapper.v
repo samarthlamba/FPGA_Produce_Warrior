@@ -67,8 +67,8 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	
 	
 	assign clock_final = switch ? 1'b0 : clock;
-	AccelerometerCtl accelerometer(.SYSCLK(clock_final), .RESET(reset), .SCLK(sclk), .MOSI(mosi), .MISO(miso), .SS(ss), .ACCEL_X_OUT(accel_x), .ACCEL_Y_OUT(accel_y), .ACCEL_MAG_OUT(accel_z));
-	seven_seg_counter callcount(clock_final, sevenreset, anode, a7, a6, a5, a4, y2, y3, LEDvals, choose);
+	AccelerometerCtl accelerometer(.SYSCLK(clock), .RESET(reset), .SCLK(sclk), .MOSI(mosi), .MISO(miso), .SS(ss), .ACCEL_X_OUT(accel_x), .ACCEL_Y_OUT(accel_y), .ACCEL_MAG_OUT(accel_z));
+    seven_seg_counter callcount(clock, sevenreset, anode, a7, a6, a5, a4, LEDvals, lostlife, livescount);
 	always @(posedge clock_final) begin
 	    if(accel_x == 385)
 	       restx1 = 1'b1;
@@ -103,10 +103,8 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	assign restx = restx1;
 	assign resty = resty1;
 
-	AccelerometerCtl accelerometer(.SYSCLK(clock), .RESET(reset), .SCLK(sclk), .MOSI(mosi), .MISO(miso), .SS(ss), .ACCEL_X_OUT(accel_x), .ACCEL_Y_OUT(accel_y), .ACCEL_MAG_OUT(accel_z));
-    seven_seg_counter callcount(clock, sevenreset, anode, a7, a6, a5, a4, LEDvals, lostlife, livescount);
-    
-	VGAController vga(     
+	
+    VGAController vga(     
 	 clock, 			
 	 reset, 	
 	 up_fpga,
@@ -122,8 +120,19 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	 ps2_data,
 	 accel_x,
 	 accel_y,
+	 reg_1_x,
+	 reg_2_x,
+	 reg_3_x,
+	 reg_4_x,
+	 reg_5_x,
+	 reg_6_x,
+	 clk50,
+	 screenEndVal,
+	 clock_final,
 	 lostlife,
 	 livescount);
+	
+	 
 	// ADD YOUR MEMORY FILE HERE
 	localparam INSTR_FILE = "../Memory Files/lw_sw";
 	reg clk50 = 0;
@@ -164,31 +173,7 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	InstMem(.clk(clk50), 
 		.addr(instAddr[11:0]), 
 		.dataOut(instData));
-	VGAController vga(     
-	 clock, 			
-	 reset, 	
-	 up_fpga,
-	 down_fpga,
-	 left_fpga,
-	 right_fpga,
-	 hSync, 
-	 VSync,		
-	 VGA_R,  
-	 VGA_G,  
-	 VGA_B,
-	 ps2_clk,
-	 ps2_data,
-	 accel_x,
-	 accel_y,
-	 reg_1_x,
-	 reg_2_x,
-	 reg_3_x,
-	 reg_4_x,
-	 reg_5_x,
-	 reg_6_x,
-	 clk50,
-	 screenEndVal,
-	 clock_final);
+	
 	// Register File
 	regfile RegisterFile(.clock(clk50), 
 		.ctrl_writeEnable(rwe), .ctrl_reset(reset), 

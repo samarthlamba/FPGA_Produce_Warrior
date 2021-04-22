@@ -2,7 +2,7 @@ module processor(
     // Control signals
     clock,                          // I: The master clock
     reset,                          // I: A reset signal
-
+ 
     // Imem
     address_imem,                   // O: The address of the data to get from imem
     q_imem,                         // I: The data from imem

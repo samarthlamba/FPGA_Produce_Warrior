@@ -23,7 +23,7 @@ module VGAController(
 	input [31:0] reg_6_x,
 	input clk50,
 	output screenEndVal,
-	input clock_final);
+	input clock_final,
 	output lostlife,
 	output [2:0] livescount);
 	
@@ -140,12 +140,12 @@ module VGAController(
 	   
 	end 
     always @(posedge clk50 && reg_1_x != 10'd0 && screenEnd) begin
-        if(clk25 && reg_1_x > 32'b0)
-        xcoordinateWater =  reg_1_x[9:0]+reg_1_x[9:0]-30;
-            xcoordinateApple = reg_2_x[9:0]+reg_2_x[9:0]-30;
-            xcoordinatePear = reg_3_x[9:0] + reg_3_x[9:0] -30;
-            xcoordinateBanana = reg_4_x[9:0] + reg_4_x[9:0] -30;
-            xcoordinateCoconut = reg_5_x[9:0] + reg_5_x[9:0] - 30;
+        if(clk25 && reg_1_x > 32'b0 && ycoordinateWater >= 460)
+        xcoordinateWater =  reg_1_x[9:0];
+            xcoordinateApple = reg_2_x[9:0];
+            xcoordinatePear = reg_3_x[9:0];
+            xcoordinateBanana = reg_4_x[9:0];
+            xcoordinateCoconut = reg_5_x[9:0];
             //xcoordinateLemon = reg_6_x[9:0] +192;
     end
     always @(posedge clock_final) begin
