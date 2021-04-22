@@ -71,16 +71,16 @@ assign a2 = 1'b1;
 assign a3 = 1'b1;
 always @(*)
 begin
-    if(livesvalue == 3'b001) begin
+    if(livesvalue == 3'd0) begin
         LEDval <= 7'b0000110;
     end
-    if(livesvalue == 3'b010) begin
+    else if(livesvalue == 3'd1) begin
         LEDval <= 7'b0010010;
     end
-    if(livesvalue == 3'b011) begin
+    else if(livesvalue == 3'd2) begin
         LEDval <= 7'b1001111;
     end
-    if(livesvalue == 3'b100) begin
+    else begin
         LEDval <= 7'b0000001;
     end
 end

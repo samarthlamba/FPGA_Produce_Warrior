@@ -16,7 +16,7 @@ module VGAController(
 	input[8:0] x_accelerometer,
 	input[8:0] y_accelerometer,
 	output lostlife,
-	output livescount);
+	output [2:0] livescount);
 	
 	// Lab Memory Files Location
 	localparam FILES_PATH = "../assetsMemFiles/";
@@ -77,11 +77,15 @@ module VGAController(
 	wire [7:0] randomOut;
 	reg load;
 	reg [3:0] updated;
+	reg[2:0] counts;
+	reg lifelost;
 	
 	wire waterUpAndSplash;
 	assign sqcolor = 12'h128;
 	
 	   initial begin
+		    counts = 3'b000;
+   			lifelost = 1'b0;
 	       updated = 4'b0;
 	       waterUp = 1'b1;
 	       lemonUp = 1'b1;
@@ -342,24 +346,18 @@ module VGAController(
     end
    end
    
-   reg[2:0] counts = 3'b000;
-   reg lifelost = 1'b0;
-   reg threshold = 1'b0;
+  
    // TODO: this just automatically goes to 3 lives no matter what...lostlife is whether or not the lives need to be displayed
    //livescount is what to display (see seven seg counter)
    always@(posedge clk) begin
-    if(ycoordinateWater <= 9'd200)
-        threshold <=1'b1;
-        
-    if(threshold <= 1'b1) begin
-    if (counts == 3'b000 && ycoordinateWater >= 9'd480 && colorDataBackgroundWatermelonFinal == colorDataBackgroundWatermelon) begin
+    if(ycoordinateWater >= 476 && waterUp == 1'b0 && splashWater == 1'b0) begin
         lifelost <= 1'b1;
-        counts <= 3'b001;
+         counts = counts + 1'b1;
     end
-    end
+    //counts = 3'd2;
     end
     
-    assign lostlife = lifelost;
+    assign lostlife = lifelost;  //doesnt matter
     assign livescount = counts;
     
     assign splashWatermelon = splashWater;
@@ -376,7 +374,8 @@ module VGAController(
 	assign colorDataBackgroundBananaFinal = splashBanana ? colorDataBackgroundBananaSplash : colorDataBackgroundBanana;
 	assign colorDataBackgroundCoconutFinal = splashCoconut ? colorDataBackgroundCoconutSplash : colorDataBackgroundCoconut;
 	
-     encoder_8_bit chooser(chosenForeground, 1'b1, appleStatus && colorDataBackgroundAppleFinal !=12'h000, waterStatus && colorDataBackgroundWatermelonFinal !=12'h000, lemonStatus && colorDataBackgroundLemonFinal !=12'h000, pearStatus && colorDataBackgroundPearFinal !=12'h000, bananaStatus && colorDataBackgroundBananaFinal !=12'h000, coconutStatus && colorDataBackgroundCoconutFinal !=12'h000, 1'b0);
+	
+	 encoder_8_bit chooser(chosenForeground, 1'b1, appleStatus && colorDataBackgroundAppleFinal !=12'h000, waterStatus && colorDataBackgroundWatermelonFinal !=12'h000, lemonStatus && colorDataBackgroundLemonFinal !=12'h000, pearStatus && colorDataBackgroundPearFinal !=12'h000, bananaStatus && colorDataBackgroundBananaFinal !=12'h000, coconutStatus && colorDataBackgroundCoconutFinal !=12'h000, 1'b0);
     encoder_8_bit chooser2(chosenForeBackground, 1'b1, appleStatus && chosenForeground != 3'd1, waterStatus && chosenForeground != 3'd2, lemonStatus  && chosenForeground != 3'd3, pearStatus && chosenForeground != 3'd4, bananaStatus && chosenForeground != 3'd5, coconutStatus && chosenForeground != 3'd6, 1'b0);
     
 //---------------------------------------------------------------------------------------------------------------
