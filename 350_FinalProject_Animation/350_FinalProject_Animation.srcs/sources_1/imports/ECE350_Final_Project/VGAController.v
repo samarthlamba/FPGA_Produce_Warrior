@@ -11,16 +11,25 @@ module VGAController(
 	output[3:0] VGA_R,  // Red Signal Bits
 	output[3:0] VGA_G,  // Green Signal Bits
 	output[3:0] VGA_B,  // Blue Signal Bits
-	inout ps2_clk,
+	inout ps2_clk, 
 	inout ps2_data,
 	input[8:0] x_accelerometer,
 	input[8:0] y_accelerometer,
+	input [31:0] reg_1_x,
+	input [31:0] reg_2_x,
+	input [31:0] reg_3_x,
+	input [31:0] reg_4_x,
+	input [31:0] reg_5_x,
+	input [31:0] reg_6_x,
+	input clk50,
+	output screenEndVal,
+	input clock_final);
 	output lostlife,
 	output [2:0] livescount);
 	
 	// Lab Memory Files Location
 	localparam FILES_PATH = "../assetsMemFiles/";
-
+    
 	// Clock divider 100 MHz -> 25 MHz
 	wire clk25; // 25MHz clock 
 	reg[1:0] pixCounter = 0;      // Pixel counter to divide the clock
@@ -82,6 +91,7 @@ module VGAController(
 	
 	wire waterUpAndSplash;
 	assign sqcolor = 12'h128;
+	assign screenEndVal = ~screenEnd;
 	
 	   initial begin
 		    counts = 3'b000;
@@ -93,8 +103,8 @@ module VGAController(
            bananaUp = 1'b1;
            appleUp = 1'b1;
           coconutUp = 1'b1;
-            xcoordinateApple = 20;
-            xcoordinatePear = 40;
+            xcoordinateApple = 0;
+            xcoordinatePear = 0;
             xcoordinateBanana = 60;
             xcoordinateCoconut =80;
             xcoordinateLemon =100;
@@ -102,7 +112,6 @@ module VGAController(
             #1000 load = 1;
 	   end
 
-	lfsr val(randomOut, clk, 1'b0, seed, load);
 	always @(posedge clk) begin
 	   if(x < xcoordinateLemon + 10'd50 && y < ycoordinateLemon + 10'd50 && x > xcoordinateLemon && y > ycoordinateLemon)
 			lemonStatus = 1'b1;
@@ -126,12 +135,20 @@ module VGAController(
 			appleStatus = 1'b0;
         if(x < xcoordinateWater + 10'd50 && y < ycoordinateWater + 10'd50 && x >= xcoordinateWater && y > ycoordinateWater)
 			waterStatus = 1'b1;
-		else
-			waterStatus = 1'b0;
+		else 
+			waterStatus = 1'b0; 
 	   
-	end
-    
-    always @(posedge clk) begin
+	end 
+    always @(posedge clk50 && reg_1_x != 10'd0 && screenEnd) begin
+        if(clk25 && reg_1_x > 32'b0)
+        xcoordinateWater =  reg_1_x[9:0]+reg_1_x[9:0]-30;
+            xcoordinateApple = reg_2_x[9:0]+reg_2_x[9:0]-30;
+            xcoordinatePear = reg_3_x[9:0] + reg_3_x[9:0] -30;
+            xcoordinateBanana = reg_4_x[9:0] + reg_4_x[9:0] -30;
+            xcoordinateCoconut = reg_5_x[9:0] + reg_5_x[9:0] - 30;
+            //xcoordinateLemon = reg_6_x[9:0] +192;
+    end
+    always @(posedge clock_final) begin
         if(ycoordinateWater <= 9'd480 && screenEnd && waterUp == 1'b1)
             ycoordinateWater = ycoordinateWater + 1'b1;
         else if(ycoordinateWater > 9'd480 && waterUp == 1'b1)
@@ -188,8 +205,6 @@ module VGAController(
 //            ycoordinateLemon = ycoordinateLemon - 1'b1;   
         xcoordinateLemon = x_accelerometer;
 		ycoordinateLemon = y_accelerometer; 
-		if(updated == 4'b0)
-		  xcoordinateWater =  192 + randomOut;
 		  //updated = 4'b1;
      
         
@@ -226,7 +241,7 @@ module VGAController(
 		BITS_PER_COLOR = 12, 	  								 // Nexys A7 uses 12 bits/color
 		PALETTE_COLOR_COUNT = 256, 								 // Number of Colors available
 		PALETTE_ADDRESS_WIDTH = $clog2(PALETTE_COLOR_COUNT) + 1; // Use built in log2 Command
-
+    
 	wire[BITS_PER_COLOR-1:0] colorDataBackground; 
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundWatermelon; 
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundApple; 
@@ -243,7 +258,9 @@ module VGAController(
     
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundAppleSplash; 
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundWatermelonSplash; 
+
 	//wire[BITS_PER_COLOR-1:0] colorDataBackgroundAppleSplash; 
+
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundLemonSplash; 
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundPearSplash; 
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundBananaSplash;

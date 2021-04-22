@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 /**
- * 
+ *  
  * READ THIS DESCRIPTION:
  *
  * This is the Wrapper module that will serve as the header file combining your processor, 
@@ -24,16 +24,24 @@
  *
  **/
 
-module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx, resty, hSync, VSync, VGA_R, VGA_B, VGA_G, up_fpga, down_fpga, right_fpga, left_fpga, ps2_clk, ps2_data);
-	input clock, reset, miso;
+module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx, resty, hSync, VSync, VGA_R, VGA_B, VGA_G, up_fpga, down_fpga, right_fpga, left_fpga, ps2_clk, ps2_data, anode, a7, a6, a5, a4, y2, y3, LEDvals, choose, sevenreset, LED_out, LED_out2);
+	input clock, reset, miso, sevenreset;
 	output sclk, mosi, ss;
 	output up, down, left ,right, restx, resty;
 	output hSync;
 	output VSync;
 	output[3:0] VGA_R, VGA_B, VGA_G;
+	output[3:0] anode;
+	output LED_out;
+	output LED_out2;
+	output a7, a6, a5, a4;
 	inout ps2_clk;
 	inout ps2_data;
 	input up_fpga, down_fpga, right_fpga, left_fpga;
+	input y2, y3;
+	output[6:0] LEDvals;
+	input choose;
+	
 
     reg up1, down1, left1, right1, restx1, resty1;
 
@@ -44,7 +52,15 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	wire[31:0] instAddr, instData, 
 		rData, regA, regB,
 		memAddr, memDataIn, memDataOut;
-	
+	wire screenEndVal;
+	wire[31:0] reg_1_x, 
+	reg_2_x, reg_3_x, reg_4_x, reg_5_x, reg_6_x, reg_7_x,
+	reg_8_x;
+	wire[31:0] reg_9_y, reg_10_y, reg_11_y, reg_12_y, reg_13_y,
+	reg_14_y, reg_15_y, reg_16_y;
+	wire[31:0]reg_29_rand;
+	 
+	 
 	
 	always @(posedge clock) begin
 	    if(accel_x == 385)
@@ -80,60 +96,61 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	assign restx = restx1;
 	assign resty = resty1;
 
-	AccelerometerCtl accelerometer(.SYSCLK(clock), .RESET(reset), .SCLK(sclk), .MOSI(mosi), .MISO(miso), .SS(ss), .ACCEL_X_OUT(accel_x), .ACCEL_Y_OUT(accel_y), .ACCEL_MAG_OUT(accel_z));
 
-	VGAController vga(     
-	 clock, 			
-	 reset, 	
-	 up_fpga,
-	 down_fpga,
-	 left_fpga,
-	 right_fpga,
-	 hSync, 
-	 VSync,		
-	 VGA_R,  
-	 VGA_G,  
-	 VGA_B,
-	 ps2_clk,
-	 ps2_data,
-	 accel_x,
-	 accel_y);
-//	// ADD YOUR MEMORY FILE HERE
-//	localparam INSTR_FILE = "";
+
+	// ADD YOUR MEMORY FILE HERE
+	localparam INSTR_FILE = "../Memory Files/lw_sw";
+	reg clk50 = 0;
+	reg [7:0] counter50Mh = 7'd0;
+	wire [7:0]counterLimit;
+	assign counterLimit =7'd100;
 	
-//	// Main Processing Unit
-//	processor CPU(.clock(clock), .reset(reset), 
+	always @(posedge clock) begin
+	   if(counter50Mh < counterLimit)
+	           counter50Mh <= counter50Mh +1;
+	   else begin
+	       counter50Mh <= 0;
+	       clk50 <= ~clk50;
+	   end
+	   end
+	// Main Processing Unit
+
+	processor CPU(.clock(clk50), .reset(reset), 
 								
-//		// ROM
-//		.address_imem(instAddr), .q_imem(instData),
+		// ROM
+		.address_imem(instAddr), .q_imem(instData),
 									
-//		// Regfile
-//		.ctrl_writeEnable(rwe),     .ctrl_writeReg(rd),
-//		.ctrl_readRegA(rs1),     .ctrl_readRegB(rs2), 
-//		.data_writeReg(rData), .data_readRegA(regA), .data_readRegB(regB),
+		// Regfile
+		.ctrl_writeEnable(rwe),     .ctrl_writeReg(rd),
+		.ctrl_readRegA(rs1),     .ctrl_readRegB(rs2), 
+		.data_writeReg(rData), .data_readRegA(regA), .data_readRegB(regB),
 									
-//		// RAM
-//		.wren(mwe), .address_dmem(memAddr), 
-//		.data(memDataIn), .q_dmem(memDataOut)); 
+		// RAM
+		.wren(mwe), .address_dmem(memAddr), 
+		.data(memDataIn), .q_dmem(memDataOut)); 
 	
-//	// Instruction Memory (ROM)
-//	ROM #(.MEMFILE({INSTR_FILE, ".mem"}))
-//	InstMem(.clk(clock), 
-//		.addr(instAddr[11:0]), 
-//		.dataOut(instData));
+	// Instruction Memory (ROM)
+	ROM #(.MEMFILE({INSTR_FILE, ".mem"}))
+	InstMem(.clk(clk50), 
+		.addr(instAddr[11:0]), 
+		.dataOut(instData));
 	
-//	// Register File
-//	regfile RegisterFile(.clock(clock), 
-//		.ctrl_writeEnable(rwe), .ctrl_reset(reset), 
-//		.ctrl_writeReg(rd),
-//		.ctrl_readRegA(rs1), .ctrl_readRegB(rs2), 
-//		.data_writeReg(rData), .data_readRegA(regA), .data_readRegB(regB));
-						
-//	// Processor Memory (RAM)
-//	RAM ProcMem(.clk(clock), 
-//		.wEn(mwe), 
-//		.addr(memAddr[11:0]), 
-//		.dataIn(memDataIn), 
-//		.dataOut(memDataOut));
+	// Register File
+	regfile RegisterFile(.clock(clk50), 
+		.ctrl_writeEnable(rwe), .ctrl_reset(reset), 
+		.ctrl_writeReg(rd),
+		.ctrl_readRegA(rs1), .ctrl_readRegB(rs2), 
+		.data_writeReg(rData), .data_readRegA(regA), .data_readRegB(regB), .screenEndVal(screenEndVal), .reg_out1(reg_1_x), 
+	.reg_out2(reg_2_x), .reg_out3(reg_3_x), .reg_out4(reg_4_x), .reg_out5(reg_5_x), .reg_out6(reg_6_x), .reg_out7(reg_7_x),
+	.reg_out8(reg_8_x), .reg_out9(reg_9_y), .reg_out10(reg_10_y), .reg_out11(reg_11_y), .reg_out12(reg_12_y), .reg_out13(reg_13_y),
+	.reg_out14(reg_14_y), .reg_out15(reg_15_y), .reg_out16(reg_16_y), .reg_out29(reg_29_rand));
+     assign LED_out = reg_1_x == 32'd192;   
+     assign LED_out2 = reg_1_x == 32'd0;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+// Processor Memory (RAM)
+	RAMProc ProcMem(.clk(clk50), 
+		.wEn(mwe), 
+		.addr(memAddr[11:0]), 
+		.dataIn(memDataIn), 
+		.dataOut(memDataOut));
 
 endmodule

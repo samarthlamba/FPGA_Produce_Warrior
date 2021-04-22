@@ -1,23 +1,3 @@
-
-/**
- * READ THIS DESCRIPTION!
- *
- * This is your processor module that will contain the bulk of your code submission. You are to implement
- * a 5-stage pipelined processor in this module, accounting for hazards and implementing bypasses as
- * necessary.
- *
- * Ultimately, your processor will be tested by a master skeleton, so the
- * testbench can see which controls signal you active when. Therefore, there needs to be a way to
- * "inject" imem, dmem, and regfile interfaces from some external controller module. The skeleton
- * file, Wrapper.v, acts as a small wrapper around your processor for this purpose. Refer to Wrapper.v
- * for more details.
- *
- * As a result, this module will NOT contain the RegFile nor the memory modules. Study the inputs 
- * very carefully - the RegFile-related I/Os are merely signals to be sent to the RegFile instantiated
- * in your Wrapper module. This is the same for your memory elements. 
- *
- *
- */
 module processor(
     // Control signals
     clock,                          // I: The master clock
@@ -40,12 +20,16 @@ module processor(
     ctrl_readRegB,                  // O: Register to read from port B of RegFile
     data_writeReg,                  // O: Data to write to for RegFile
     data_readRegA,                  // I: Data from port A of RegFile
-    data_readRegB                   // I: Data from port B of RegFile
+    data_readRegB,                   // I: Data from port B of RegFile
+    screenEnd,
+    stall2
 	 
 	);
 
 	// Control signals
 	input clock, reset;
+	input screenEnd;
+	output stall2;
 	
 	// Imem
     output [31:0] address_imem;
@@ -78,7 +62,7 @@ module processor(
     wire [4:0] temp_ctrl_readRegA;
     wire [1:0] FDBranches, FDBranchesB;
     wire isBLT, isBNE, en, isJump, finalSign;
-   
+   wire stallInst;
     //PC counter    
     or jumps(isJalorJ, isJalFD_in, isJump);
     encoder_8_bit typeOfJump(JumpType, 1'b1, isJalorJ, isJr, isBex, isBranchJump, 1'b0, 1'b0, 1'b0);
@@ -88,7 +72,9 @@ module processor(
 
     //Fetch Decode
     assign address_imem = PC_out;
-    or needToSendInnop(futureBranch, isBex, isJr, isBranchJump);
+    assign stallInst = inst_in_fd[31:27] == 5'b10001;
+    assign stall2 =stallInst;
+    or needToSendInnop(futureBranch, isBex, isJr, isBranchJump, stallInst);
     assign inst_in_fd = q_imem;
    
     //check to see if is Jump instruction. Makes things faster. Happens in very first cycle
@@ -154,7 +140,13 @@ module processor(
     wire [7:0] randomOut;
     
    // seed = final_inst_in_fd[31:27] == 5'd16?final_inst_in_fd[7:0]:8'd2;
-    lfsr randomness(randomOut, clock, 1'b0, 8'd2, PC_out!= 32'd0, 1'b1);
+   lfsr randomness(randomOut, clock, 1'b0, 8'd2, PC_out!= 32'd0, 1'b1);
+      always @(randomOut) begin
+      $display("Random %d", randomOut);
+      end
+      always @(PC_out) begin
+       $display("Radadasdasdsa %d",PC_out);
+      end
     
     //determines next value for PC in case we branched
     cla_32_bit_adder adderAfterPC(new_PC_addition, sign_extended_branch, pc_out_fd, PC_additionSignExtension, 1'b0);
@@ -213,7 +205,7 @@ module processor(
     //if multiplication/division then we choose multiplication/division
     assign finalDataResult = isMultDiv? data_result_multiplication:data_result_alu;
     //determines if we need to stall and sets the early latches to off if needed
-    assign en = ~isStall; 
+    assign en = ~isStall || stallInst&&!screenEnd; 
     assign o_in_xmSW = oneHotEncodedopCodeDX[3]?pc_out_dx: data_result_alu;
     assign o_xm_setX = oneHotEncodedopCodeDX[21]?setXValueDX : o_in_xmSW;//finalDataResult;
 

@@ -5,16 +5,31 @@ module regfile_tb;
     reg           clock = 0, ctrl_writeEn, ctrl_reset;
     reg [4:0]     ctrl_writeReg, ctrl_readRegA, ctrl_readRegB;
     reg [31:0]    data_writeReg;
+    reg[31:0] screenEndVal;
+	initial begin
+		#10 screenEndVal = 32'b00000000000000000000000000000000;
+		#20 screenEndVal = 32'b00000000000000000000000000000001;
+		#40 screenEndVal = 32'b00000000000000000000000000000000;
+		#80 screenEndVal = 32'b00000000000000000000000000000001;
+		#160 screenEndVal = 32'b00000000000000000000000000000000;
+		#320 screenEndVal = 32'b00000000000000000000000000000001;
+		#4000;
+		$finish;
+	end
 
     // expected module outputs
     reg [31:0] exp_dataRegA, exp_dataRegB;
 
     // module outputs
     wire [31:0] data_readRegA, data_readRegB;
+	wire [31:0] reg_1_x, reg_2_x, reg_3_x, reg_4_x, reg_5_x, reg_6_x, reg_7_x, reg_8_x;
+	wire [31:0] reg_9_y, reg_10_y, reg_11_y, reg_12_y, reg_13_y, reg_14_y, reg_15_y, reg_16_y;
+	wire [31:0] reg_29_rand;
 
     // instantiate the regfile
-    regfile tester (clock, ctrl_writeEn, ctrl_reset, ctrl_writeReg,
-        ctrl_readRegA, ctrl_readRegB, data_writeReg, data_readRegA, data_readRegB);
+    regfile tester (~clock, ctrl_writeEn, ctrl_reset, ctrl_writeReg,
+        ctrl_readRegA, ctrl_readRegB, data_writeReg, data_readRegA, data_readRegB, screenEndVal, reg_1_x, reg_2_x, reg_3_x, reg_4_x, reg_5_x, reg_6_x, reg_7_x, reg_8_x,
+		reg_9_y, reg_10_y, reg_11_y, reg_12_y, reg_13_y, reg_14_y, reg_15_y, reg_16_y, reg_29_rand);
 
 	// Initialize our strings
 	reg[127:0] testName;
@@ -92,9 +107,9 @@ module regfile_tb;
 					tests, ctrl_writeEn, ctrl_reset, ctrl_writeReg, $signed(data_writeReg),
 					ctrl_readRegA, ctrl_readRegB, $signed(data_readRegA), $signed(data_readRegB), $signed(exp_dataRegA), $signed(exp_dataRegB));
 
-				$display("Test %3d: FAILED", tests);
+				$display("Test %3d: FAILED, ScreenEnd: %d, reg7: %d, reg3: %d, reg9: %d, reg2:%d, reg13:%d, reg29:%d", tests, screenEndVal, reg_7_x, reg_3_x, reg_9_y, reg_2_x, reg_13_y, reg_29_rand);
 			end else begin
-				$display("Test %3d: PASSED", tests);
+				$display("Test %3d: PASSED, ScreenEnd: %d", tests, screenEndVal);
 			end
 
 			// Get the input for the parameters from the input file
