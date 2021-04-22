@@ -24,6 +24,8 @@ module VGAController(
 	input clk50,
 	output screenEndVal,
 	input clock_final);
+	output lostlife,
+	output [2:0] livescount);
 	
 	// Lab Memory Files Location
 	localparam FILES_PATH = "../assetsMemFiles/";
@@ -84,10 +86,16 @@ module VGAController(
 	wire [7:0] randomOut;
 	reg load;
 	reg [3:0] updated;
+	reg[2:0] counts;
+	reg lifelost;
+	
+	wire waterUpAndSplash;
 	assign sqcolor = 12'h128;
 	assign screenEndVal = ~screenEnd;
 	
 	   initial begin
+		    counts = 3'b000;
+   			lifelost = 1'b0;
 	       updated = 4'b0;
 	       waterUp = 1'b1;
 	       lemonUp = 1'b1;
@@ -201,8 +209,17 @@ module VGAController(
      
         
     end
-    
-    assign splashWatermelon = waterUp;
+    wire splashWatercheck;
+    wire splashApplecheck;
+    wire splashPearcheck;
+    wire splashCoconutcheck;
+    wire splashBananacheck;
+    imagecollision watermelonsplash(xcoordinateWater, ycoordinateWater, x_accelerometer, y_accelerometer, 10'd50, splashWatercheck);
+    imagecollision applesplash(xcoordinateApple, ycoordinateApple, x_accelerometer, y_accelerometer, 10'd50, splashApplecheck);
+    imagecollision pearsplash(xcoordinatePear, ycoordinatePear, x_accelerometer, y_accelerometer, 10'd50, splashPearcheck);
+    imagecollision coconutsplash(xcoordinateCoconut, ycoordinateCoconut, x_accelerometer, y_accelerometer, 10'd50, splashCoconutcheck);
+    imagecollision bananasplash(xcoordinateBanana, ycoordinateBanana, x_accelerometer, y_accelerometer, 10'd50, splashBananacheck);
+    //assign splashWatermelon = waterUp;
 	
 	VGATimingGenerator #(
 		.HEIGHT(VIDEO_HEIGHT), // Use the standard VGA Values
@@ -241,6 +258,9 @@ module VGAController(
     
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundAppleSplash; 
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundWatermelonSplash; 
+
+	//wire[BITS_PER_COLOR-1:0] colorDataBackgroundAppleSplash; 
+
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundLemonSplash; 
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundPearSplash; 
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundBananaSplash;
@@ -254,11 +274,116 @@ module VGAController(
     
     wire[BITS_PER_COLOR-1:0] colorDataBackgroundAppleFinal; 
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundWatermelonFinal; 
+	//integer[BITS_PER_COLOR-1:0] colorDataBackgroundWate
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundLemonFinal; 
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundPearFinal; 
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundBananaFinal;
 	wire[BITS_PER_COLOR-1:0] colorDataBackgroundCoconutFinal;    
 	
+//	always @(posedge clk) begin
+//	   if(waterUp == 1'b1) begin
+	   
+//	   end
+//	end
+    integer Watercount = 0;
+    integer Applecount = 0;
+    integer Pearcount = 0;
+    integer Bananacount = 0;
+    integer Coconutcount = 0;
+    reg splashWater = 1'b0;
+    reg splashApples = 1'b0;
+    reg splashPears = 1'b0;
+    reg splashBananas = 1'b0;
+    reg splashCoconuts = 1'b0;
+   always @(posedge clk) begin
+    if(splashWatercheck == 1'b1) begin
+        Watercount <= Watercount + 1;
+        splashWater <= 1'b1;
+    end
+    if(waterUp == 1'b1) begin
+        if(Watercount > 0) begin
+        splashWater <= 1'b1;
+        end
+    end
+    if(waterUp == 1'b0 && ycoordinateWater >=479) begin
+        Watercount <= 0;
+        splashWater <= 1'b0;
+    end
+    if(splashApplecheck == 1'b1) begin
+        Applecount <= Applecount + 1;
+        splashApples <= 1'b1;
+    end
+    if(appleUp == 1'b1) begin
+        if(Applecount > 0) begin
+        splashApples <= 1'b1;
+        end
+    end
+    if(appleUp == 1'b0 && ycoordinateApple >=479) begin
+        Applecount <= 0;
+        splashApples <= 1'b0;
+    end
+    if(splashPearcheck == 1'b1) begin
+        Pearcount <= Pearcount + 1;
+        splashPears <= 1'b1;
+    end
+    if(pearUp == 1'b1) begin
+        if(Pearcount > 0) begin
+        splashPears <= 1'b1;
+        end
+    end
+    if(pearUp == 1'b0 && ycoordinatePear >=479) begin
+        Pearcount <= 0;
+        splashPears <= 1'b0;
+    end
+    if(splashBananacheck == 1'b1) begin
+        Bananacount <= Bananacount + 1;
+        splashBananas <= 1'b1;
+    end
+    if(bananaUp == 1'b1) begin
+        if(Bananacount > 0) begin
+        splashBananas <= 1'b1;
+        end
+    end
+    if(bananaUp == 1'b0 && ycoordinatePear >=479) begin
+        Bananacount <= 0;
+        splashBananas <= 1'b0;
+    end
+    if(splashCoconutcheck == 1'b1) begin
+        Coconutcount <= Coconutcount + 1;
+        splashCoconuts <= 1'b1;
+    end
+    if(coconutUp == 1'b1) begin
+        if(Coconutcount > 0) begin
+        splashCoconuts <= 1'b1;
+        end
+    end
+    if(coconutUp == 1'b0 && ycoordinateCoconut >=479) begin
+        Coconutcount <= 0;
+        splashCoconuts <= 1'b0;
+    end
+   end
+   
+  
+   // TODO: this just automatically goes to 3 lives no matter what...lostlife is whether or not the lives need to be displayed
+   //livescount is what to display (see seven seg counter)
+   always@(posedge clk) begin
+    if((ycoordinateWater >= 476 && waterUp == 1'b0 && splashWater == 1'b0) || (ycoordinateApple >= 476 && appleUp == 1'b0 && splashApple == 1'b0) || (ycoordinatePear >= 476 && pearUp == 1'b0 && splashPear == 1'b0) || (ycoordinateBanana >= 476 && bananaUp == 1'b0 && splashBanana == 1'b0) || (ycoordinateCoconut >= 476 && coconutUp == 1'b0 && splashCoconut == 1'b0)) begin
+        lifelost <= 1'b1;
+         counts = counts + 1'b1;
+    end
+    //counts = 3'd2;
+    end
+    
+    assign lostlife = lifelost;  //doesnt matter
+    assign livescount = counts;
+    
+    assign splashWatermelon = splashWater;
+    assign splashApple = splashApples;
+    assign splashPear = splashPears;
+    assign splashBanana = splashBananas;
+    assign splashCoconut = splashCoconuts;
+    
+	   
 	assign colorDataBackgroundAppleFinal = splashApple ? colorDataBackgroundAppleSplash : colorDataBackgroundApple;
 	assign colorDataBackgroundWatermelonFinal = splashWatermelon ? colorDataBackgroundWatermelonSplash : colorDataBackgroundWatermelon;
 	assign colorDataBackgroundLemonFinal = splashLemon ? colorDataBackgroundLemonSplash : colorDataBackgroundLemon;
@@ -266,7 +391,8 @@ module VGAController(
 	assign colorDataBackgroundBananaFinal = splashBanana ? colorDataBackgroundBananaSplash : colorDataBackgroundBanana;
 	assign colorDataBackgroundCoconutFinal = splashCoconut ? colorDataBackgroundCoconutSplash : colorDataBackgroundCoconut;
 	
-     encoder_8_bit chooser(chosenForeground, 1'b1, appleStatus && colorDataBackgroundAppleFinal !=12'h000, waterStatus && colorDataBackgroundWatermelonFinal !=12'h000, lemonStatus && colorDataBackgroundLemonFinal !=12'h000, pearStatus && colorDataBackgroundPearFinal !=12'h000, bananaStatus && colorDataBackgroundBananaFinal !=12'h000, coconutStatus && colorDataBackgroundCoconutFinal !=12'h000, 1'b0);
+	
+	 encoder_8_bit chooser(chosenForeground, 1'b1, appleStatus && colorDataBackgroundAppleFinal !=12'h000, waterStatus && colorDataBackgroundWatermelonFinal !=12'h000, lemonStatus && colorDataBackgroundLemonFinal !=12'h000, pearStatus && colorDataBackgroundPearFinal !=12'h000, bananaStatus && colorDataBackgroundBananaFinal !=12'h000, coconutStatus && colorDataBackgroundCoconutFinal !=12'h000, 1'b0);
     encoder_8_bit chooser2(chosenForeBackground, 1'b1, appleStatus && chosenForeground != 3'd1, waterStatus && chosenForeground != 3'd2, lemonStatus  && chosenForeground != 3'd3, pearStatus && chosenForeground != 3'd4, bananaStatus && chosenForeground != 3'd5, coconutStatus && chosenForeground != 3'd6, 1'b0);
     
 //---------------------------------------------------------------------------------------------------------------

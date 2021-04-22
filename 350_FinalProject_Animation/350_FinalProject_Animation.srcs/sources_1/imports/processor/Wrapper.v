@@ -59,7 +59,11 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	wire[31:0] reg_9_y, reg_10_y, reg_11_y, reg_12_y, reg_13_y,
 	reg_14_y, reg_15_y, reg_16_y;
 	wire[31:0]reg_29_rand;
+
 	wire clock_final;
+
+	wire lostlife;
+	wire[2:0] livescount;
 	
 	
 	assign clock_final = switch ? 1'b0 : clock;
@@ -99,8 +103,27 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	assign restx = restx1;
 	assign resty = resty1;
 
-
-
+	AccelerometerCtl accelerometer(.SYSCLK(clock), .RESET(reset), .SCLK(sclk), .MOSI(mosi), .MISO(miso), .SS(ss), .ACCEL_X_OUT(accel_x), .ACCEL_Y_OUT(accel_y), .ACCEL_MAG_OUT(accel_z));
+    seven_seg_counter callcount(clock, sevenreset, anode, a7, a6, a5, a4, LEDvals, lostlife, livescount);
+    
+	VGAController vga(     
+	 clock, 			
+	 reset, 	
+	 up_fpga,
+	 down_fpga,
+	 left_fpga,
+	 right_fpga,
+	 hSync, 
+	 VSync,		
+	 VGA_R,  
+	 VGA_G,  
+	 VGA_B,
+	 ps2_clk,
+	 ps2_data,
+	 accel_x,
+	 accel_y,
+	 lostlife,
+	 livescount);
 	// ADD YOUR MEMORY FILE HERE
 	localparam INSTR_FILE = "../Memory Files/lw_sw";
 	reg clk50 = 0;
