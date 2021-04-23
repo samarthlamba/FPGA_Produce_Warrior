@@ -144,9 +144,12 @@ module VGAController(
         if((clk25 && reg_1_x > 32'b0 && ycoordinateWater >= 460))
         xcoordinateWater =  reg_1_x[9:0];
             xcoordinateApple = reg_2_x[9:0];
+        if(clk25 && reg_1_x > 32'b0 && ycoordinatePear >= 460)
             xcoordinatePear = reg_3_x[9:0];
+        if(clk25 && reg_1_x > 32'b0 && ycoordinateBanana >= 460)
             xcoordinateBanana = reg_4_x[9:0];
-            xcoordinateCoconut = reg_5_x[9:0];
+        if(clk25 && reg_1_x > 32'b0 && ycoordinateCoconut >= 460)
+               xcoordinateCoconut = reg_5_x[9:0];
             //xcoordinateLemon = reg_6_x[9:0] +192;
     end
     always @(posedge clock_final) begin

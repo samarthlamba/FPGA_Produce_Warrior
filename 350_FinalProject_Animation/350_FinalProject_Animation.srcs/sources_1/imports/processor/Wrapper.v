@@ -24,7 +24,7 @@
  *
  **/
 
-module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx, resty, hSync, VSync, VGA_R, VGA_B, VGA_G, up_fpga, down_fpga, right_fpga, left_fpga, ps2_clk, ps2_data, anode, a7, a6, a5, a4, y2, y3, LEDvals, choose, sevenreset, LED_out, LED_out2, switch, micData, micClk, chSel, audioSound, audioEnable);
+module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx, resty, hSync, VSync, VGA_R, VGA_B, VGA_G, up_fpga, down_fpga, right_fpga, left_fpga, ps2_clk, ps2_data, anode, a7, a6, a5, a4, LEDvals, choose, sevenreset, LED_out, LED_out2, switch, micData, micClk, chSel, audioSound, audioEnable);
 	input clock, reset, miso, sevenreset, switch;
 	output sclk, mosi, ss;
 	output up, down, left ,right, restx, resty;
@@ -38,7 +38,6 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	inout ps2_clk;
 	inout ps2_data;
 	input up_fpga, down_fpga, right_fpga, left_fpga;
-	input y2, y3;
 	output[6:0] LEDvals;
 	input choose;
 	input micData;
