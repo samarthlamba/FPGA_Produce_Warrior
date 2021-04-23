@@ -25,7 +25,8 @@ module VGAController(
 	output screenEndVal,
 	input clock_final,
 	output lostlife,
-	output [2:0] livescount);
+	output [2:0] livescount,
+	output audioOut);
 	
 	// Lab Memory Files Location
 	localparam FILES_PATH = "../assetsMemFiles/";
@@ -140,7 +141,7 @@ module VGAController(
 	   
 	end 
     always @(posedge clk50 && reg_1_x != 10'd0 && screenEnd) begin
-        if(clk25 && reg_1_x > 32'b0 && ycoordinateWater >= 460)
+        if((clk25 && reg_1_x > 32'b0 && ycoordinateWater >= 460))
         xcoordinateWater =  reg_1_x[9:0];
             xcoordinateApple = reg_2_x[9:0];
             xcoordinatePear = reg_3_x[9:0];
@@ -295,19 +296,23 @@ module VGAController(
     reg splashPears = 1'b0;
     reg splashBananas = 1'b0;
     reg splashCoconuts = 1'b0;
+    
    always @(posedge clk) begin
     if(splashWatercheck == 1'b1) begin
         Watercount <= Watercount + 1;
         splashWater <= 1'b1;
+        //audioOut_reg = 1'b1;
     end
     if(waterUp == 1'b1) begin
         if(Watercount > 0) begin
         splashWater <= 1'b1;
+        //audioOut_reg = 1'b1;
         end
     end
     if(waterUp == 1'b0 && ycoordinateWater >=479) begin
         Watercount <= 0;
         splashWater <= 1'b0;
+        //audioOut_reg = 1'b0;
     end
     if(splashApplecheck == 1'b1) begin
         Applecount <= Applecount + 1;
@@ -363,19 +368,28 @@ module VGAController(
     end
    end
    
+   
   
    // TODO: this just automatically goes to 3 lives no matter what...lostlife is whether or not the lives need to be displayed
    //livescount is what to display (see seven seg counter)
+   reg audioOut_reg = 1'b0;
    always@(posedge clk) begin
     if((ycoordinateWater >= 476 && waterUp == 1'b0 && splashWater == 1'b0) || (ycoordinateApple >= 476 && appleUp == 1'b0 && splashApple == 1'b0) || (ycoordinatePear >= 476 && pearUp == 1'b0 && splashPear == 1'b0) || (ycoordinateBanana >= 476 && bananaUp == 1'b0 && splashBanana == 1'b0) || (ycoordinateCoconut >= 476 && coconutUp == 1'b0 && splashCoconut == 1'b0)) begin
         lifelost <= 1'b1;
          counts = counts + 1'b1;
+         audioOut_reg = 1'b1;
     end
+    //it beeps and switches everytime at the bottom, confused how to switch
+    if((ycoordinateWater < 476 && waterUp == 1'b1 && splashWater == 1'b1) || (ycoordinateApple < 476 && appleUp == 1'b1 && splashApple == 1'b1) || (ycoordinatePear < 476 && pearUp == 1'b1 && splashPear == 1'b1) || (ycoordinateBanana < 476 && bananaUp == 1'b1 && splashBanana == 1'b1) || (ycoordinateCoconut < 476 && coconutUp == 1'b1 && splashCoconut == 1'b1))begin
     //counts = 3'd2;
+    lifelost <= 1'b0;
+    audioOut_reg = 1'b0;
+    end
     end
     
     assign lostlife = lifelost;  //doesnt matter
     assign livescount = counts;
+    assign audioOut = audioOut_reg;
     
     assign splashWatermelon = splashWater;
     assign splashApple = splashApples;
