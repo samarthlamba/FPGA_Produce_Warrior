@@ -228,17 +228,17 @@ module VGAController(
             ycoordinateWater = ycoordinateWater + 1'b1;
         else if(ycoordinateWater > 9'd480 && waterUp == 1'b1)
             waterUp = ~waterUp;
-        if(ycoordinateWater < 9'd180 && waterUp == 1'b0)
+        if(ycoordinateWater < 9'd110 && waterUp == 1'b0)
             waterUp = ~waterUp;
-        if(ycoordinateWater >= 9'd180 && screenEnd && waterUp == 1'b0)
+        if(ycoordinateWater >= 9'd110 && screenEnd && waterUp == 1'b0)
             ycoordinateWater = ycoordinateWater - 1'b1;
          if(ycoordinateApple <= 9'd480 && screenEnd && appleUp == 1'b1)
             ycoordinateApple = ycoordinateApple + 1'b1;
         else if(ycoordinateApple > 9'd480 && appleUp == 1'b1)
             appleUp = ~appleUp;
-        if(ycoordinateApple < 9'd180 && appleUp == 1'b0)
+        if(ycoordinateApple < 9'd110 && appleUp == 1'b0)
             appleUp = ~appleUp;
-        if(ycoordinateApple >= 9'd180 && screenEnd && appleUp == 1'b0)
+        if(ycoordinateApple >= 9'd110 && screenEnd && appleUp == 1'b0)
             ycoordinateApple = ycoordinateApple - 1'b1;
             
                  
@@ -246,28 +246,28 @@ module VGAController(
             ycoordinatePear = ycoordinatePear + 1'b1;
         else if(ycoordinatePear > 9'd480 && pearUp == 1'b1)
             pearUp = ~pearUp;
-        if(ycoordinatePear < 9'd180 && pearUp == 1'b0)
+        if(ycoordinatePear < 9'd110 && pearUp == 1'b0)
             pearUp = ~pearUp;
-        if(ycoordinatePear >= 9'd180 && screenEnd && pearUp == 1'b0)
+        if(ycoordinatePear >= 9'd110 && screenEnd && pearUp == 1'b0)
             ycoordinatePear = ycoordinatePear - 1'b1;
             
          
-        if(ycoordinateBanana <= 9'd480 && screenEnd && bananaUp == 1'b1)
+        if(ycoordinateBanana <= 9'd410 && screenEnd && bananaUp == 1'b1)
             ycoordinateBanana = ycoordinateBanana + 1'b1;
         else if(ycoordinateBanana > 9'd480 && bananaUp == 1'b1)
             bananaUp = ~bananaUp;
-        if(ycoordinateBanana < 9'd180 && bananaUp == 1'b0)
+        if(ycoordinateBanana < 9'd110 && bananaUp == 1'b0)
             bananaUp = ~bananaUp;
-        if(ycoordinateBanana >= 9'd180 && screenEnd && bananaUp == 1'b0)
+        if(ycoordinateBanana >= 9'd110 && screenEnd && bananaUp == 1'b0)
             ycoordinateBanana = ycoordinateBanana - 1'b1;
  
          if(ycoordinateCoconut <= 9'd480 && screenEnd && coconutUp == 1'b1)
             ycoordinateCoconut = ycoordinateCoconut + 1'b1;
         else if(ycoordinateCoconut > 9'd480 && coconutUp == 1'b1)
             coconutUp = ~coconutUp;
-        if(ycoordinateCoconut < 9'd180 && coconutUp == 1'b0)
+        if(ycoordinateCoconut < 9'd110 && coconutUp == 1'b0)
             coconutUp = ~coconutUp;
-        if(ycoordinateCoconut >= 9'd180 && screenEnd && coconutUp == 1'b0)
+        if(ycoordinateCoconut >= 9'd110 && screenEnd && coconutUp == 1'b0)
             ycoordinateCoconut = ycoordinateCoconut - 1'b1;
             
    
@@ -276,9 +276,9 @@ module VGAController(
             ycoordinateLemon = ycoordinateLemon + 1'b1;
         else if(ycoordinateLemon > 9'd480 && lemonUp == 1'b1)
             lemonUp = ~lemonUp;
-        if(ycoordinateLemon < 9'd180 && lemonUp == 1'b0)
+        if(ycoordinateLemon < 9'd110 && lemonUp == 1'b0)
             lemonUp = ~lemonUp;
-        if(ycoordinateLemon >= 9'd180 && screenEnd && lemonUp == 1'b0)
+        if(ycoordinateLemon >= 9'd110 && screenEnd && lemonUp == 1'b0)
             ycoordinateLemon = ycoordinateLemon - 1'b1;   
            if(splashWatercheck || splashApplecheck || splashPearcheck || splashCoconutcheck || splashBananacheck || splashLemoncheck) begin
                 splashHammer <= 1'b1;
