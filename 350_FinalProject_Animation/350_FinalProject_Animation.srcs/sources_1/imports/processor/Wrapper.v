@@ -108,6 +108,7 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	assign resty = resty1;
 
     wire audioOut;
+  
 	
     VGAController vga(     
 	 clock, 			
@@ -136,7 +137,12 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	 clock_final,
 	 lostlife,
 	 livescount,
-	 audioOut);
+	 audioOut,
+	 reg_9_y,
+	 reg_10_y,
+	 reg_11_y,
+	 reg_12_y,
+	 reg_13_y);
 	
 	 
 	// ADD YOUR MEMORY FILE HERE

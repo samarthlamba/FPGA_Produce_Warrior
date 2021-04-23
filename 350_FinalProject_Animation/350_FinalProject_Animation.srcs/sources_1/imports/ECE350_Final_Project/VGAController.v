@@ -26,7 +26,12 @@ module VGAController(
 	input clock_final,
 	output lostlife,
 	output [2:0] livescount,
-	output audioOut);
+	output audioOut,
+	input [31:0] reg_9_y,
+	input [31:0] reg_10_y,
+	input [31:0] reg_11_y,
+	input [31:0] reg_12_y,
+	input [31:0] reg_13_y);
 	
 	// Lab Memory Files Location
 	localparam FILES_PATH = "../assetsMemFiles/";
@@ -140,9 +145,11 @@ module VGAController(
 			waterStatus = 1'b0; 
 	   
 	end 
+	reg old_reg_1;
     always @(posedge clk50 && reg_1_x != 10'd0 && screenEnd) begin
         if((clk25 && reg_1_x > 32'b0 && ycoordinateWater >= 460))
             xcoordinateWater =  reg_1_x[9:0] + 15;
+            old_reg_1 <= xcoordinateWater;
         if((clk25 && reg_1_x > 32'b0 && ycoordinateApple >= 460))
             xcoordinateApple = reg_2_x[9:0] - 20;
         if(clk25 && reg_1_x > 32'b0 && ycoordinatePear >= 460)
@@ -153,52 +160,51 @@ module VGAController(
             xcoordinateCoconut = reg_5_x[9:0] + 15;
             //xcoordinateLemon = reg_6_x[9:0] +192;
     end
-    always @(posedge clock_final) begin
-        if(ycoordinateWater <= 9'd480 && screenEnd && waterUp == 1'b1)
-            ycoordinateWater = ycoordinateWater + 1'b1;
-        else if(ycoordinateWater > 9'd480 && waterUp == 1'b1)
+    always @(posedge clock_final && reg_1_x != 10'd0 && screenEnd) begin
+        //if((clk25 && ycoordinateWater <= 9'd480 && screenEnd && waterUp == 1'b1) || (clk25 && ycoordinateWater >= 9'd244 && screenEnd && waterUp == 1'b0))
+          if(clk25 && reg_9_y >= 9'd460 && old_reg_1 > xcoordinateWater + 3)  
+            ycoordinateWater = reg_9_y[9:0];
+        if(ycoordinateWater > 9'd480 && waterUp == 1'b1)
             waterUp = ~waterUp;
-        if(ycoordinateWater < 9'd180 && waterUp == 1'b0)
+        if(ycoordinateWater < 9'd244 && waterUp == 1'b0)
             waterUp = ~waterUp;
-        if(ycoordinateWater >= 9'd180 && screenEnd && waterUp == 1'b0)
-            ycoordinateWater = ycoordinateWater - 1'b1;
-         if(ycoordinateApple <= 9'd480 && screenEnd && appleUp == 1'b1)
-            ycoordinateApple = ycoordinateApple + 1'b1;
-        else if(ycoordinateApple > 9'd480 && appleUp == 1'b1)
+//        if(ycoordinateWater >= 9'd244 && screenEnd && waterUp == 1'b0)
+//            ycoordinateWater = 480;
+         if((ycoordinateApple <= 9'd480 && screenEnd && appleUp == 1'b1) || (ycoordinateApple >= 9'd244 && screenEnd && appleUp == 1'b0))
+            ycoordinateApple = reg_10_y[9:0];
+         if(ycoordinateApple > 9'd480 && appleUp == 1'b1)
             appleUp = ~appleUp;
-        if(ycoordinateApple < 9'd180 && appleUp == 1'b0)
+        if(ycoordinateApple < 9'd244 && appleUp == 1'b0)
             appleUp = ~appleUp;
-        if(ycoordinateApple >= 9'd180 && screenEnd && appleUp == 1'b0)
-            ycoordinateApple = ycoordinateApple - 1'b1;
-            
-                 
-        if(ycoordinatePear <= 9'd480 && screenEnd && pearUp == 1'b1)
-            ycoordinatePear = ycoordinatePear + 1'b1;
-        else if(ycoordinatePear > 9'd480 && pearUp == 1'b1)
+//        if(ycoordinateApple >= 9'd180 && screenEnd && appleUp == 1'b0)
+//            ycoordinateApple = ycoordinateApple - 1'b1;
+                
+        if((ycoordinatePear <= 9'd480 && screenEnd && pearUp == 1'b1) || (ycoordinatePear >= 9'd244 && screenEnd && pearUp == 1'b0))
+            ycoordinatePear = reg_11_y[9:0];
+         if(ycoordinatePear > 9'd480 && pearUp == 1'b1)
             pearUp = ~pearUp;
-        if(ycoordinatePear < 9'd180 && pearUp == 1'b0)
+        if(ycoordinatePear < 9'd244 && pearUp == 1'b0)
             pearUp = ~pearUp;
-        if(ycoordinatePear >= 9'd180 && screenEnd && pearUp == 1'b0)
-            ycoordinatePear = ycoordinatePear - 1'b1;
+//        if(ycoordinatePear >= 9'd180 && screenEnd && pearUp == 1'b0)
+//            ycoordinatePear = ycoordinatePear - 1'b1;
             
-         
-        if(ycoordinateBanana <= 9'd480 && screenEnd && bananaUp == 1'b1)
-            ycoordinateBanana = ycoordinateBanana + 1'b1;
-        else if(ycoordinateBanana > 9'd480 && bananaUp == 1'b1)
+        if((ycoordinateBanana <= 9'd480 && screenEnd && bananaUp == 1'b1) || (ycoordinateBanana >= 9'd244 && screenEnd && bananaUp == 1'b0))
+            ycoordinateBanana = reg_12_y[9:0];
+         if(ycoordinateBanana > 9'd480 && bananaUp == 1'b1)
             bananaUp = ~bananaUp;
-        if(ycoordinateBanana < 9'd180 && bananaUp == 1'b0)
+        if(ycoordinateBanana < 9'd244 && bananaUp == 1'b0)
             bananaUp = ~bananaUp;
-        if(ycoordinateBanana >= 9'd180 && screenEnd && bananaUp == 1'b0)
-            ycoordinateBanana = ycoordinateBanana - 1'b1;
+//        if(ycoordinateBanana >= 9'd180 && screenEnd && bananaUp == 1'b0)
+//            ycoordinateBanana = ycoordinateBanana - 1'b1;
  
-         if(ycoordinateCoconut <= 9'd480 && screenEnd && coconutUp == 1'b1)
-            ycoordinateCoconut = ycoordinateCoconut + 1'b1;
-        else if(ycoordinateCoconut > 9'd480 && coconutUp == 1'b1)
+         if((ycoordinateCoconut <= 9'd480 && screenEnd && coconutUp == 1'b1) || (ycoordinateCoconut >= 9'd244 && screenEnd && coconutUp == 1'b0))
+            ycoordinateCoconut = reg_13_y[9:0];
+         if(ycoordinateCoconut > 9'd480 && coconutUp == 1'b1)
             coconutUp = ~coconutUp;
-        if(ycoordinateCoconut < 9'd180 && coconutUp == 1'b0)
+        if(ycoordinateCoconut < 9'd244 && coconutUp == 1'b0)
             coconutUp = ~coconutUp;
-        if(ycoordinateCoconut >= 9'd180 && screenEnd && coconutUp == 1'b0)
-            ycoordinateCoconut = ycoordinateCoconut - 1'b1;
+//        if(ycoordinateCoconut >= 9'd180 && screenEnd && coconutUp == 1'b0)
+//            ycoordinateCoconut = ycoordinateCoconut - 1'b1;
                    
 //        if(ycoordinateLemon <= 9'd480 && screenEnd && lemonUp == 1'b1)
 //            ycoordinateLemon = ycoordinateLemon + 1'b1;
