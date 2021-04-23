@@ -48,6 +48,7 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 
     reg up1, down1, left1, right1, restx1, resty1;
 
+    wire youLoseOut;
 	wire[8:0] accel_x, accel_y;
 	wire[11:0] accel_z;
 	wire rwe, mwe;
@@ -68,11 +69,13 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	wire lostlife;
 	wire[2:0] livescount;
 	
+    wire audioOut;
 	
-	assign clock_final = switch ? 1'b0 : clock;
+	
+	assign clock_final = (switch || youLoseOut) ? 1'b0 : clock;
 	AccelerometerCtl accelerometer(.SYSCLK(clock), .RESET(reset), .SCLK(sclk), .MOSI(mosi), .MISO(miso), .SS(ss), .ACCEL_X_OUT(accel_x), .ACCEL_Y_OUT(accel_y), .ACCEL_MAG_OUT(accel_z));
-    seven_seg_counter callcount(clock, sevenreset, anode, a7, a6, a5, a4, LEDvals, lostlife, livescount);
-    AudioController audiooutput(clock, micData, audioOut, micClk, chSel, audioSound, audioEnable);
+    seven_seg_counter callcount(clock_final && !youLoseOut, sevenreset, anode, a7, a6, a5, a4, LEDvals, lostlife, livescount);
+    AudioController audiooutput(clock_final, micData, audioOut, micClk, chSel, audioSound, audioEnable);
 	always @(posedge clock_final) begin
 	    if(accel_x == 385)
 	       restx1 = 1'b1;
@@ -107,7 +110,6 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	assign restx = restx1;
 	assign resty = resty1;
 
-    wire audioOut;
 	
     VGAController vga(     
 	 clock, 			
@@ -133,10 +135,11 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	 reg_6_x,
 	 clk50,
 	 screenEndVal,
-	 clock_final,
+	 clock_final && !youLoseOut,
 	 lostlife,
 	 livescount,
-	 audioOut);
+	 audioOut,
+	 youLoseOut);
 	
 	 
 	// ADD YOUR MEMORY FILE HERE
@@ -147,7 +150,7 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	assign counterLimit =7'd100;
 	
 	always @(posedge clock) begin
-	   if(switch == 1'b1)
+	   if(switch == 1'b1 || youLoseOut == 1'b1)
 	       clk50 = 1'b0;
 	   else if(counter50Mh < counterLimit)
 	           counter50Mh <= counter50Mh +1;
@@ -189,7 +192,7 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	.reg_out2(reg_2_x), .reg_out3(reg_3_x), .reg_out4(reg_4_x), .reg_out5(reg_5_x), .reg_out6(reg_6_x), .reg_out7(reg_7_x),
 	.reg_out8(reg_8_x), .reg_out9(reg_9_y), .reg_out10(reg_10_y), .reg_out11(reg_11_y), .reg_out12(reg_12_y), .reg_out13(reg_13_y),
 	.reg_out14(reg_14_y), .reg_out15(reg_15_y), .reg_out16(reg_16_y), .reg_out29(reg_29_rand));
-     assign LED_out = screenEndVal;   
+     assign LED_out = youLoseOut;   
      assign LED_out2 = reg_15_y == 32'd121;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
 // Processor Memory (RAM)
 	RAMproc ProcMem(.clk(clk50), 
