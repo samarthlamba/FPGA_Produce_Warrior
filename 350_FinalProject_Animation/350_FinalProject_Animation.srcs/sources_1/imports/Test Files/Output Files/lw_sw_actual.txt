@@ -1,0 +1,53 @@
+Cycle   9: Wrote 240 into register 17
+Cycle  10: Wrote 480 into register 19
+Cycle  11: Wrote 192 into register 4
+Cycle  12: Wrote 192 into register 5
+Cycle  13: Wrote 192 into register 6
+Cycle  14: Wrote 192 into register 7
+Cycle  15: Wrote 1 into register 8
+Cycle  16: Wrote 191 into register 1
+Cycle  17: Wrote 126 into register 2
+Cycle  18: Wrote 253 into register 3
+Cycle  27: Wrote 227 into register 29
+Cycle  28: Wrote 480 into register 3
+Cycle  29: Wrote 12 into register 29
+Cycle  30: Wrote 204 into register 4
+Cycle  31: Wrote 179 into register 29
+Cycle  32: Wrote 371 into register 5
+Cycle  33: Wrote 78 into register 29
+Cycle  34: Wrote 270 into register 6
+Cycle  35: Wrote 187 into register 29
+Cycle  36: Wrote 379 into register 7
+============== Testing Mode ==============
+Reg  0:           0
+Reg  1:         191
+Reg  2:         126
+Reg  3:         480
+Reg  4:         204
+Reg  5:         371
+Reg  6:         270
+Reg  7:         379
+Reg  8:           1
+Reg  9:           0
+Reg 10:           0
+Reg 11:           0
+Reg 12:           0
+Reg 13:           0
+Reg 14:           0
+Reg 15:           0
+Reg 16:           0
+Reg 17:         240
+Reg 18:           0
+Reg 19:         480
+Reg 20:           0
+Reg 21:           0
+Reg 22:           0
+Reg 23:           0
+Reg 24:           0
+Reg 25:           0
+Reg 26:           0
+Reg 27:           0
+Reg 28:           0
+Reg 29:         187
+Reg 30:           0
+Reg 31:           0

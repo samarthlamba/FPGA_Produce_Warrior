@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="49" Path="C:/Users/reyam/Desktop/ECE350Project/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.xpr">
+<Project Version="7" Minor="49" Path="C:/Users/samar/Desktop/Semester 6/ECE350Labs/ECE350_Final_Project/350_FinalProject_Animation/350_FinalProject_Animation.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="dede34b54c3f4596a348ccc824524436"/>
@@ -66,6 +66,15 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350Project/AudioController.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../AudioController.v"/>
+          <Attr Name="ImportTime" Val="1619146724"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/DX.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../processor/DX.v"/>
@@ -97,6 +106,15 @@
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../processor/PC.v"/>
           <Attr Name="ImportTime" Val="1618093002"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350Project/PWMSerializer.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../PWMSerializer.v"/>
+          <Attr Name="ImportTime" Val="1619146256"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -354,6 +372,24 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/imageSetterHammer.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../imageSetterHammer.v"/>
+          <Attr Name="ImportTime" Val="1619196409"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/imageSetterHammerSplash.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../imageSetterHammerSplash.v"/>
+          <Attr Name="ImportTime" Val="1619204996"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/imageSetterLemon.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../imageSetterLemon.v"/>
@@ -394,6 +430,24 @@
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../imageSetterWatermelonSplash.v"/>
           <Attr Name="ImportTime" Val="1618774470"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/imageSetterYouLose.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../imageSetterYouLose.v"/>
+          <Attr Name="ImportTime" Val="1619200819"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/imagecollision.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../imagecollision.v"/>
+          <Attr Name="ImportTime" Val="1618782203"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -444,10 +498,10 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/ECE350_Final_Project/processor/lfsr.v">
+      <File Path="$PSRCDIR/sources_1/imports/processor/lfsr.v">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../processor/lfsr.v"/>
-          <Attr Name="ImportTime" Val="1618202115"/>
+          <Attr Name="ImportTime" Val="1618906112"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -1245,6 +1299,68 @@
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../assets/assetsMemFiles/applesplashimage.mem"/>
           <Attr Name="ImportTime" Val="1618774181"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/Downloads/addi_basic.mem">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../../Downloads/addi_basic.mem"/>
+          <Attr Name="ImportTime" Val="1618798870"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/processor/randomFile.txt">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../processor/randomFile.txt"/>
+          <Attr Name="ImportTime" Val="1618891613"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/hammerimage.mem">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../assets/assetsMemFiles/hammerimage.mem"/>
+          <Attr Name="ImportTime" Val="1619196929"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/hammercolors.mem">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../assets/assetsMemFiles/hammercolors.mem"/>
+          <Attr Name="ImportTime" Val="1619196929"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/youLosecolors.mem">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../assets/assetsMemFiles/youLosecolors.mem"/>
+          <Attr Name="ImportTime" Val="1619200034"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/youLoseimage.mem">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../assets/assetsMemFiles/youLoseimage.mem"/>
+          <Attr Name="ImportTime" Val="1619200034"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/hammerSplashimage.mem">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../assets/assetsMemFiles/hammerSplashimage.mem"/>
+          <Attr Name="ImportTime" Val="1619204841"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/assetsMemFiles/hammerSplashcolors.mem">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../assets/assetsMemFiles/hammerSplashcolors.mem"/>
+          <Attr Name="ImportTime" Val="1619204841"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>

@@ -1,27 +1,33 @@
 module regfile (
 	clock,
 	ctrl_writeEnable, ctrl_reset, ctrl_writeReg,
-	ctrl_readRegA, ctrl_readRegB, data_writeReg,
-	data_readRegA, data_readRegB
+	ctrl_readRegA, ctrl_readRegB, data_writeReg, 
+	data_readRegA, data_readRegB, screenEndVal, reg_out1, 
+	reg_out2, reg_out3, reg_out4, reg_out5, reg_out6, reg_out7, reg_out8, 
+	reg_out9, reg_out10, reg_out11, reg_out12, reg_out13, reg_out14, reg_out15, reg_out16, reg_out29
 );
 
-	input clock, ctrl_writeEnable, ctrl_reset;
-	input [4:0] ctrl_writeReg, ctrl_readRegA, ctrl_readRegB;
-	input [31:0] data_writeReg;
-
+	input [31:0] screenEndVal;
 	output [31:0] data_readRegA, data_readRegB;
+	output [31:0] reg_out1, reg_out2, reg_out3, reg_out4, reg_out5, reg_out6, reg_out7, reg_out8, 
+	reg_out9, reg_out10, reg_out11, reg_out12, reg_out13, reg_out14, reg_out15, reg_out16, reg_out29;
 
 
 	// add your code here
-	wire [31:0] reg_out0, reg_out1, reg_out2, reg_out3, reg_out4, reg_out5, reg_out6, reg_out7, reg_out8, 
-	reg_out9, reg_out10, reg_out11, reg_out12, reg_out13, reg_out14, reg_out15, reg_out16, reg_out17, reg_out18, 
-	reg_out19, reg_out20, reg_out21, reg_out22, reg_out23, reg_out24, reg_out25, reg_out26, reg_out27, reg_out28, reg_out29, reg_out30, reg_out31,
+	wire [31:0] reg_out0, reg_out17, reg_out18, 
+	reg_out19, reg_out20, reg_out21, reg_out22, reg_out23, reg_out24, reg_out25, reg_out26, reg_out27, reg_out28, reg_out30, reg_out31,
 	decoder_output;
+
+input clock, ctrl_writeEnable, ctrl_reset;
+	input [4:0] ctrl_writeReg, ctrl_readRegA, ctrl_readRegB;
+	input [31:0] data_writeReg;
+
+
 
 	wire [31:0] and_gate, read_source1, read_source2;
 	decoder decoder1(ctrl_writeEnable, ctrl_writeReg, decoder_output);
 	decoder decoder2(1'b1, ctrl_readRegA, read_source1);
-	decoder decoder3(1'b1, ctrl_readRegB, read_source2);
+	decoder decoder3( 1'b1, ctrl_readRegB, read_source2);
 
 	//decoder to and output (top of pic)
 	genvar i;

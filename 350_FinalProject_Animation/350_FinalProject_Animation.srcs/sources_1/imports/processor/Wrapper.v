@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 /**
- * 
+ *  
  * READ THIS DESCRIPTION:
  *
  * This is the Wrapper module that will serve as the header file combining your processor, 
@@ -24,25 +24,31 @@
  *
  **/
 
-module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx, resty, hSync, VSync, VGA_R, VGA_B, VGA_G, up_fpga, down_fpga, right_fpga, left_fpga, ps2_clk, ps2_data, anode, a7, a6, a5, a4, y2, y3, LEDvals, choose, sevenreset);
-	input clock, reset, miso, sevenreset;
+module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx, resty, hSync, VSync, VGA_R, VGA_B, VGA_G, up_fpga, down_fpga, right_fpga, left_fpga, ps2_clk, ps2_data, anode, a7, a6, a5, a4, LEDvals, choose, sevenreset, LED_out, LED_out2, switch, micData, micClk, chSel, audioSound, audioEnable);
+	input clock, reset, miso, sevenreset, switch;
 	output sclk, mosi, ss;
 	output up, down, left ,right, restx, resty;
 	output hSync;
 	output VSync;
 	output[3:0] VGA_R, VGA_B, VGA_G;
 	output[3:0] anode;
+	output LED_out;
+	output LED_out2;
 	output a7, a6, a5, a4;
 	inout ps2_clk;
 	inout ps2_data;
 	input up_fpga, down_fpga, right_fpga, left_fpga;
-	input y2, y3;
 	output[6:0] LEDvals;
 	input choose;
-	
+	input micData;
+	output micClk;
+	output chSel;
+	output audioSound;
+	output audioEnable;
 
     reg up1, down1, left1, right1, restx1, resty1;
 
+    wire youLoseOut;
 	wire[8:0] accel_x, accel_y;
 	wire[11:0] accel_z;
 	wire rwe, mwe;
@@ -57,10 +63,20 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	wire[31:0] reg_9_y, reg_10_y, reg_11_y, reg_12_y, reg_13_y,
 	reg_14_y, reg_15_y, reg_16_y;
 	wire[31:0]reg_29_rand;
-	 
-	 
+
+	wire clock_final;
+
+	wire lostlife;
+	wire[2:0] livescount;
 	
-	always @(posedge clock) begin
+    wire audioOut;
+	
+	
+	assign clock_final = (switch || youLoseOut) ? 1'b0 : clock;
+	AccelerometerCtl accelerometer(.SYSCLK(clock), .RESET(reset), .SCLK(sclk), .MOSI(mosi), .MISO(miso), .SS(ss), .ACCEL_X_OUT(accel_x), .ACCEL_Y_OUT(accel_y), .ACCEL_MAG_OUT(accel_z));
+    seven_seg_counter callcount(clock_final && !youLoseOut, sevenreset, anode, a7, a6, a5, a4, LEDvals, lostlife, livescount);
+    AudioController audiooutput(clock_final, micData, audioOut, micClk, chSel, audioSound, audioEnable);
+	always @(posedge clock_final) begin
 	    if(accel_x == 385)
 	       restx1 = 1'b1;
 	    else
@@ -94,10 +110,8 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	assign restx = restx1;
 	assign resty = resty1;
 
-	AccelerometerCtl accelerometer(.SYSCLK(clock), .RESET(reset), .SCLK(sclk), .MOSI(mosi), .MISO(miso), .SS(ss), .ACCEL_X_OUT(accel_x), .ACCEL_Y_OUT(accel_y), .ACCEL_MAG_OUT(accel_z));
-    seven_seg_counter callcount(clock, sevenreset, anode, a7, a6, a5, a4, y2, y3, LEDvals, choose);
-    
-	VGAController vga(     
+	
+    VGAController vga(     
 	 clock, 			
 	 reset, 	
 	 up_fpga,
@@ -112,12 +126,44 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	 ps2_clk,
 	 ps2_data,
 	 accel_x,
-	 accel_y);
+	 accel_y,
+	 reg_1_x,
+	 reg_2_x,
+	 reg_3_x,
+	 reg_4_x,
+	 reg_5_x,
+	 reg_6_x,
+	 clk50,
+	 screenEndVal,
+	 clock_final && !youLoseOut,
+	 lostlife,
+	 livescount,
+	 audioOut,
+	 youLoseOut);
+	
+	 
 	// ADD YOUR MEMORY FILE HERE
 	localparam INSTR_FILE = "../Memory Files/lw_sw";
+	reg clk50 = 0;
+	reg [7:0] counter50Mh = 7'd0;
+	wire [7:0]counterLimit;
+	assign counterLimit =7'd100;
 	
+	always @(posedge clock) begin
+	   if(switch == 1'b1 || youLoseOut == 1'b1)
+	       clk50 = 1'b0;
+	   else if(counter50Mh < counterLimit)
+	           counter50Mh <= counter50Mh +1;
+	   else begin
+	       counter50Mh <= 0;
+	       clk50 <= ~clk50;
+	   end
+	   end
 	// Main Processing Unit
-	processor CPU(.clock(clock), .reset(reset), 
+	
+    wire [7:0] randomOut;
+    wire isStalling;
+	processor CPU(.clock(clk50), .reset(reset), 
 								
 		// ROM
 		.address_imem(instAddr), .q_imem(instData),
@@ -129,26 +175,27 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 									
 		// RAM
 		.wren(mwe), .address_dmem(memAddr), 
-		.data(memDataIn), .q_dmem(memDataOut)); 
+		.data(memDataIn), .q_dmem(memDataOut), .screenEnd(screenEndVal), .stall2(isStalling)); 
 	
 	// Instruction Memory (ROM)
 	ROM #(.MEMFILE({INSTR_FILE, ".mem"}))
-	InstMem(.clk(clock), 
+	InstMem(.clk(clk50), 
 		.addr(instAddr[11:0]), 
 		.dataOut(instData));
 	
 	// Register File
-	regfile RegisterFile(.clock(clock), 
+	regfile RegisterFile(.clock(clk50), 
 		.ctrl_writeEnable(rwe), .ctrl_reset(reset), 
 		.ctrl_writeReg(rd),
 		.ctrl_readRegA(rs1), .ctrl_readRegB(rs2), 
-		.data_writeReg(rData), .data_readRegA(regA), .data_readRegB(regB), .screenEndVal(screenEndVal), .reg_1_x(reg_1_x), 
-	.reg_2_x(reg_2_x), .reg_3_x(reg_3_x), .reg_4_x(reg_4_x), .reg_5_x(reg_5_x), .reg_6_x(reg_6_x), .reg_7_x(reg_7_x),
-	.reg_8_x(reg_8_x), .reg_9_y(reg_9_y), .reg_10_y(reg_10_y), .reg_11_y(reg_11_y), .reg_12_y(reg_12_y), .reg_13_y(reg_13_y),
-	.reg_14_y(reg_14_y), .reg_15_y(reg_15_y), .reg_16_y(reg_16_y), .reg_29_rand(reg_29_rand));
-						
-	// Processor Memory (RAM)
-	RAMproc ProcMem(.clk(clock), 
+		.data_writeReg(rData), .data_readRegA(regA), .data_readRegB(regB), .screenEndVal(screenEndVal), .reg_out1(reg_1_x), 
+	.reg_out2(reg_2_x), .reg_out3(reg_3_x), .reg_out4(reg_4_x), .reg_out5(reg_5_x), .reg_out6(reg_6_x), .reg_out7(reg_7_x),
+	.reg_out8(reg_8_x), .reg_out9(reg_9_y), .reg_out10(reg_10_y), .reg_out11(reg_11_y), .reg_out12(reg_12_y), .reg_out13(reg_13_y),
+	.reg_out14(reg_14_y), .reg_out15(reg_15_y), .reg_out16(reg_16_y), .reg_out29(reg_29_rand));
+     assign LED_out = youLoseOut;   
+     assign LED_out2 = reg_15_y == 32'd121;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+// Processor Memory (RAM)
+	RAMproc ProcMem(.clk(clk50), 
 		.wEn(mwe), 
 		.addr(memAddr[11:0]), 
 		.dataIn(memDataIn), 

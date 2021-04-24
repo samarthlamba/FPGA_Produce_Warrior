@@ -6,7 +6,7 @@ Created on Sat Mar 20 10:42:53 2021
 """
 import os
 
-path = "C:\\Users\\reyam\\Desktop\\ECE350Project\\ECE350_Final_Project\\processor\\"
+path = "C:\\Users\\samar\\Desktop\\Semester 6\\ECE350Labs\\ECE350_Final_Project\\processor\\"
 os.system("cd " +path);
 os.system("""forfiles /s /m *.v /c "cmd /c echo @relpath" > input1.txt""")
 with open(path +"input1.txt", 'r') as f, open(path + "FileList.txt", 'w') as fo:

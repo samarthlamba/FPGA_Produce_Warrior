@@ -18,7 +18,7 @@ def picCSVMaker(imageFileName, typeFormat):
     imageName = os.path.join(dirname,r"assets\\" + imageFileName + typeFormat);
     path =os.path.join(dirname,r"assets\assetsCSV\\");
     file = Image.open(imageName)
-    file = file.resize((50,50),Image.ANTIALIAS)
+    file = file.resize((100,100),Image.ANTIALIAS)
     
     img = file.quantize(256)
     pixels = img.load()

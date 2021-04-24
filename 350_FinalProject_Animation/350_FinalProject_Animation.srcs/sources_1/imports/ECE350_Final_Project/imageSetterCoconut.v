@@ -4,7 +4,7 @@ module imageSetterCoconut(out, clk, x, y, xcoordinateApple1, ycoordinateApple1);
     output[12-1:0] out;
     input[9:0] x;
 	input[8:0] y;
-	input[9:0] xcoordinateApple1;
+	input[9:0] xcoordinateApple1; 
 	input[8:0] ycoordinateApple1;
 	reg [40:0] name;
 
@@ -15,7 +15,7 @@ module imageSetterCoconut(out, clk, x, y, xcoordinateApple1, ycoordinateApple1);
         VIDEO_WIDTH = 640,  // Standard VGA Width
 		VIDEO_HEIGHT = 480, // Standard VGA Height
 		PIXEL_COUNT_FRUIT = 50*50,
-		FILES_PATH = "../assetsMemFiles/",
+		FILES_PATH = "../assetsMemFiles/", 
 		PIXEL_ADDRESS_WIDTH_FRUIT = $clog2(PIXEL_COUNT_FRUIT) + 1,// Use built in log2 command
 		PIXEL_COUNT = VIDEO_WIDTH*VIDEO_HEIGHT, 	             // Number of pixels on the screen
 		PIXEL_ADDRESS_WIDTH = $clog2(PIXEL_COUNT) + 1,           // Use built in log2 command
