@@ -1,43 +1,234 @@
 Cycle   9: Wrote 240 into register 17
 Cycle  10: Wrote 480 into register 19
-Cycle  11: Wrote 192 into register 4
-Cycle  12: Wrote 192 into register 5
-Cycle  13: Wrote 192 into register 6
-Cycle  14: Wrote 192 into register 7
-Cycle  15: Wrote 1 into register 8
+Cycle  11: Wrote 1 into register 18
+Cycle  15: Wrote 223 into register 29
 Cycle  16: Wrote 191 into register 1
 Cycle  17: Wrote 126 into register 2
 Cycle  18: Wrote 253 into register 3
-Cycle  27: Wrote 227 into register 29
-Cycle  28: Wrote 480 into register 3
-Cycle  29: Wrote 12 into register 29
-Cycle  30: Wrote 204 into register 4
-Cycle  31: Wrote 179 into register 29
-Cycle  32: Wrote 371 into register 5
-Cycle  33: Wrote 78 into register 29
-Cycle  34: Wrote 270 into register 6
-Cycle  35: Wrote 187 into register 29
-Cycle  36: Wrote 379 into register 7
+Cycle  19: Wrote 122 into register 4
+Cycle  20: Wrote 245 into register 5
+Cycle  21: Wrote 235 into register 6
+Cycle  22: Wrote 215 into register 7
+Cycle  23: Wrote 46 into register 29
+Cycle  24: Wrote 244 into register 9
+Cycle  25: Wrote 244 into register 10
+Cycle  26: Wrote 244 into register 11
+Cycle  27: Wrote 244 into register 12
+Cycle  28: Wrote 244 into register 13
+Cycle  29: Wrote 244 into register 14
+Cycle  30: Wrote 244 into register 15
+Cycle  31: Wrote 244 into register 16
+Cycle  32: Wrote 243 into register 9
+Cycle  33: Wrote 243 into register 10
+Cycle  34: Wrote 243 into register 11
+Cycle  35: Wrote 243 into register 12
+Cycle  36: Wrote 243 into register 13
+Cycle  37: Wrote 243 into register 14
+Cycle  39: Wrote 242 into register 9
+Cycle  40: Wrote 242 into register 10
+Cycle  41: Wrote 242 into register 11
+Cycle  42: Wrote 242 into register 12
+Cycle  43: Wrote 242 into register 13
+Cycle  44: Wrote 242 into register 14
+Cycle  46: Wrote 241 into register 9
+Cycle  47: Wrote 241 into register 10
+Cycle  48: Wrote 241 into register 11
+Cycle  49: Wrote 241 into register 12
+Cycle  50: Wrote 241 into register 13
+Cycle  51: Wrote 241 into register 14
+Cycle  53: Wrote 240 into register 9
+Cycle  54: Wrote 240 into register 10
+Cycle  55: Wrote 240 into register 11
+Cycle  56: Wrote 240 into register 12
+Cycle  57: Wrote 240 into register 13
+Cycle  58: Wrote 240 into register 14
+Cycle  61: Wrote 241 into register 9
+Cycle  62: Wrote 241 into register 10
+Cycle  63: Wrote 241 into register 11
+Cycle  64: Wrote 241 into register 12
+Cycle  65: Wrote 241 into register 13
+Cycle  66: Wrote 241 into register 14
+Cycle  68: Wrote 242 into register 9
+Cycle  69: Wrote 242 into register 10
+Cycle  70: Wrote 242 into register 11
+Cycle  71: Wrote 242 into register 12
+Cycle  72: Wrote 242 into register 13
+Cycle  73: Wrote 242 into register 14
+Cycle  75: Wrote 243 into register 9
+Cycle  76: Wrote 243 into register 10
+Cycle  77: Wrote 243 into register 11
+Cycle  78: Wrote 243 into register 12
+Cycle  79: Wrote 243 into register 13
+Cycle  80: Wrote 243 into register 14
+Cycle  82: Wrote 244 into register 9
+Cycle  83: Wrote 244 into register 10
+Cycle  84: Wrote 244 into register 11
+Cycle  85: Wrote 244 into register 12
+Cycle  86: Wrote 244 into register 13
+Cycle  87: Wrote 244 into register 14
+Cycle  89: Wrote 245 into register 9
+Cycle  90: Wrote 245 into register 10
+Cycle  91: Wrote 245 into register 11
+Cycle  92: Wrote 245 into register 12
+Cycle  93: Wrote 245 into register 13
+Cycle  94: Wrote 245 into register 14
+Cycle  96: Wrote 246 into register 9
+Cycle  97: Wrote 246 into register 10
+Cycle  98: Wrote 246 into register 11
+Cycle  99: Wrote 246 into register 12
+Cycle 100: Wrote 246 into register 13
+Cycle 101: Wrote 246 into register 14
+Cycle 103: Wrote 247 into register 9
+Cycle 104: Wrote 247 into register 10
+Cycle 105: Wrote 247 into register 11
+Cycle 106: Wrote 247 into register 12
+Cycle 107: Wrote 247 into register 13
+Cycle 108: Wrote 247 into register 14
+Cycle 110: Wrote 248 into register 9
+Cycle 111: Wrote 248 into register 10
+Cycle 112: Wrote 248 into register 11
+Cycle 113: Wrote 248 into register 12
+Cycle 114: Wrote 248 into register 13
+Cycle 115: Wrote 248 into register 14
+Cycle 117: Wrote 249 into register 9
+Cycle 118: Wrote 249 into register 10
+Cycle 119: Wrote 249 into register 11
+Cycle 120: Wrote 249 into register 12
+Cycle 121: Wrote 249 into register 13
+Cycle 122: Wrote 249 into register 14
+Cycle 124: Wrote 250 into register 9
+Cycle 125: Wrote 250 into register 10
+Cycle 126: Wrote 250 into register 11
+Cycle 127: Wrote 250 into register 12
+Cycle 128: Wrote 250 into register 13
+Cycle 129: Wrote 250 into register 14
+Cycle 131: Wrote 251 into register 9
+Cycle 132: Wrote 251 into register 10
+Cycle 133: Wrote 251 into register 11
+Cycle 134: Wrote 251 into register 12
+Cycle 135: Wrote 251 into register 13
+Cycle 136: Wrote 251 into register 14
+Cycle 138: Wrote 252 into register 9
+Cycle 139: Wrote 252 into register 10
+Cycle 140: Wrote 252 into register 11
+Cycle 141: Wrote 252 into register 12
+Cycle 142: Wrote 252 into register 13
+Cycle 143: Wrote 252 into register 14
+Cycle 145: Wrote 253 into register 9
+Cycle 146: Wrote 253 into register 10
+Cycle 147: Wrote 253 into register 11
+Cycle 148: Wrote 253 into register 12
+Cycle 149: Wrote 253 into register 13
+Cycle 150: Wrote 253 into register 14
+Cycle 152: Wrote 254 into register 9
+Cycle 153: Wrote 254 into register 10
+Cycle 154: Wrote 254 into register 11
+Cycle 155: Wrote 254 into register 12
+Cycle 156: Wrote 254 into register 13
+Cycle 157: Wrote 254 into register 14
+Cycle 159: Wrote 255 into register 9
+Cycle 160: Wrote 255 into register 10
+Cycle 161: Wrote 255 into register 11
+Cycle 162: Wrote 255 into register 12
+Cycle 163: Wrote 255 into register 13
+Cycle 164: Wrote 255 into register 14
+Cycle 166: Wrote 256 into register 9
+Cycle 167: Wrote 256 into register 10
+Cycle 168: Wrote 256 into register 11
+Cycle 169: Wrote 256 into register 12
+Cycle 170: Wrote 256 into register 13
+Cycle 171: Wrote 256 into register 14
+Cycle 173: Wrote 257 into register 9
+Cycle 174: Wrote 257 into register 10
+Cycle 175: Wrote 257 into register 11
+Cycle 176: Wrote 257 into register 12
+Cycle 177: Wrote 257 into register 13
+Cycle 178: Wrote 257 into register 14
+Cycle 180: Wrote 258 into register 9
+Cycle 181: Wrote 258 into register 10
+Cycle 182: Wrote 258 into register 11
+Cycle 183: Wrote 258 into register 12
+Cycle 184: Wrote 258 into register 13
+Cycle 185: Wrote 258 into register 14
+Cycle 187: Wrote 259 into register 9
+Cycle 188: Wrote 259 into register 10
+Cycle 189: Wrote 259 into register 11
+Cycle 190: Wrote 259 into register 12
+Cycle 191: Wrote 259 into register 13
+Cycle 192: Wrote 259 into register 14
+Cycle 194: Wrote 260 into register 9
+Cycle 195: Wrote 260 into register 10
+Cycle 196: Wrote 260 into register 11
+Cycle 197: Wrote 260 into register 12
+Cycle 198: Wrote 260 into register 13
+Cycle 199: Wrote 260 into register 14
+Cycle 201: Wrote 261 into register 9
+Cycle 202: Wrote 261 into register 10
+Cycle 203: Wrote 261 into register 11
+Cycle 204: Wrote 261 into register 12
+Cycle 205: Wrote 261 into register 13
+Cycle 206: Wrote 261 into register 14
+Cycle 208: Wrote 262 into register 9
+Cycle 209: Wrote 262 into register 10
+Cycle 210: Wrote 262 into register 11
+Cycle 211: Wrote 262 into register 12
+Cycle 212: Wrote 262 into register 13
+Cycle 213: Wrote 262 into register 14
+Cycle 215: Wrote 263 into register 9
+Cycle 216: Wrote 263 into register 10
+Cycle 217: Wrote 263 into register 11
+Cycle 218: Wrote 263 into register 12
+Cycle 219: Wrote 263 into register 13
+Cycle 220: Wrote 263 into register 14
+Cycle 222: Wrote 264 into register 9
+Cycle 223: Wrote 264 into register 10
+Cycle 224: Wrote 264 into register 11
+Cycle 225: Wrote 264 into register 12
+Cycle 226: Wrote 264 into register 13
+Cycle 227: Wrote 264 into register 14
+Cycle 229: Wrote 265 into register 9
+Cycle 230: Wrote 265 into register 10
+Cycle 231: Wrote 265 into register 11
+Cycle 232: Wrote 265 into register 12
+Cycle 233: Wrote 265 into register 13
+Cycle 234: Wrote 265 into register 14
+Cycle 236: Wrote 266 into register 9
+Cycle 237: Wrote 266 into register 10
+Cycle 238: Wrote 266 into register 11
+Cycle 239: Wrote 266 into register 12
+Cycle 240: Wrote 266 into register 13
+Cycle 241: Wrote 266 into register 14
+Cycle 243: Wrote 267 into register 9
+Cycle 244: Wrote 267 into register 10
+Cycle 245: Wrote 267 into register 11
+Cycle 246: Wrote 267 into register 12
+Cycle 247: Wrote 267 into register 13
+Cycle 248: Wrote 267 into register 14
+Cycle 250: Wrote 268 into register 9
+Cycle 251: Wrote 268 into register 10
+Cycle 252: Wrote 268 into register 11
+Cycle 253: Wrote 268 into register 12
+Cycle 254: Wrote 268 into register 13
 ============== Testing Mode ==============
 Reg  0:           0
 Reg  1:         191
 Reg  2:         126
-Reg  3:         480
-Reg  4:         204
-Reg  5:         371
-Reg  6:         270
-Reg  7:         379
-Reg  8:           1
-Reg  9:           0
-Reg 10:           0
-Reg 11:           0
-Reg 12:           0
-Reg 13:           0
-Reg 14:           0
-Reg 15:           0
-Reg 16:           0
+Reg  3:         253
+Reg  4:         122
+Reg  5:         245
+Reg  6:         235
+Reg  7:         215
+Reg  8:           0
+Reg  9:         268
+Reg 10:         268
+Reg 11:         268
+Reg 12:         268
+Reg 13:         268
+Reg 14:         268
+Reg 15:         244
+Reg 16:         244
 Reg 17:         240
-Reg 18:           0
+Reg 18:           1
 Reg 19:         480
 Reg 20:           0
 Reg 21:           0
@@ -48,6 +239,6 @@ Reg 25:           0
 Reg 26:           0
 Reg 27:           0
 Reg 28:           0
-Reg 29:         187
+Reg 29:          46
 Reg 30:           0
 Reg 31:           0

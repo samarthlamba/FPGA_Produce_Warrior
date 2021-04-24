@@ -4,6 +4,10 @@
 .\alu\mux_four_one.v
 .\alu\mux_two_one.v
 .\alu\mux_two_one_1bit.v
+.\ECE350Project\AudioController.v
+.\ECE350Project\PWMSerializer.v
+.\ECE350_Final_Project\clk_div.v
+.\ECE350_Final_Project\imagecollision.v
 .\ECE350_Final_Project\imageSetter.v
 .\ECE350_Final_Project\imageSetterApple.v
 .\ECE350_Final_Project\imageSetterAppleSplash.v
@@ -11,11 +15,14 @@
 .\ECE350_Final_Project\imageSetterBananaSplash.v
 .\ECE350_Final_Project\imageSetterCoconut.v
 .\ECE350_Final_Project\imageSetterCoconutSplash.v
+.\ECE350_Final_Project\imageSetterHammer.v
+.\ECE350_Final_Project\imageSetterHammerSplash.v
 .\ECE350_Final_Project\imageSetterLemon.v
 .\ECE350_Final_Project\imageSetterLemonSplash.v
 .\ECE350_Final_Project\imageSetterPear.v
 .\ECE350_Final_Project\imageSetterPearSplash.v
 .\ECE350_Final_Project\imageSetterWatermelonSplash.v
+.\ECE350_Final_Project\imageSetterYouLose.v
 .\ECE350_Final_Project\RAM.v
 .\ECE350_Final_Project\VGAController.v
 .\ECE350_Final_Project\VGATimingGenerator.v

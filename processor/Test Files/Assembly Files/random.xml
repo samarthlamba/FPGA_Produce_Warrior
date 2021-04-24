@@ -5,4 +5,9 @@
         <Type>JII</Type>
         <Code>10000</Code>
     </Instruction>
+    <Instruction>
+        <Name>reya</Name>
+        <Type>JI</Type>
+        <Code>10001</Code>
+    </Instruction>
 </ISA>

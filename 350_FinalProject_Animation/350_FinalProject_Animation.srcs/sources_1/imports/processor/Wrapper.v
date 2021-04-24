@@ -67,7 +67,7 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	wire clock_final;
 
 	wire lostlife;
-	wire[2:0] livescount;
+	wire[4:0] livescount;
 	
     wire audioOut;
 	
@@ -139,7 +139,8 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	 lostlife,
 	 livescount,
 	 audioOut,
-	 youLoseOut);
+	 youLoseOut,
+	 reg_9_y);
 	
 	 
 	// ADD YOUR MEMORY FILE HERE
@@ -192,8 +193,8 @@ module Wrapper (clock, reset, sclk, mosi, miso, ss, up, down, left, right, restx
 	.reg_out2(reg_2_x), .reg_out3(reg_3_x), .reg_out4(reg_4_x), .reg_out5(reg_5_x), .reg_out6(reg_6_x), .reg_out7(reg_7_x),
 	.reg_out8(reg_8_x), .reg_out9(reg_9_y), .reg_out10(reg_10_y), .reg_out11(reg_11_y), .reg_out12(reg_12_y), .reg_out13(reg_13_y),
 	.reg_out14(reg_14_y), .reg_out15(reg_15_y), .reg_out16(reg_16_y), .reg_out29(reg_29_rand));
-     assign LED_out = youLoseOut;   
-     assign LED_out2 = reg_15_y == 32'd121;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+     assign LED_out = reg_9_y < 32'd480;   
+     assign LED_out2 = reg_9_y > 32'd490;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
 // Processor Memory (RAM)
 	RAMproc ProcMem(.clk(clk50), 
 		.wEn(mwe), 
