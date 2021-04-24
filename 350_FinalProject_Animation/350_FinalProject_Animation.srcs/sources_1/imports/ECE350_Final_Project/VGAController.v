@@ -189,39 +189,39 @@ module VGAController(
         if((clk25 && reg_1_x > 32'b0 && ycoordinateWater >= 460))
             xcoordinateWater =  reg_1_x[9:0] + 15;
         else if(xcoordinateWater < 380 && clkLeft_Right)
-            xcoordinateWater = xcoordinateWater-1;
+            xcoordinateWater = xcoordinateWater+1;
         else
-            xcoordinateWater = xcoordinateWater + 1;
+            xcoordinateWater = xcoordinateWater - 1;
         if((clk25 && reg_1_x > 32'b0 && ycoordinateApple >= 460))
             xcoordinateApple = reg_2_x[9:0] - 20;
          else if(xcoordinateApple < 380 && clkLeft_Right)
-            xcoordinateApple = xcoordinateApple-1;
+            xcoordinateApple = xcoordinateApple+1;
          else
-            xcoordinateApple = xcoordinateApple + 1;
+            xcoordinateApple = xcoordinateApple - 1;
         if(clk25 && reg_1_x > 32'b0 && ycoordinatePear >= 460)
             xcoordinatePear = reg_3_x[9:0] + 15;
         else if(xcoordinatePear < 380 && clkLeft_Right)
-            xcoordinatePear = xcoordinatePear-1;
+            xcoordinatePear = xcoordinatePear+1;
            else
-            xcoordinatePear = xcoordinatePear + 1;
+            xcoordinatePear = xcoordinatePear - 1;
         if(clk25 && reg_1_x > 32'b0 && ycoordinateBanana >= 460)
             xcoordinateBanana = reg_4_x[9:0] - 20;
         else if(xcoordinateBanana < 380 && clkLeft_Right)
-            xcoordinateBanana = xcoordinateBanana-1;
+            xcoordinateBanana = xcoordinateBanana+1;
            else
-            xcoordinateBanana = xcoordinateBanana + 1;
+            xcoordinateBanana = xcoordinateBanana - 1;
         if(clk25 && reg_1_x > 32'b0 && ycoordinateCoconut >= 460)
             xcoordinateCoconut = reg_5_x[9:0] + 15;
          else if(xcoordinateCoconut < 380 && clkLeft_Right)
-            xcoordinateCoconut = xcoordinateCoconut-1;
+            xcoordinateCoconut = xcoordinateCoconut+1;
            else
-            xcoordinateCoconut = xcoordinateCoconut + 1;
+            xcoordinateCoconut = xcoordinateCoconut - 1;
         if(clk25 && reg_1_x > 32'b0  &&ycoordinateLemon >= 460)
             xcoordinateLemon = reg_6_x;
           else if(ycoordinateLemon < 380 && clkLeft_Right)
-            xcoordinateLemon = xcoordinateLemon-1;
-           else
             xcoordinateLemon = xcoordinateLemon + 1;
+           else
+            xcoordinateLemon = xcoordinateLemon - 1;
   
     end
     always @(posedge clock_final) begin
@@ -253,7 +253,7 @@ module VGAController(
             ycoordinatePear = ycoordinatePear - 1'b1;
             
          
-        if(ycoordinateBanana <= 9'd410 && screenEnd && bananaUp == 1'b1)
+        if(ycoordinateBanana <= 9'd480 && screenEnd && bananaUp == 1'b1)
             ycoordinateBanana = ycoordinateBanana + 1'b1;
         else if(ycoordinateBanana > 9'd480 && bananaUp == 1'b1)
             bananaUp = ~bananaUp;
@@ -472,10 +472,10 @@ module VGAController(
    //livescount is what to display (see seven seg counter)
    reg audioOut_reg;
    always@(posedge screenEnd) begin
-    if(lifelost != 1'b1 && (ycoordinateWater >= 478 && waterUp == 1'b0 && splashWater == 1'b0 && ycoordinateWater <= 479) || (ycoordinateApple <= 479 && ycoordinateApple >= 478 && appleUp == 1'b0 && splashApple == 1'b0) || (ycoordinatePear <= 479 && ycoordinatePear >= 478 && pearUp == 1'b0 && splashPear == 1'b0) || (ycoordinateBanana >= 478 && bananaUp == 1'b0 && splashBanana == 1'b0) || (ycoordinateCoconut >= 478 && coconutUp == 1'b0 && splashCoconut == 1'b0)) begin
+    if(lifelost != 1'b1 && ((ycoordinateWater >= 478 && waterUp == 1'b0 && splashWater == 1'b0 && ycoordinateWater <= 479) || (ycoordinateApple <= 479 && ycoordinateApple >= 478 && appleUp == 1'b0 && splashApple == 1'b0) || (ycoordinatePear <= 479 && ycoordinatePear >= 478 && pearUp == 1'b0 && splashPear == 1'b0) || (ycoordinateBanana >= 478 && bananaUp == 1'b0 && splashBanana == 1'b0) || (ycoordinateCoconut >= 478 && coconutUp == 1'b0 && splashCoconut == 1'b0))) begin
         lifelost <= 1'b1;
-         counts = counts + 1'b1;
-         audioOut_reg = 1'b1;
+         counts <= counts + 1'b1;
+         audioOut_reg <= 1'b1;
     end
     //it beeps and switches everytime at the bottom, confused how to switch
     else begin
