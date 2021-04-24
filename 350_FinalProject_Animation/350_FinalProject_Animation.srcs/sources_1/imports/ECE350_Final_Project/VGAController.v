@@ -42,10 +42,10 @@ module VGAController(
 		pixCounter <= pixCounter + 1; // Since the reg is only 3 bits, it will reset every 8 cycles
 	end
     reg [6:0] counter1;
-    always @(posedge clk) begin
+    always @(posedge clock_final) begin
         counter1 = counter1+1;
         
-        clkLeft_Right = counter1[4];
+        clkLeft_Right = counter1[5];
     
     end
     
@@ -185,42 +185,72 @@ module VGAController(
 			waterStatus = 1'b0; 
 	   
 	end 
-    always @(posedge clk50 && reg_1_x != 10'd0 && screenEnd) begin
+	reg leftWater;
+	reg leftApple;
+	reg leftPear;
+	reg leftBanana;
+	reg leftCoconut;
+	reg leftLemon;
+    always @(posedge clkLeft_Right) begin
+        if(ycoordinateWater >=479 && xcoordinateWater > 350)
+            leftWater = 1'b1;
+        else if(ycoordinateWater >= 479)
+            leftWater = 1'b0;
+        if(ycoordinateApple >=479 && xcoordinateApple > 350)
+            leftApple = 1'b1;
+        else if(ycoordinateApple >= 479)
+            leftApple = 1'b0;
+        if(ycoordinatePear >=479 && xcoordinatePear > 350)
+            leftPear = 1'b1;
+        else if(ycoordinatePear >= 479)
+            leftPear = 1'b0;
+        if(ycoordinateBanana >=479 && xcoordinateBanana > 350)
+            leftBanana = 1'b1;
+        else if(ycoordinateBanana >= 479)
+            leftBanana = 1'b0;
+        if(ycoordinateCoconut >=479 && xcoordinateCoconut > 350)
+            leftCoconut = 1'b1;
+        else if(ycoordinateCoconut >=479)
+            leftCoconut = 1'b0;
+        if(ycoordinateLemon >=479 && xcoordinateLemon > 350)
+            leftLemon = 1'b1;
+        else if(ycoordinateLemon >=479)
+            leftLemon = 1'b0;                    
         if((clk25 && reg_1_x > 32'b0 && ycoordinateWater >= 460))
             xcoordinateWater =  reg_1_x[9:0] + 15;
-        else if(xcoordinateWater < 380 && clkLeft_Right)
+        else if(leftWater  && clkLeft_Right)
             xcoordinateWater = xcoordinateWater-1;
-        else
+        else if(clkLeft_Right)
             xcoordinateWater = xcoordinateWater + 1;
         if((clk25 && reg_1_x > 32'b0 && ycoordinateApple >= 460))
             xcoordinateApple = reg_2_x[9:0] - 20;
-         else if(xcoordinateApple < 380 && clkLeft_Right)
+         else if(leftApple && clkLeft_Right)
             xcoordinateApple = xcoordinateApple-1;
-         else
+         else if(clkLeft_Right)
             xcoordinateApple = xcoordinateApple + 1;
         if(clk25 && reg_1_x > 32'b0 && ycoordinatePear >= 460)
             xcoordinatePear = reg_3_x[9:0] + 15;
-        else if(xcoordinatePear < 380 && clkLeft_Right)
+        else if(leftPear && clkLeft_Right)
             xcoordinatePear = xcoordinatePear-1;
-           else
+           else if(clkLeft_Right)
             xcoordinatePear = xcoordinatePear + 1;
         if(clk25 && reg_1_x > 32'b0 && ycoordinateBanana >= 460)
             xcoordinateBanana = reg_4_x[9:0] - 20;
-        else if(xcoordinateBanana < 380 && clkLeft_Right)
+        else if(leftBanana && clkLeft_Right)
             xcoordinateBanana = xcoordinateBanana-1;
-           else
+           else if(clkLeft_Right)
             xcoordinateBanana = xcoordinateBanana + 1;
         if(clk25 && reg_1_x > 32'b0 && ycoordinateCoconut >= 460)
             xcoordinateCoconut = reg_5_x[9:0] + 15;
-         else if(xcoordinateCoconut < 380 && clkLeft_Right)
+         else if(leftCoconut && clkLeft_Right)
             xcoordinateCoconut = xcoordinateCoconut-1;
-           else
+           else if(clkLeft_Right)
             xcoordinateCoconut = xcoordinateCoconut + 1;
-        if(clk25 && reg_1_x > 32'b0  &&ycoordinateLemon >= 460)
+            if(clk25 && reg_1_x > 32'b0  && ycoordinateLemon >= 460)
             xcoordinateLemon = reg_6_x;
-          else if(ycoordinateLemon < 380 && clkLeft_Right)
+          else if(leftLemon && clkLeft_Right)
             xcoordinateLemon = xcoordinateLemon-1;
-           else
+           else if(clkLeft_Right)
             xcoordinateLemon = xcoordinateLemon + 1;
   
     end
@@ -253,7 +283,7 @@ module VGAController(
             ycoordinatePear = ycoordinatePear - 1'b1;
             
          
-        if(ycoordinateBanana <= 9'd410 && screenEnd && bananaUp == 1'b1)
+        if(ycoordinateBanana <= 9'd480 && screenEnd && bananaUp == 1'b1)
             ycoordinateBanana = ycoordinateBanana + 1'b1;
         else if(ycoordinateBanana > 9'd480 && bananaUp == 1'b1)
             bananaUp = ~bananaUp;
