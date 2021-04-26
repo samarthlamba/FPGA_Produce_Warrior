@@ -1,4 +1,4 @@
-module seven_seg_counter(input clk, input reset, output[3:0] anode,output a7, output a6, output a5, output a4, output[6:0] LEDvals, input choose, input[2:0] livesvalue);
+module seven_seg_counter(input clk, input reset, output[3:0] anode,output a7, output a6, output a5, output a4, output[6:0] LEDvals, input choose, input[4:0] livesvalue);
 
 reg [26:0] counts;
 reg[6:0] cathode;
@@ -71,14 +71,35 @@ assign a2 = 1'b1;
 assign a3 = 1'b1;
 always @(*)
 begin
-    if(livesvalue == 3'd0) begin
+    if(livesvalue == 5'd0) begin
+        LEDval <= 7'b0001100;
+    end
+    else if(livesvalue == 5'd1) begin
+        LEDval <= 7'b0000000;
+    end
+    else if(livesvalue == 5'd2) begin
+        LEDval <= 7'b0001111;
+    end
+    else if(livesvalue == 5'd3) begin
+        LEDval <= 7'b0100000;
+    end
+    else if(livesvalue == 5'd4) begin
+        LEDval <= 7'b0100100;
+    end
+    else if(livesvalue == 5'd5) begin
+        LEDval <= 7'b1001100;
+    end
+    else if(livesvalue == 5'd6) begin
         LEDval <= 7'b0000110;
     end
-    else if(livesvalue == 3'd1) begin
-        LEDval <= 7'b0010010;
+    else if(livesvalue == 5'd7) begin
+        LEDval <=  7'b0010010;
     end
-    else if(livesvalue == 3'd2) begin
-        LEDval <= 7'b1001111;
+    else if(livesvalue == 5'd8) begin
+        LEDval <=  7'b1001111;
+    end
+    else if(livesvalue == 5'd9) begin
+        LEDval <=  7'b0000001;
     end
     else begin
         LEDval <= 7'b0000001;

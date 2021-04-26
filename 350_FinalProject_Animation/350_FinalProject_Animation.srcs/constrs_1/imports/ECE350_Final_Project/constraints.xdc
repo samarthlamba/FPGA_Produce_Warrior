@@ -62,10 +62,6 @@ set_property PACKAGE_PIN K13 [get_ports {LEDvals[3]}]
 set_property PACKAGE_PIN P15 [get_ports {LEDvals[2]}]
 set_property PACKAGE_PIN T11 [get_ports {LEDvals[1]}]
 set_property PACKAGE_PIN L18 [get_ports {LEDvals[0]}]
-set_property IOSTANDARD LVCMOS33 [get_ports y3]
-set_property IOSTANDARD LVCMOS33 [get_ports y2]
-set_property PACKAGE_PIN M13 [get_ports y3]
-set_property PACKAGE_PIN L16 [get_ports y2]
 set_property IOSTANDARD LVCMOS33 [get_ports VSync]
 set_property IOSTANDARD LVCMOS33 [get_ports up_fpga]
 set_property PACKAGE_PIN B12 [get_ports VSync]
@@ -115,7 +111,6 @@ set_property PACKAGE_PIN K15 [get_ports LED_out]
 set_property PACKAGE_PIN H17 [get_ports LED_out2]
 
 
-set_property ALLOW_COMBINATORIAL_LOOPS true [get_nets CPU/DXLatch/regPC/d_flip_flop27/q_reg_1]
 
 set_property ALLOW_COMBINATORIAL_LOOPS true [get_nets CPU/DXLatch/regPC/d_flip_flop2/q_reg_2]
 
@@ -135,3 +130,6 @@ set_property PACKAGE_PIN J5 [get_ports micClk]
 set_property IOSTANDARD LVCMOS33 [get_ports micClk]
 set_property PACKAGE_PIN H5 [get_ports micData]
 set_property IOSTANDARD LVCMOS33 [get_ports micData]
+
+
+set_property ALLOW_COMBINATORIAL_LOOPS true [get_nets CPU/mulitiplicationDiv/ctrl1/q_i_7__50_n_0]

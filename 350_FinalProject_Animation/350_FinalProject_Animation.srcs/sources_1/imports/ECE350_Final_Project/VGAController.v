@@ -25,9 +25,10 @@ module VGAController(
 	output screenEndVal,
 	input clock_final,
 	output lostlife,
-	output [2:0] livescount,
+	output [4:0] livescount,
 	output audioOut,
-	output youLoseOut);
+	output youLoseOut,
+	input [31:0] reg_9_y);
 	
 	// Lab Memory Files Location
 	localparam FILES_PATH = "../assetsMemFiles/";
@@ -101,7 +102,7 @@ module VGAController(
 	wire [7:0] randomOut;
 	reg load;
 	reg [3:0] updated;
-	reg[2:0] counts;
+	reg[4:0] counts;
 	reg lifelost;
 	reg splashHammer;
     reg splashWater = 1'b0;
@@ -141,16 +142,16 @@ module VGAController(
             xcoordinateCoconut =220;
             xcoordinateLemon =160;
              ycoordinateApple = 50;
-            ycoordinatePear = 50;
-            ycoordinateBanana = 50;
-            ycoordinateCoconut =50;
-            ycoordinateLemon =50;
-            seed = 7'd6;
+            ycoordinatePear = 153;
+            ycoordinateBanana = 180;
+            ycoordinateCoconut =165;
+            ycoordinateLemon =170;
+            xcoordinateWater = 400;
             youLoseStatus = 1'b0;
 	   end
      
 	always @(posedge clk) begin
-	    if(x < 210 + 10'd200 && y < 120 + 10'd200 && x > 210 && y > 120 && livescount >= 3)
+	    if(x < 210 + 10'd200 && y < 120 + 10'd200 && x > 210 && y > 120)
 	       youLoseStatus = 1'b1;
         else
             youLoseStatus = 1'b0;
@@ -188,39 +189,39 @@ module VGAController(
         if((clk25 && reg_1_x > 32'b0 && ycoordinateWater >= 460))
             xcoordinateWater =  reg_1_x[9:0] + 15;
         else if(xcoordinateWater < 380 && clkLeft_Right)
-            xcoordinateWater = xcoordinateWater-1;
+            xcoordinateWater = xcoordinateWater+1;
         else
-            xcoordinateWater = xcoordinateWater + 1;
+            xcoordinateWater = xcoordinateWater - 1;
         if((clk25 && reg_1_x > 32'b0 && ycoordinateApple >= 460))
             xcoordinateApple = reg_2_x[9:0] - 20;
          else if(xcoordinateApple < 380 && clkLeft_Right)
-            xcoordinateApple = xcoordinateApple-1;
+            xcoordinateApple = xcoordinateApple+1;
          else
-            xcoordinateApple = xcoordinateApple + 1;
+            xcoordinateApple = xcoordinateApple - 1;
         if(clk25 && reg_1_x > 32'b0 && ycoordinatePear >= 460)
             xcoordinatePear = reg_3_x[9:0] + 15;
         else if(xcoordinatePear < 380 && clkLeft_Right)
-            xcoordinatePear = xcoordinatePear-1;
+            xcoordinatePear = xcoordinatePear+1;
            else
-            xcoordinatePear = xcoordinatePear + 1;
+            xcoordinatePear = xcoordinatePear - 1;
         if(clk25 && reg_1_x > 32'b0 && ycoordinateBanana >= 460)
             xcoordinateBanana = reg_4_x[9:0] - 20;
         else if(xcoordinateBanana < 380 && clkLeft_Right)
-            xcoordinateBanana = xcoordinateBanana-1;
+            xcoordinateBanana = xcoordinateBanana+1;
            else
-            xcoordinateBanana = xcoordinateBanana + 1;
+            xcoordinateBanana = xcoordinateBanana - 1;
         if(clk25 && reg_1_x > 32'b0 && ycoordinateCoconut >= 460)
             xcoordinateCoconut = reg_5_x[9:0] + 15;
          else if(xcoordinateCoconut < 380 && clkLeft_Right)
-            xcoordinateCoconut = xcoordinateCoconut-1;
+            xcoordinateCoconut = xcoordinateCoconut+1;
            else
-            xcoordinateCoconut = xcoordinateCoconut + 1;
+            xcoordinateCoconut = xcoordinateCoconut - 1;
         if(clk25 && reg_1_x > 32'b0  &&ycoordinateLemon >= 460)
             xcoordinateLemon = reg_6_x;
           else if(ycoordinateLemon < 380 && clkLeft_Right)
-            xcoordinateLemon = xcoordinateLemon-1;
-           else
             xcoordinateLemon = xcoordinateLemon + 1;
+           else
+            xcoordinateLemon = xcoordinateLemon - 1;
   
     end
     always @(posedge clock_final) begin
@@ -230,7 +231,7 @@ module VGAController(
             waterUp = ~waterUp;
         if(ycoordinateWater < 9'd110 && waterUp == 1'b0)
             waterUp = ~waterUp;
-        if(ycoordinateWater >= 9'd110 && screenEnd && waterUp == 1'b0)
+          if(ycoordinateWater >= 9'd110 && screenEnd && waterUp == 1'b0)
             ycoordinateWater = ycoordinateWater - 1'b1;
          if(ycoordinateApple <= 9'd480 && screenEnd && appleUp == 1'b1)
             ycoordinateApple = ycoordinateApple + 1'b1;
@@ -252,7 +253,7 @@ module VGAController(
             ycoordinatePear = ycoordinatePear - 1'b1;
             
          
-        if(ycoordinateBanana <= 9'd410 && screenEnd && bananaUp == 1'b1)
+        if(ycoordinateBanana <= 9'd480 && screenEnd && bananaUp == 1'b1)
             ycoordinateBanana = ycoordinateBanana + 1'b1;
         else if(ycoordinateBanana > 9'd480 && bananaUp == 1'b1)
             bananaUp = ~bananaUp;
@@ -470,11 +471,11 @@ module VGAController(
    // TODO: this just automatically goes to 3 lives no matter what...lostlife is whether or not the lives need to be displayed
    //livescount is what to display (see seven seg counter)
    reg audioOut_reg;
-   always@(posedge clk) begin
-    if((ycoordinateWater >= 476 && waterUp == 1'b0 && splashWater == 1'b0) || (ycoordinateApple >= 476 && appleUp == 1'b0 && splashApple == 1'b0) || (ycoordinatePear >= 476 && pearUp == 1'b0 && splashPear == 1'b0) || (ycoordinateBanana >= 476 && bananaUp == 1'b0 && splashBanana == 1'b0) || (ycoordinateCoconut >= 476 && coconutUp == 1'b0 && splashCoconut == 1'b0)) begin
+   always@(posedge screenEnd) begin
+    if(lifelost != 1'b1 && ((ycoordinateWater >= 478 && waterUp == 1'b0 && splashWater == 1'b0 && ycoordinateWater <= 479) || (ycoordinateApple <= 479 && ycoordinateApple >= 478 && appleUp == 1'b0 && splashApple == 1'b0) || (ycoordinatePear <= 479 && ycoordinatePear >= 478 && pearUp == 1'b0 && splashPear == 1'b0) || (ycoordinateBanana >= 478 && bananaUp == 1'b0 && splashBanana == 1'b0 && ycoordinateBanana <= 479) || (ycoordinateCoconut<= 479 && ycoordinateCoconut >= 478 && coconutUp == 1'b0 && splashCoconut == 1'b0))) begin
         lifelost <= 1'b1;
-         counts = counts + 1'b1;
-         audioOut_reg = 1'b1;
+         counts <= counts + 1'b1;
+         audioOut_reg <= 1'b1;
     end
     //it beeps and switches everytime at the bottom, confused how to switch
     else begin
@@ -552,7 +553,7 @@ module VGAController(
 	assign youLoseOut = youLoseStatus;
 	mux_eight_one colorDataChooser(colordata, chosenForeground, colorDataBackground1, colorDataBackgroundAppleFinal, colorDataBackgroundWatermelonFinal,colorDataBackgroundLemonFinal,colorDataBackgroundPearFinal, colorDataBackgroundBananaFinal,colorDataBackgroundCoconutFinal, colorDataBackgroundHammerFinal);
 	mux_eight_one colorDataChooser2(colordataForeBackground, chosenForeBackground, colorDataBackground1, colorDataBackgroundApple, colorDataBackgroundWatermelon,colorDataBackgroundLemon,colorDataBackgroundPear, colorDataBackgroundBanana,colorDataBackgroundCoconut, colorDataBackgroundHammerFinal);
-	assign colorChoose = (youLoseStatus ===1'b1 && colorDataBackgroundLose != 12'h000) ? colorDataBackgroundLose : colordata;
+	assign colorChoose = (youLoseStatus ===1'b1 && colorDataBackgroundLose != 12'h000 && livescount >= 9) ? colorDataBackgroundLose : colordata;
 	assign colorOut = active ?  colorChoose : 12'd0; // When not active, output black
 
 	// Quickly assign the output colors to their channels using concatenation
