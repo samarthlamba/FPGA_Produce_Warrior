@@ -4,20 +4,25 @@ The game utilizes the [NEXYS A7 FPGA](https://reference.digilentinc.com/_media/n
 
 ### Prerequisites
 
-Software needed to successfully run the file:
+Software needed to successfully run the project:
 
 ```
 Vivado
 Icarus Verilog
 GTKWave
-
 ```
 
-Hardware needed to successfully run the file:
+Hardware needed to successfully run the project:
 
 ```
 NEXYS A7 FPGA
 VGA Screen
 Headphones or output device
-
 ```
+### Video Walkthrough
+
+
+### Process
+
+### Acknowledgement and Credits
+We utilized public images present in the github https://github.com/surajrampure/Fruit-Ninja-Final-Project/tree/master/Fruit%20Images. 
