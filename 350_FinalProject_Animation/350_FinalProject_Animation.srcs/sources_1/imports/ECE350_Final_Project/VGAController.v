@@ -142,11 +142,11 @@ module VGAController(
             xcoordinateCoconut =220;
             xcoordinateLemon =160;
              ycoordinateApple = 50;
-            ycoordinatePear = 153;
-            ycoordinateBanana = 180;
-            ycoordinateCoconut =165;
-            ycoordinateLemon =170;
-            xcoordinateWater = 400;
+            ycoordinatePear = 50;
+            ycoordinateBanana = 90;
+            ycoordinateCoconut =70;
+            ycoordinateLemon =78;
+            xcoordinateWater = 82;
             youLoseStatus = 1'b0;
 	   end
      
@@ -472,7 +472,7 @@ module VGAController(
    //livescount is what to display (see seven seg counter)
    reg audioOut_reg;
    always@(posedge screenEnd) begin
-    if(lifelost != 1'b1 && ((ycoordinateWater >= 478 && waterUp == 1'b0 && splashWater == 1'b0 && ycoordinateWater <= 479) || (ycoordinateApple <= 479 && ycoordinateApple >= 478 && appleUp == 1'b0 && splashApple == 1'b0) || (ycoordinatePear <= 479 && ycoordinatePear >= 478 && pearUp == 1'b0 && splashPear == 1'b0) || (ycoordinateBanana >= 478 && bananaUp == 1'b0 && splashBanana == 1'b0 && ycoordinateBanana <= 479) || (ycoordinateCoconut<= 479 && ycoordinateCoconut >= 478 && coconutUp == 1'b0 && splashCoconut == 1'b0))) begin
+    if(lifelost != 1'b1 && ((ycoordinateWater >= 478 && waterUp == 1'b0 && splashWater == 1'b0 && ycoordinateWater <= 479) || (ycoordinateApple <= 479 && ycoordinateApple >= 478 && appleUp == 1'b0 && splashApple == 1'b0) || (ycoordinatePear <= 479 && ycoordinatePear >= 478 && pearUp == 1'b0 && splashPear == 1'b0) || (ycoordinateBanana >= 478 && bananaUp == 1'b0 && splashBanana == 1'b0) || (ycoordinateCoconut >= 478 && coconutUp == 1'b0 && splashCoconut == 1'b0))) begin
         lifelost <= 1'b1;
          counts <= counts + 1'b1;
          audioOut_reg <= 1'b1;
