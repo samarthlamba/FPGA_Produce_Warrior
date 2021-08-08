@@ -19,10 +19,10 @@ NEXYS A7 FPGA
 VGA Screen
 Headphones or output device
 ```
-### Video Walkthrough
+### Video Demo
 
+https://user-images.githubusercontent.com/48296928/128646391-a4d4488b-93ea-4f18-be70-a7dce312929e.MOV
 
-### Process
 
 ### Acknowledgement and Credits
 We utilized public images present in the github https://github.com/surajrampure/Fruit-Ninja-Final-Project/tree/master/Fruit%20Images. 
